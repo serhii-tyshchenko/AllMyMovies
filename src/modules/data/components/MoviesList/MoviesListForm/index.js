@@ -1,0 +1,1 @@
+export { MoviesListForm } from './MoviesListForm';

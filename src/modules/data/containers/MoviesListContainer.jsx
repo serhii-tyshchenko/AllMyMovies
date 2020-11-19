@@ -9,9 +9,9 @@ import {
 } from 'store/actions';
 import { UIModal } from 'modules/ui';
 import { FavouritesListContainer } from 'modules/data';
-import { ShoppingList } from '../components';
+import { MoviesList } from '../components';
 
-const ShoppingListContainer = () => {
+const MoviesListContainer = () => {
   const dispatch = useDispatch();
   const {
     user: { uid }, modals,
@@ -19,7 +19,7 @@ const ShoppingListContainer = () => {
   const data = useSelector((state) => state.data.filter((item) => item.inList === true));
   const STR = useContext(Localization);
 
-  function handleAddClick(title) {
+  function handleSearchClick(title) {
     dispatch(addItem(uid, { id: uuidv4(), title, inList: true }));
   }
   function handleCompleteClick(evt) {
@@ -32,10 +32,10 @@ const ShoppingListContainer = () => {
 
   return (
     <>
-      <ShoppingList
+      <MoviesList
         data={data}
         onCompleteClick={useCallback(handleCompleteClick, [dispatch, uid])}
-        onAddClick={useCallback(handleAddClick, [dispatch, uid])}
+        onSearchClick={useCallback(handleSearchClick, [dispatch, uid])}
         STR={STR}
       />
       <UIModal
@@ -49,4 +49,4 @@ const ShoppingListContainer = () => {
   );
 };
 
-export { ShoppingListContainer };
+export { MoviesListContainer };

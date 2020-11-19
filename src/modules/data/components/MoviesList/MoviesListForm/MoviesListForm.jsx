@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { UIInput, UIIconButton } from 'modules/ui';
-import './ShoppingListForm.scss';
+import './MoviesListForm.scss';
 
-const ShoppingListForm = React.memo((props) => {
+const MoviesListForm = React.memo((props) => {
   const { onSubmit, STR } = props;
   const [itemTitle, setItemTitle] = useState('');
 
@@ -20,28 +20,28 @@ const ShoppingListForm = React.memo((props) => {
   }
 
   return (
-    <form className="shopping-list-form" onSubmit={handleSubmit}>
+    <form className="movies-list-form" onSubmit={handleSubmit}>
       <UIInput
-        extraClassName="shopping-list-form__input"
+        extraClassName="movies-list-form__input"
         value={itemTitle}
         onChange={handleItemChange}
-        placeholder={STR.ENTER_ITEM}
+        placeholder={STR.SEARCH_MOVIE_PLACEHOLDER}
         required
       />
       <UIIconButton
         icon="plus"
         type="submit"
-        title={STR.ADD_ITEM}
-        extraClassName="shopping-list-form__btn"
+        title={STR.SEARCH_MOVIE}
+        extraClassName="movies-list-form__btn"
         onClick={handleSubmit}
       />
     </form>
   );
 });
 
-ShoppingListForm.propTypes = {
+MoviesListForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   STR: PropTypes.shape().isRequired,
 };
 
-export { ShoppingListForm };
+export { MoviesListForm };

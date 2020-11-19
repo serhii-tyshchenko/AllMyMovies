@@ -1,2 +1,2 @@
-export * from './ShoppingList';
+export * from './MoviesList';
 export * from './FavouritesList';
