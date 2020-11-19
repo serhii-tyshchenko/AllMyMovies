@@ -1,0 +1,1 @@
+export { UIModalConfirm } from './UIModalConfirm';

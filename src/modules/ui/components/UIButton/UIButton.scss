@@ -1,0 +1,35 @@
+@import '~styles/variables';
+
+.ui-button {
+  padding: 0.375em 0.75em;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background: inherit;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  &--small {
+    font-size: 0.75rem;
+  }
+  &--large {
+    font-size: 1.25rem;
+  }
+  &--primary {
+    color: white;
+    background: var(--color-accent);
+    &:hover {
+      filter: brightness(110%);
+    }
+  }
+  &--secondary {
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    background: transparent;
+    &:hover {
+      color: white;
+      filter: brightness(110%);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+export const ADD_ITEM = 'ADD_ITEM';
+export const UPDATE_ITEM = 'UPDATE_ITEM';
+export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const GET_ITEMS = 'GET_ITEMS';
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_OUT = 'SIGN_OUT';
+export const SIGN_UP = 'SIGN_UP';
+export const GET_SETTINGS = 'GET_SETTINGS';
+export const UPDATE_SETTINGS = 'UPDATE_SETTINGS';
+export const ERROR = 'ERROR';
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';

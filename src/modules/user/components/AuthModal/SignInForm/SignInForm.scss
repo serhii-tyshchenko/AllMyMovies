@@ -1,0 +1,14 @@
+@import '~styles/_variables';
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    &__input {
+        margin-bottom: 20px;
+    }
+    &__btns {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 15px;
+    }
+}

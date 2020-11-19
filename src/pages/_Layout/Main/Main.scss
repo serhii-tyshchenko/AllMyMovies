@@ -1,0 +1,11 @@
+@import '~styles/variables';
+.main {
+  display: flex;
+  flex-grow: 1;
+  color: var(--color-primary);
+  background: var(--background-primary);
+  overflow: hidden;
+  &__content {
+    padding: 20px 15px;
+  }
+}

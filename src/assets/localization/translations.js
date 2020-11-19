@@ -1,0 +1,55 @@
+const languages = [
+  { value: 'en', label: 'EN' },
+  { value: 'ua', label: 'UA' },
+  { value: 'ru', label: 'RU' },
+];
+
+const translations = {
+  en: {
+    SIGN_IN: 'Sign In',
+    SIGN_UP: 'Sign Up',
+    SIGN_OUT: 'Sign Out',
+    ADD_ITEM: 'Add',
+    ENTER_ITEM: 'Enter new item, e.g Apple',
+    AUTHENIFICATION: 'Authenification',
+    YOUR_EMAIL: 'Your email',
+    YOUR_PASSWORD: 'Your password',
+    CREATE_AN_ACCOUNT: 'Create an Account',
+    CONNECT_WITH: 'or connect with',
+    FAVORITES_LIST: 'Favorites',
+    TOGGLE_THEME: 'Change theme',
+    TOGGLE_LANGUAGE: 'Change language',
+  },
+  ua: {
+    SIGN_IN: 'Увійти',
+    SIGN_UP: 'Зареєструватись',
+    SIGN_OUT: 'Вийти',
+    ADD_ITEM: 'Додати',
+    ENTER_ITEM: 'Уведіть нову покупку, нпр. Яблоко',
+    AUTHENIFICATION: 'Аутеніфікація',
+    YOUR_EMAIL: 'Ваш email',
+    YOUR_PASSWORD: 'Ваш пароль',
+    CREATE_AN_ACCOUNT: 'Створити обліковий запис',
+    CONNECT_WITH: 'або увійти за допомогою',
+    FAVORITES_LIST: 'Обране',
+    TOGGLE_THEME: 'Змінити тему',
+    TOGGLE_LANGUAGE: 'Змінити мову',
+  },
+  ru: {
+    SIGN_IN: 'Войти',
+    SIGN_UP: 'Зарегистрироваться',
+    SIGN_OUT: 'Выйти',
+    ADD_ITEM: 'Добавить',
+    ENTER_ITEM: 'Введите новую покупку, нпр. Яблоко',
+    AUTHENIFICATION: 'Аутенификация',
+    YOUR_EMAIL: 'Ваш email',
+    YOUR_PASSWORD: 'Ваш пароль',
+    CREATE_AN_ACCOUNT: 'Создать учетную запись',
+    CONNECT_WITH: 'или войти с помощью',
+    FAVORITES_LIST: 'Избранное',
+    TOGGLE_THEME: 'Изменить тему',
+    TOGGLE_LANGUAGE: 'Изменить язык',
+  },
+};
+
+export { translations, languages };

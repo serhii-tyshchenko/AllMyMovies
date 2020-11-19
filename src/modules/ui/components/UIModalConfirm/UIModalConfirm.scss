@@ -1,0 +1,11 @@
+.ui-modal-confirm {
+    &__content {
+        margin-bottom: 20px;
+        flex-grow: 1;
+    }
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

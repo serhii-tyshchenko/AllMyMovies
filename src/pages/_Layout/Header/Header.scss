@@ -1,0 +1,46 @@
+@import '~styles/variables';
+.header {
+  padding: 20px 0;
+  color: var(--color-primary);
+  background-color: var(--background-secondary);
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    padding-left: 40px;
+    color: var(--color-accent);
+    text-decoration: none;
+    background-image: url('~logo.svg');
+    background-repeat: no-repeat;
+    background-position: left 48%;
+    background-size: 32px;
+  }
+  &__title {
+    font: bold 2rem $font-secondary;
+  }
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: $break-480) {
+  .header {
+    padding: 15px 0;
+    &__logo {
+      padding-left: 28px;
+      background-size: 20px;
+    }
+    &__title {
+      font-size: 1.5rem;
+    }
+    &__menu {
+      width: 150px;
+      font-size: 1.25rem;
+    }
+  }
+}

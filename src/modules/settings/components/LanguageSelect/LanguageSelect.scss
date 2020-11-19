@@ -1,0 +1,12 @@
+@import '~styles/variables';
+
+.language-select {
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+  appearance: none;
+  & option {
+    background: var(--background-secondary);
+  }
+}

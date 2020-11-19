@@ -1,0 +1,22 @@
+:root {
+  --color-primary: #{$color4};
+  --color-secondary: #{$color6};
+  --color-secondary-darken: #{darken($color6, 10%)};
+  --color-accent: #{$color3};
+  --background-primary: #{$color2};
+  --background-secondary: #{$color1};
+}
+[data-theme='dark'] {
+  --color-primary: #{$color1};
+  --color-secondary: #{$color6};
+  --color-accent: #{$color3};
+  --background-primary: #{$color4};
+  --background-secondary: #{$color5};
+}
+[data-theme='light'] {
+  --color-primary: #{$color4};
+  --color-secondary: #{$color6};
+  --color-accent: #{$color3};
+  --background-primary: #{$color2};
+  --background-secondary: #{$color1};
+}
