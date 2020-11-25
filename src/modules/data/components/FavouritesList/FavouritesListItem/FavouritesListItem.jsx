@@ -39,5 +39,4 @@ FavouritesListItem.propTypes = {
   onBlur: PropTypes.func.isRequired,
 };
 
-
 export { FavouritesListItem };

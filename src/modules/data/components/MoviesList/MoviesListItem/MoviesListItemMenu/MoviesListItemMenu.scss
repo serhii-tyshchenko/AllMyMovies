@@ -1,0 +1,41 @@
+@import '~styles/_variables';
+
+.movies-list-item-menu {
+  position: relative;
+  &__btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25em;
+    height: 2.25em;
+    color: var(--color-primary);
+    font-size: 1rem;
+    border-radius: 50%;
+    background: var(--background-secondary);
+  }
+  &__items {
+    position: absolute;
+    top: 3.4rem;
+    right: 1rem;
+    z-index: 20;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    list-style-type: none;
+    background: var(--background-secondary);
+    li {
+      margin-bottom: 0.25rem;
+      padding: 0.5em 0;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

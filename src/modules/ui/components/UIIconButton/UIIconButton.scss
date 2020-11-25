@@ -24,7 +24,13 @@
   &--user:before {
     content: '\e800';
   }
+  &--user-o:before {
+    content: '\f2c0';
+  }
   &--trash:before {
+    content: '\e803';
+  }
+  &--trash-empty:before {
     content: '\e803';
   }
   &--plus:before {
@@ -48,7 +54,31 @@
   &--google:before {
     content: '\f1a0';
   }
-  &--user-o:before {
-    content: '\f2c0';
+  &--minus:before {
+    content: '\2d';
+  }
+  &--star:before {
+    content: '\2605';
+  }
+  &--star-empty:before {
+    content: '\2606';
+  }
+  &--cog:before {
+    content: '\2699';
+  }
+  &--eye:before {
+    content: '\e70a';
+  }
+  &--eye-off:before {
+    content: '\e70b';
+  }
+  &--ok:before {
+    content: '\e801';
+  }
+  &--search:before {
+    content: '\1f50d';
+  }
+  &--menu:before {
+    content: '\f0c9';
   }
 }

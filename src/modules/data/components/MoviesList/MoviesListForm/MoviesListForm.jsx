@@ -5,31 +5,31 @@ import './MoviesListForm.scss';
 
 const MoviesListForm = React.memo((props) => {
   const { onSubmit, STR } = props;
-  const [itemTitle, setItemTitle] = useState('');
+  const [query, setQuery] = useState('');
 
-  function handleItemChange(evt) {
-    setItemTitle(evt.target.value);
+  function handleChange(evt) {
+    setQuery(evt.target.value);
   }
   function handleSubmit(evt) {
-    if (!itemTitle) {
+    if (!query) {
       return;
     }
     evt.preventDefault();
-    onSubmit(itemTitle);
-    setItemTitle('');
+    onSubmit(query);
+    setQuery('');
   }
 
   return (
     <form className="movies-list-form" onSubmit={handleSubmit}>
       <UIInput
         extraClassName="movies-list-form__input"
-        value={itemTitle}
-        onChange={handleItemChange}
+        value={query}
+        onChange={handleChange}
         placeholder={STR.SEARCH_MOVIE_PLACEHOLDER}
         required
       />
       <UIIconButton
-        icon="plus"
+        icon="search"
         type="submit"
         title={STR.SEARCH_MOVIE}
         extraClassName="movies-list-form__btn"

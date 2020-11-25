@@ -1,9 +1,12 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable comma-dangle */
+/* eslint-disable-next-line object-curly-newline */
 import { createStore, applyMiddleware, compose } from 'redux';
-import * as LS from 'services/db/ls';
+import { ls } from 'services';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
-const persistedState = LS.loadState();
+const persistedState = ls.loadState();
 const composeTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
@@ -11,9 +14,10 @@ const store = createStore(
   composeTools(applyMiddleware(thunk))
 );
 store.subscribe(() => {
-  const { data, user, settings } = store.getState();
-  LS.saveState({
+  const { data, user, settings, searchResults } = store.getState();
+  ls.saveState({
     data,
+    searchResults,
     user,
     settings,
   });

@@ -1,6 +1,12 @@
-import { db } from 'services';
+/* eslint-disable no-unused-vars */
+import { db, api } from 'services';
 import {
-  ADD_ITEM, UPDATE_ITEM, REMOVE_ITEM, GET_ITEMS, ERROR,
+  ADD_ITEM,
+  UPDATE_ITEM,
+  REMOVE_ITEM,
+  GET_ITEMS,
+  ERROR,
+  SEARCH_MOVIE,
 } from '../action-types';
 
 function actionError(message) {
@@ -9,6 +15,13 @@ function actionError(message) {
     payload: message,
   };
 }
+
+export const searchMovie = (query) => (dispatch) => {
+  api
+    .searchMovie(query)
+    .then((data) => dispatch({ type: SEARCH_MOVIE, payload: data }))
+    .catch((error) => dispatch(actionError(error.message)));
+};
 
 export const addItem = (uid, data) => (dispatch) => {
   if (uid) {

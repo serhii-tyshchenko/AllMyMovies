@@ -6,7 +6,7 @@ import './MoviesList.scss';
 
 const MoviesList = (props) => {
   const {
-    data, onCompleteClick, onSearchClick, STR,
+    STR, data, onSearchClick, onAddToWatchLaterClick, onAddToWatchedClick, onAddToFavouritesClick,
   } = props;
 
   return (
@@ -15,9 +15,11 @@ const MoviesList = (props) => {
       <ul className="movies-list__list">
         {data.map((item) => (
           <MoviesListItem
-            key={item.id}
+            key={item.imdbID}
             data={item}
-            onCompleteClick={onCompleteClick}
+            onAddToWatchLaterClick={onAddToWatchLaterClick}
+            onAddToWatchedClick={onAddToWatchedClick}
+            onAddToFavouritesClick={onAddToFavouritesClick}
           />
         ))}
       </ul>
@@ -27,8 +29,10 @@ const MoviesList = (props) => {
 
 MoviesList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  onCompleteClick: PropTypes.func.isRequired,
-  onAddClick: PropTypes.func.isRequired,
+  onAddToWatchedClick: PropTypes.func.isRequired,
+  onAddToWatchLaterClick: PropTypes.func.isRequired,
+  onAddToFavouritesClick: PropTypes.func.isRequired,
+  onSearchClick: PropTypes.func.isRequired,
   STR: PropTypes.shape().isRequired,
 };
 

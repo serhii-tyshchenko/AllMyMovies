@@ -1,5 +1,9 @@
 import {
-  ADD_ITEM, REMOVE_ITEM, GET_ITEMS, UPDATE_ITEM, SIGN_OUT,
+  ADD_ITEM,
+  REMOVE_ITEM,
+  GET_ITEMS,
+  UPDATE_ITEM,
+  SIGN_OUT,
 } from '../action-types';
 
 const initialState = [];

@@ -42,8 +42,5 @@
     "gh-pages": "latest",
     "prettier-eslint": "latest"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": "defaults"
 }

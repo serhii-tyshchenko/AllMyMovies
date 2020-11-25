@@ -7,8 +7,6 @@ export const settings = (state = initialState, action) => {
 
   switch (type) {
     case GET_SETTINGS:
-      return { ...payload };
-
     case UPDATE_SETTINGS:
       return { ...state, ...payload };
 
