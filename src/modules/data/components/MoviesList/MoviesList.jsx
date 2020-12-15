@@ -6,7 +6,7 @@ import './MoviesList.scss';
 
 const MoviesList = (props) => {
   const {
-    STR, data, onSearchClick, onAddToWatchLaterClick, onAddToWatchedClick, onAddToFavouritesClick,
+    STR, data, onSearchClick, onAddToListClick,
   } = props;
 
   return (
@@ -17,9 +17,7 @@ const MoviesList = (props) => {
           <MoviesListItem
             key={item.imdbID}
             data={item}
-            onAddToWatchLaterClick={onAddToWatchLaterClick}
-            onAddToWatchedClick={onAddToWatchedClick}
-            onAddToFavouritesClick={onAddToFavouritesClick}
+            onAddToListClick={onAddToListClick}
           />
         ))}
       </ul>
@@ -29,9 +27,7 @@ const MoviesList = (props) => {
 
 MoviesList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  onAddToWatchedClick: PropTypes.func.isRequired,
-  onAddToWatchLaterClick: PropTypes.func.isRequired,
-  onAddToFavouritesClick: PropTypes.func.isRequired,
+  onAddToListClick: PropTypes.func.isRequired,
   onSearchClick: PropTypes.func.isRequired,
   STR: PropTypes.shape().isRequired,
 };

@@ -11,15 +11,16 @@ const MoviesListItem = React.memo((props) => {
     data: {
       Title: title, Poster: posterUrl, Year: year, Type: type, imdbID: id,
     },
-    onAddToWatchLaterClick, onAddToWatchedClick, onAddToFavouritesClick,
+    onAddToListClick,
   } = props;
+  function handleAddToListClick(lists) {
+    onAddToListClick(id, lists);
+  }
 
   return (
     <li id={id} className="movies-list-item">
       <MoviesListItemMenu
-        onAddToWatchLaterClick={onAddToWatchLaterClick}
-        onAddToWatchedClick={onAddToWatchedClick}
-        onAddToFavouritesClick={onAddToFavouritesClick}
+        onAddToListClick={handleAddToListClick}
       />
       <div className="movies-list-item__poster">
         <img src={posterUrl} alt={title} width="320" height="454" />

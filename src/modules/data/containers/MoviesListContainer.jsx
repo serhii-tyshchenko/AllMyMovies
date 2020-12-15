@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   updateItem,
   addItem,
+  removeItem,
   hideModal,
   searchMovie,
 } from 'store/actions';
@@ -24,20 +25,13 @@ const MoviesListContainer = () => {
   function handleSearchClick(query) {
     dispatch(searchMovie(query));
   }
-  function handleAddToWatchLaterClick(evt) {
-    const { id } = evt.target.closest('.movies-list-item');
+  function handleAddToListClick(id, lists) {
     const item = data.find((el) => el.imdbID === id);
-    dispatch(addItem(uid, { ...item, id, inWatchLater: true }));
-  }
-  function handleAddToWatchedClick(evt) {
-    const { id } = evt.target.closest('.movies-list-item');
-    const item = data.find((el) => el.imdbID === id);
-    dispatch(addItem(uid, { ...item, id, inWatched: true }));
-  }
-  function handleAddToFavouritesClick(evt) {
-    const { id } = evt.target.closest('.movies-list-item');
-    const item = data.find((el) => el.imdbID === id);
-    dispatch(addItem(uid, { ...item, id, inFavourites: true }));
+    if (lists.length) {
+      dispatch(updateItem(uid, { ...item, id, lists }));
+    } else {
+      dispatch(removeItem(uid, id));
+    }
   }
   function handleModalClose() {
     dispatch(hideModal({ modalName: 'fav', data: null }));
@@ -47,9 +41,7 @@ const MoviesListContainer = () => {
     <>
       <MoviesList
         data={data}
-        onAddToWatchLaterClick={handleAddToWatchLaterClick}
-        onAddToWatchedClick={handleAddToWatchedClick}
-        onAddToFavouritesClick={handleAddToFavouritesClick}
+        onAddToListClick={handleAddToListClick}
         onSearchClick={useCallback(handleSearchClick, [dispatch])}
         STR={STR}
       />
