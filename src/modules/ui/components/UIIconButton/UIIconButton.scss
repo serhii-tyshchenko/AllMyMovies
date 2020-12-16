@@ -27,23 +27,50 @@
   &--user-o:before {
     content: '\f2c0';
   }
-  &--trash:before {
-    content: '\e803';
-  }
-  &--trash-empty:before {
-    content: '\e803';
+  &--ok:before {
+    content: '\e801';
   }
   &--plus:before {
     content: '\e806';
   }
+  &--minus:before {
+    content: '\e802';
+  }
+  &--trash-empty:before {
+    content: '\e803';
+  }
+  &--star:before {
+    content: '\e804';
+  }
+  &--star-empty:before {
+    content: '\e805';
+  }
   &--cancel:before {
     content: '\e807';
+  }
+  &--search:before {
+    content: '\e808';
+  }
+  &--home:before {
+    content: '\e809';
+  }
+  &--list:before {
+    content: '\e80a';
+  }
+  &--cog:before {
+    content: '\e80b';
+  }
+  &--clock:before {
+    content: '\e80c';
   }
   &--heart:before {
     content: '\e811';
   }
   &--heart-empty:before {
     content: '\e812';
+  }
+  &--menu:before {
+    content: '\f0c9';
   }
   &--sun:before {
     content: '\f185';
@@ -54,31 +81,10 @@
   &--google:before {
     content: '\f1a0';
   }
-  &--minus:before {
-    content: '\2d';
+  &--history:before {
+    content: '\f1da';
   }
-  &--star:before {
-    content: '\2605';
-  }
-  &--star-empty:before {
-    content: '\2606';
-  }
-  &--cog:before {
-    content: '\2699';
-  }
-  &--eye:before {
-    content: '\e70a';
-  }
-  &--eye-off:before {
-    content: '\e70b';
-  }
-  &--ok:before {
-    content: '\e801';
-  }
-  &--search:before {
-    content: '\1f50d';
-  }
-  &--menu:before {
-    content: '\f0c9';
+  &--trash:before {
+    content: '\f1f8';
   }
 }
