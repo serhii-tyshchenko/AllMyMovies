@@ -22,19 +22,21 @@
     top: 3.4rem;
     right: 1rem;
     z-index: 20;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
+    padding: 4px 0;
+    border-radius: 4px;
     list-style-type: none;
     background: var(--background-secondary);
     li {
-      margin-bottom: 0.25rem;
-      padding: 0.5em 0;
-      &:hover {
-        text-decoration: underline;
-        cursor: pointer;
+      label {
+        display: block;
+        padding: 0.75em 0.5em;
+        &:hover {
+          background: var(--background-primary);
+          cursor: pointer;
+        }
       }
-      &:last-child {
-        margin-bottom: 0;
+      input {
+        margin-right: 0.5rem;
       }
     }
   }

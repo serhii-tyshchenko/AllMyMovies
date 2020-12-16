@@ -19,7 +19,7 @@ const MoviesListItemMenu = React.memo((props) => {
     toggleMenu(!isMenuOpened);
   }
   function handleListCheckboxClick(evt) {
-    const list = evt.target.name;
+    const list = evt.target.value;
     if (lists.includes(list)) {
       updateLists(lists.filter((item) => item !== list));
       onAddToListClick(lists.filter((item) => item !== list));
@@ -39,22 +39,22 @@ const MoviesListItemMenu = React.memo((props) => {
             <label>
               <input
                 type="checkbox"
-                name="in-watch-later"
+                value="watch-later"
                 onChange={handleListCheckboxClick}
-                checked={lists.includes('in-watch-later')}
+                checked={lists.includes('watch-later')}
               />
               Watch later
             </label>
           </li>
           <li>
             <label>
-              <input type="checkbox" name="in-watched" onChange={handleListCheckboxClick} checked={lists.includes('in-watched')} />
+              <input type="checkbox" value="watched" onChange={handleListCheckboxClick} checked={lists.includes('watched')} />
               Watched
             </label>
           </li>
           <li>
             <label>
-              <input type="checkbox" name="in-favourites" onChange={handleListCheckboxClick} checked={lists.includes('in-favourites')} />
+              <input type="checkbox" value="favourites" onChange={handleListCheckboxClick} checked={lists.includes('favourites')} />
               Favourites
             </label>
           </li>

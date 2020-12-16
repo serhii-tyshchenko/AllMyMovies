@@ -21,7 +21,7 @@ const MoviesListContainer = () => {
     user: { uid }, modals,
   } = useSelector((state) => state);
   const data = pathname
-    ? useSelector((state) => state.data)
+    ? useSelector((state) => state.data).filter((item) => item.lists.includes(pathname))
     : useSelector((state) => state.searchResults);
   const STR = useContext(Localization);
 
