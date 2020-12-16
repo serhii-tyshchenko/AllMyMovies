@@ -23,9 +23,7 @@ const MoviesListItem = React.memo((props) => {
         data={lists}
         onAddToListClick={handleAddToListClick}
       />
-      <div className="movies-list-item__poster">
-        <img src={posterUrl} alt={title} width="320" height="454" />
-      </div>
+      <img src={posterUrl} alt={title} width="320" height="480" className="movies-list-item__poster" />
       <div className="movies-list-item__details">
         <span className="movies-list-item__title">{title}</span>
         <span className="movies-list-item__year">{year}</span>

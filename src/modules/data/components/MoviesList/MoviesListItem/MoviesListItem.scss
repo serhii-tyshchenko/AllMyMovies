@@ -4,24 +4,16 @@
   position: relative;
   max-width: 320px;
   margin-bottom: 3rem;
-  &__watch-btn {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    font-size: 1.25rem;
-    z-index: 1;
-  }
   &__poster {
+    display: block;
     margin-bottom: 1rem;
-    img {
-      display: block;
-      opacity: 1;
-      transition: opacity 300ms ease-in;
-      object-fit: cover;
-      &:hover {
-        cursor: pointer;
-        opacity: 0.5;
-      }
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+    object-fit: cover;
+    object-position: left top;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
     }
   }
   &__details {
