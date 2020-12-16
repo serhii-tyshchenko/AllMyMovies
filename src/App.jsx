@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getItems, getSettings, searchMovie } from 'store/actions';
-import { AuthContainer } from 'modules/user';
+import { AuthModal } from 'components';
 import { Home } from 'pages';
 import {
   BrowserRouter as Router,
@@ -27,7 +27,7 @@ function App() {
       <Router>
         <Home />
       </Router>
-      <AuthContainer />
+      <AuthModal />
     </div>
   );
 }

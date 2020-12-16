@@ -1,5 +1,5 @@
 import React from 'react';
-import { MoviesListContainer } from 'modules/data';
+import { MovieList } from 'components';
 import { Header, Nav } from '../_Layout';
 
 const Home = () => (
@@ -8,7 +8,7 @@ const Home = () => (
     <main className="main">
       <Nav />
       <div className="main__content wrapper">
-        <MoviesListContainer />
+        <MovieList />
       </div>
     </main>
   </>
