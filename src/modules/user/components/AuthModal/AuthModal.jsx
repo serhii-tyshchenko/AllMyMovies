@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Localization } from 'contexts';
 import PropTypes from 'prop-types';
+import { Localization } from 'contexts';
 import { UITabs, UIModal } from 'modules/ui';
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 import { SocialLogInForm } from './SocialLogInForm';
+
 import './AuthModal.scss';
 
 const AuthModal = (props) => {
@@ -27,10 +28,23 @@ const AuthModal = (props) => {
         extraClassName="auth-form__tabs"
         onTabClick={onTabClick}
       >
-        <SignInForm onSubmit={onSignIn} onChange={onChange} data={data} STR={STR} />
-        <SignUpForm onSubmit={onSignUp} onChange={onChange} data={data} STR={STR} />
+        <SignInForm
+          onSubmit={onSignIn}
+          onChange={onChange}
+          data={data}
+          STR={STR}
+        />
+        <SignUpForm
+          onSubmit={onSignUp}
+          onChange={onChange}
+          data={data}
+          STR={STR}
+        />
       </UITabs>
-      <SocialLogInForm onSignInWithGoogle={onSignInWithGoogle} STR={STR} />
+      <SocialLogInForm
+        onSignInWithGoogle={onSignInWithGoogle}
+        STR={STR}
+      />
     </UIModal>
   );
 };

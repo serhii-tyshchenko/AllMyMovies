@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { UIButton, UIInput } from 'modules/ui';
+
 import './SignInForm.scss';
 
 const SignInForm = (props) => {
@@ -12,37 +13,45 @@ const SignInForm = (props) => {
   } = props;
 
   return (
-    <>
-      <form onSubmit={onSubmit} className="signin-form">
-        <UIInput
-          value={email}
-          type="email"
-          name="email"
-          extraClassName="signin-form__input"
-          placeholder={STR.YOUR_EMAIL}
-          onChange={onChange}
-          autoComplete="current-email"
-          required
+    <form onSubmit={onSubmit} className="signin-form">
+      <UIInput
+        type="email"
+        name="email"
+        value={email}
+        extraClassName="signin-form__input"
+        placeholder={STR.YOUR_EMAIL}
+        onChange={onChange}
+        autoComplete="current-email"
+        required
+      />
+      <UIInput
+        type="password"
+        name="password"
+        extraClassName="signin-form__input"
+        value={password}
+        placeholder={STR.YOUR_PASSWORD}
+        onChange={onChange}
+        autoComplete="current-password"
+        required
+      />
+      <div className="signin-form__btns">
+        <UIButton
+          type="submit"
+          btnType="primary"
+          text={STR.SIGN_IN}
+          onClick={onSubmit}
         />
-        <UIInput
-          type="password"
-          name="password"
-          extraClassName="signin-form__input"
-          value={password}
-          placeholder={STR.YOUR_PASSWORD}
-          onChange={onChange}
-          autoComplete="current-password"
-          required
-        />
-        <div className="signin-form__btns">
-          <UIButton type="submit" btnType="primary" text={STR.SIGN_IN} onClick={onSubmit} />
-        </div>
-      </form>
-    </>
+      </div>
+    </form>
   );
 };
+
 SignInForm.defaultProps = {
-  STR: {},
+  STR: {
+    YOUR_EMAIL: 'Your Email',
+    YOUR_PASSWORD: 'Your password',
+    SIGN_IN: 'Sign In',
+  },
 };
 
 SignInForm.propTypes = {
@@ -52,7 +61,11 @@ SignInForm.propTypes = {
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  STR: PropTypes.shape(),
+  STR: PropTypes.shape({
+    YOUR_EMAIL: PropTypes.string,
+    YOUR_PASSWORD: PropTypes.string,
+    SIGN_IN: PropTypes.string,
+  }),
 };
 
 export { SignInForm };
