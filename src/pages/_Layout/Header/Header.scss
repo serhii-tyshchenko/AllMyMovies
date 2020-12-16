@@ -1,7 +1,6 @@
 @import '~styles/variables';
 .header {
   padding: 20px 0;
-  color: var(--color-primary);
   background-color: var(--background-secondary);
   &__content {
     display: flex;
@@ -10,14 +9,11 @@
   }
   &__logo {
     margin-right: 1.25rem;
-    padding-left: 30px;
-    color: var(--color-accent);
+    padding-left: 32px;
+    color: var(--color-primary);
     font: bold 1.5rem $font-secondary;
     text-decoration: none;
-    background-image: url('~logo.svg');
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 24px;
+    background: url('~logo.svg') no-repeat left center / 24px;
   }
   &__menu {
     display: flex;
