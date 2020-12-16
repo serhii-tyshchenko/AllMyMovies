@@ -9,6 +9,7 @@
     justify-content: space-between;
   }
   &__logo {
+    margin-right: 1.25rem;
     padding-left: 30px;
     color: var(--color-accent);
     font: bold 1.5rem $font-secondary;
@@ -21,7 +22,8 @@
   &__menu {
     display: flex;
     justify-content: space-between;
-    width: 200px;
+    width: 120px;
+    margin-left: 1.25rem;
     font-size: 1.5rem;
   }
 }
