@@ -1,4 +1,5 @@
 @import '~styles/variables';
+
 .main {
   display: flex;
   flex-grow: 1;
@@ -6,6 +7,6 @@
   background: var(--background-primary);
   overflow: hidden;
   &__content {
-    padding: 20px 15px;
+    padding: 25px 40px;
   }
 }
