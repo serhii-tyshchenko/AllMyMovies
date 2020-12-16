@@ -1,8 +1,8 @@
-/* eslint-disable no-unused-vars */
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Localization } from 'contexts';
 import PropTypes from 'prop-types';
 import { UIModal } from 'modules/ui';
+
 import './MovieModal.scss';
 
 const MovieModal = (props) => {
@@ -16,7 +16,7 @@ const MovieModal = (props) => {
   const STR = useContext(Localization);
 
   return (
-    <UIModal isVisible={isVisible} onClose={onClose} title={STR.AUTHENIFICATION} extraClassName="movie-modal">
+    <UIModal isVisible={isVisible} onClose={onClose} title={STR.MOVIE_INFO} extraClassName="movie-modal">
       <div className="movie-modal__content">
         <img src={Poster} alt={Title} className="movie-modal__poster" />
         <div className="movie-modal__details">
@@ -58,10 +58,19 @@ const MovieModal = (props) => {
   );
 };
 
+MovieModal.defaultProps = {
+  STR: {
+    MOVIE_INFO: 'Movie info',
+  },
+};
+
 MovieModal.propTypes = {
   data: PropTypes.shape().isRequired,
   onClose: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
+  STR: PropTypes.shape({
+    MOVIE_INFO: PropTypes.string,
+  }),
 };
 
 export { MovieModal };

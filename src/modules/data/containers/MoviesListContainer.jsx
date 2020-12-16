@@ -1,7 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-import { useContext, useCallback } from 'react';
-import { Localization } from 'contexts';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   updateItem,
@@ -10,9 +6,7 @@ import {
   showModal,
   getMovieInfo,
 } from 'store/actions';
-import {
-  useParams, useLocation,
-} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { MoviesList, MovieModal } from '../components';
 
 const MoviesListContainer = () => {
@@ -25,7 +19,6 @@ const MoviesListContainer = () => {
     ? useSelector((state) => state.data).filter((item) => item.lists.includes(pathname))
     : useSelector((state) => state.searchResults);
   const movieData = useSelector((state) => state.movieInfo);
-  const STR = useContext(Localization);
 
   function handleAddToListClick(id, lists) {
     const item = data.find((el) => el.imdbID === id);
@@ -40,7 +33,7 @@ const MoviesListContainer = () => {
     dispatch(showModal({ modalName: 'fav', data: null }));
   }
   function handleModalClose() {
-    dispatch(hideModal({ modalName: 'fav', data: null }));
+    dispatch(hideModal('fav'));
   }
 
   return (
