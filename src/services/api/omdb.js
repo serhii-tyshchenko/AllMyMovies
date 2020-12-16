@@ -14,6 +14,11 @@ class API {
     fetch(`${this.baseUrl}&s=${query}`)
       .then((response) => response.json())
       .then((data) => data);
+
+  getMovieInfo = (id) =>
+    fetch(`${this.baseUrl}&i=${id}`)
+      .then((response) => response.json())
+      .then((data) => data);
 }
 
 export default new API(omdbApiKey);

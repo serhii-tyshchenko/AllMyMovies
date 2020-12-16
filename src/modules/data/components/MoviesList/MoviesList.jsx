@@ -5,7 +5,7 @@ import './MoviesList.scss';
 
 const MoviesList = (props) => {
   const {
-    data, onAddToListClick,
+    data, onAddToListClick, onShowInfoClick,
   } = props;
 
   return (
@@ -16,6 +16,7 @@ const MoviesList = (props) => {
             key={item.imdbID}
             data={item}
             onAddToListClick={onAddToListClick}
+            onShowInfoClick={onShowInfoClick}
           />
         ))}
       </ul>
@@ -26,6 +27,7 @@ const MoviesList = (props) => {
 MoviesList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   onAddToListClick: PropTypes.func.isRequired,
+  onShowInfoClick: PropTypes.func.isRequired,
 };
 
 export { MoviesList };

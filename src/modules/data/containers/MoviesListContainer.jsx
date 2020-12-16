@@ -7,12 +7,13 @@ import {
   updateItem,
   removeItem,
   hideModal,
+  showModal,
+  getMovieInfo,
 } from 'store/actions';
-import { UIModal } from 'modules/ui';
 import {
   useParams, useLocation,
 } from 'react-router-dom';
-import { MoviesList } from '../components';
+import { MoviesList, MovieModal } from '../components';
 
 const MoviesListContainer = () => {
   const pathname = useLocation().pathname.slice(1);
@@ -23,6 +24,7 @@ const MoviesListContainer = () => {
   const data = pathname
     ? useSelector((state) => state.data).filter((item) => item.lists.includes(pathname))
     : useSelector((state) => state.searchResults);
+  const movieData = useSelector((state) => state.movieInfo);
   const STR = useContext(Localization);
 
   function handleAddToListClick(id, lists) {
@@ -33,6 +35,10 @@ const MoviesListContainer = () => {
       dispatch(removeItem(uid, id));
     }
   }
+  function handleShowInfoClick(id) {
+    dispatch(getMovieInfo(id));
+    dispatch(showModal({ modalName: 'fav', data: null }));
+  }
   function handleModalClose() {
     dispatch(hideModal({ modalName: 'fav', data: null }));
   }
@@ -42,11 +48,12 @@ const MoviesListContainer = () => {
       <MoviesList
         data={data}
         onAddToListClick={handleAddToListClick}
+        onShowInfoClick={handleShowInfoClick}
       />
-      <UIModal
+      <MovieModal
         isVisible={modals.fav.isVisible}
         onClose={handleModalClose}
-        title={STR.FAVORITES_LIST}
+        data={movieData}
       />
     </>
   );

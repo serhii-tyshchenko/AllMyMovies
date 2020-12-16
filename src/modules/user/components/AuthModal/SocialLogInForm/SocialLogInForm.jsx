@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './SocialLogInForm.scss';
@@ -13,8 +14,8 @@ const SocialLogInForm = (props) => {
         <div className="social-login__btns">
           <UIIconButton
             icon="google"
-            extraClassName="social-login__btn"
             onClick={onSignInWithGoogle}
+            extraClassName="social-login__btn"
           />
         </div>
       </div>
