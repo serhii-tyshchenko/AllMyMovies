@@ -1,2 +1,2 @@
 export * from './MoviesList';
-export * from './FavouritesList';
+export * from './SearchMovieForm';

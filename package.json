@@ -25,7 +25,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-redux": "latest",
-    "react-router-dom": "latest",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "latest",
     "redux": "latest",
     "redux-thunk": "latest",

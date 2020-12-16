@@ -9,17 +9,18 @@ import './MoviesListItem.scss';
 const MoviesListItem = React.memo((props) => {
   const {
     data: {
-      Title: title, Poster: posterUrl, Year: year, Type: type, imdbID: id,
+      Title: title, Poster: posterUrl, Year: year, Type: type, imdbID: id, lists,
     },
     onAddToListClick,
   } = props;
-  function handleAddToListClick(lists) {
-    onAddToListClick(id, lists);
+  function handleAddToListClick(data) {
+    onAddToListClick(id, data);
   }
 
   return (
     <li id={id} className="movies-list-item">
       <MoviesListItemMenu
+        data={lists}
         onAddToListClick={handleAddToListClick}
       />
       <div className="movies-list-item__poster">

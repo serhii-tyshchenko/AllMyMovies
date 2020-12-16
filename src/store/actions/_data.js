@@ -54,9 +54,9 @@ export const removeItem = (uid, id) => (dispatch) => {
 };
 
 export const getItems = (uid) => (dispatch) => {
-  const data = [];
   db.getItems(uid)
     .then((response) => {
+      const data = [];
       response.forEach((item) => data.push(item.data()));
       dispatch({ type: GET_ITEMS, payload: data });
     })

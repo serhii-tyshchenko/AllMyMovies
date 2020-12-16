@@ -9,16 +9,14 @@
     justify-content: space-between;
   }
   &__logo {
-    padding-left: 40px;
+    padding-left: 30px;
     color: var(--color-accent);
+    font: bold 1.5rem $font-secondary;
     text-decoration: none;
     background-image: url('~logo.svg');
     background-repeat: no-repeat;
-    background-position: left 48%;
-    background-size: 32px;
-  }
-  &__title {
-    font: bold 2rem $font-secondary;
+    background-position: left center;
+    background-size: 24px;
   }
   &__menu {
     display: flex;

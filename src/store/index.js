@@ -14,10 +14,9 @@ const store = createStore(
   composeTools(applyMiddleware(thunk))
 );
 store.subscribe(() => {
-  const { data, user, settings, searchResults } = store.getState();
+  const { data, user, settings } = store.getState();
   ls.saveState({
     data,
-    searchResults,
     user,
     settings,
   });

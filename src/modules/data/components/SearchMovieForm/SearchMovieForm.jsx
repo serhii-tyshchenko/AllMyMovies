@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { UIInput, UIIconButton } from 'modules/ui';
-import './MoviesListForm.scss';
+import './SearchMovieForm.scss';
 
-const MoviesListForm = React.memo((props) => {
+const SearchMovieForm = React.memo((props) => {
   const { onSubmit, STR } = props;
   const [query, setQuery] = useState('');
 
@@ -16,13 +16,12 @@ const MoviesListForm = React.memo((props) => {
     }
     evt.preventDefault();
     onSubmit(query);
-    setQuery('');
   }
 
   return (
-    <form className="movies-list-form" onSubmit={handleSubmit}>
+    <form className="search-movie-form" onSubmit={handleSubmit}>
       <UIInput
-        extraClassName="movies-list-form__input"
+        extraClassName="search-movie-form__input"
         value={query}
         onChange={handleChange}
         placeholder={STR.SEARCH_MOVIE_PLACEHOLDER}
@@ -32,16 +31,16 @@ const MoviesListForm = React.memo((props) => {
         icon="search"
         type="submit"
         title={STR.SEARCH_MOVIE}
-        extraClassName="movies-list-form__btn"
+        extraClassName="search-movie-form__btn"
         onClick={handleSubmit}
       />
     </form>
   );
 });
 
-MoviesListForm.propTypes = {
+SearchMovieForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   STR: PropTypes.shape().isRequired,
 };
 
-export { MoviesListForm };
+export { SearchMovieForm };

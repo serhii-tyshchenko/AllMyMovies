@@ -10,23 +10,24 @@ import { UIIconButton } from 'modules/ui';
 import './MoviesListItemMenu.scss';
 
 const MoviesListItemMenu = React.memo((props) => {
-  const { onAddToListClick } = props;
+  const { onAddToListClick, data } = props;
   const [isMenuOpened, toggleMenu] = useState(false);
-  const [lists, updateLists] = useState([]);
-  useEffect(() => onAddToListClick([...lists]), [lists]);
+  const [lists, updateLists] = useState(data || []);
+  // useEffect(() => onAddToListClick([...lists]), [lists]);
 
   function handleMenuClick() {
     toggleMenu(!isMenuOpened);
   }
   function handleListCheckboxClick(evt) {
-    const { id } = evt.target.closest('.movies-list-item');
     const list = evt.target.name;
     if (lists.includes(list)) {
       updateLists(lists.filter((item) => item !== list));
+      onAddToListClick(lists.filter((item) => item !== list));
     } else {
       updateLists([...lists, list]);
+      onAddToListClick([...lists, list]);
     }
-    // onAddToListClick(lists);
+    toggleMenu(!isMenuOpened);
   }
 
   return (

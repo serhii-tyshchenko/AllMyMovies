@@ -5,26 +5,26 @@ import { Localization } from 'contexts';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   updateItem,
-  addItem,
   removeItem,
   hideModal,
-  searchMovie,
 } from 'store/actions';
 import { UIModal } from 'modules/ui';
-import { FavouritesListContainer } from 'modules/data';
+import {
+  useParams, useLocation,
+} from 'react-router-dom';
 import { MoviesList } from '../components';
 
 const MoviesListContainer = () => {
+  const pathname = useLocation().pathname.slice(1);
   const dispatch = useDispatch();
   const {
     user: { uid }, modals,
   } = useSelector((state) => state);
-  const data = useSelector((state) => state.searchResults);
+  const data = pathname
+    ? useSelector((state) => state.data)
+    : useSelector((state) => state.searchResults);
   const STR = useContext(Localization);
 
-  function handleSearchClick(query) {
-    dispatch(searchMovie(query));
-  }
   function handleAddToListClick(id, lists) {
     const item = data.find((el) => el.imdbID === id);
     if (lists.length) {
@@ -42,16 +42,12 @@ const MoviesListContainer = () => {
       <MoviesList
         data={data}
         onAddToListClick={handleAddToListClick}
-        onSearchClick={useCallback(handleSearchClick, [dispatch])}
-        STR={STR}
       />
       <UIModal
         isVisible={modals.fav.isVisible}
         onClose={handleModalClose}
         title={STR.FAVORITES_LIST}
-      >
-        <FavouritesListContainer />
-      </UIModal>
+      />
     </>
   );
 };

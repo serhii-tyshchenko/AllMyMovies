@@ -1,18 +1,20 @@
 import React from 'react';
 import { AuthBtn } from 'modules/user';
 import { ThemeToggler, LanguageSelector } from 'modules/settings';
-import { FavouritesBtn } from 'modules/data';
+import { SearchMovieFormContainer } from 'modules/data';
+import {
+  Link,
+} from 'react-router-dom';
 import './Header.scss';
 
 const Header = () => (
   <header className="header">
     <div className="header__content wrapper">
-      <div className="header__logo">
-        <span className="header__title">MyMoviesList</span>
-      </div>
+      <Link to="/" className="header__logo">MyMoviesList</Link>
+      <SearchMovieFormContainer />
       <div className="header__menu">
         <LanguageSelector />
-        <FavouritesBtn />
+        <Link to="/my-favourites">Fav</Link>
         <ThemeToggler />
         <AuthBtn />
       </div>
