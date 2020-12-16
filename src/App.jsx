@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getItems, getSettings, searchMovie } from 'store/actions';
 import { AuthContainer } from 'modules/user';
-import { Home, MyFavourites } from 'pages';
+import { Home } from 'pages';
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,14 +25,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Switch>
-          <Route path="my-favourites">
-            <MyFavourites />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <Home />
       </Router>
       <AuthContainer />
     </div>

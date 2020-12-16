@@ -1,11 +1,17 @@
 import React from 'react';
 import { MoviesListContainer } from 'modules/data';
-import { BaseLayout } from '../_Layout';
+import { Header, Nav } from '../_Layout';
 
 const Home = () => (
-  <BaseLayout>
-    <MoviesListContainer />
-  </BaseLayout>
+  <>
+    <Header />
+    <main className="main">
+      <Nav />
+      <div className="main__content wrapper">
+        <MoviesListContainer />
+      </div>
+    </main>
+  </>
 );
 
 export { Home };

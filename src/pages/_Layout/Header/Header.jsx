@@ -14,7 +14,6 @@ const Header = () => (
       <SearchMovieFormContainer />
       <div className="header__menu">
         <LanguageSelector />
-        <Link to="/my-favourites">Fav</Link>
         <ThemeToggler />
         <AuthBtn />
       </div>
