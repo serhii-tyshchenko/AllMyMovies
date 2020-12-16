@@ -14,16 +14,16 @@ const AuthContainer = () => {
   useEffect(() => {
     if (isLogged) {
       setFormData(initialFormData);
-      dispatch(hideModal({ modalName: 'auth', data: null }));
+      dispatch(hideModal('auth'));
     }
   }, [isLogged]);
   function onModalClose() {
     setFormData(initialFormData);
-    dispatch(hideModal({ modalName: 'auth', data: null }));
+    dispatch(hideModal('auth'));
   }
   function onSignIn(event) {
+    event.preventDefault();
     if (formData.email && formData.password) {
-      event.preventDefault();
       dispatch(signInWithEmail(formData.email, formData.password));
     }
   }
@@ -31,8 +31,8 @@ const AuthContainer = () => {
     dispatch(signInWithGoogle());
   }
   function onSignUp(event) {
+    event.preventDefault();
     if (formData.email && formData.password) {
-      event.preventDefault();
       dispatch(signUpWithEmail(formData.email, formData.password));
     }
   }

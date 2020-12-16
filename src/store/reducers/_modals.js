@@ -20,7 +20,7 @@ export const modals = (state = initialState, action) => {
     case HIDE_MODAL:
       return {
         ...state,
-        [payload.modalName]: { isVisible: false, data: payload.data },
+        [payload]: { isVisible: false },
       };
     default:
       return state;
