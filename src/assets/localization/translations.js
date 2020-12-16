@@ -19,6 +19,7 @@ const translations = {
     FAVORITES_LIST: 'Favorites',
     TOGGLE_THEME: 'Change theme',
     TOGGLE_LANGUAGE: 'Change language',
+    MOVIE_INFO: 'Movie info',
   },
   ua: {
     SIGN_IN: 'Увійти',
@@ -34,6 +35,7 @@ const translations = {
     FAVORITES_LIST: 'Обране',
     TOGGLE_THEME: 'Змінити тему',
     TOGGLE_LANGUAGE: 'Змінити мову',
+    MOVIE_INFO: 'Інформація про фільм',
   },
   ru: {
     SIGN_IN: 'Войти',
@@ -49,6 +51,7 @@ const translations = {
     FAVORITES_LIST: 'Избранное',
     TOGGLE_THEME: 'Изменить тему',
     TOGGLE_LANGUAGE: 'Изменить язык',
+    MOVIE_INFO: 'Информация о фильме',
   },
 };
 
