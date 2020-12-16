@@ -19,7 +19,13 @@ function actionError(message) {
 export const searchMovie = (query) => (dispatch) => {
   api
     .searchMovie(query)
-    .then((data) => dispatch({ type: SEARCH_MOVIE, payload: data }))
+    .then((data) => {
+      if (data?.Search) {
+        dispatch({ type: SEARCH_MOVIE, payload: data.Search });
+      } else {
+        dispatch(actionError(data.Error));
+      }
+    })
     .catch((error) => dispatch(actionError(error.message)));
 };
 

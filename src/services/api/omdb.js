@@ -11,7 +11,9 @@ class API {
   }
 
   searchMovie = (query) =>
-    fetch(`${this.baseUrl}&s=${query}`).then((response) => response.json()).then((data) => data.Search);
+    fetch(`${this.baseUrl}&s=${query}`)
+      .then((response) => response.json())
+      .then((data) => data);
 }
 
 export default new API(omdbApiKey);
