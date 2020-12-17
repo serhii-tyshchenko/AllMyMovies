@@ -1,13 +1,10 @@
-/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getItems, getSettings, searchMovie } from 'store/actions';
+import { getItems, getSettings } from 'store/actions';
 import { AuthModal } from 'components';
 import { Home } from 'pages';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  HashRouter as Router,
 } from 'react-router-dom';
 
 function App() {
