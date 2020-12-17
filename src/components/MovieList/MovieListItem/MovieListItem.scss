@@ -1,0 +1,28 @@
+@import '~styles/variables';
+
+.movie-list-item {
+  position: relative;
+  max-width: 320px;
+  margin-bottom: 3rem;
+  &__poster {
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+    object-fit: cover;
+    object-position: left top;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+  &__details {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  &__title {
+    margin-right: 1rem;
+    font-size: 1.25rem;
+  }
+}

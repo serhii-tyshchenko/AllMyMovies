@@ -1,1 +1,0 @@
-export { ShoppingListForm } from './ShoppingListForm';

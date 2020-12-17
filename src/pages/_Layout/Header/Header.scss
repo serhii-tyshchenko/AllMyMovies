@@ -1,7 +1,7 @@
 @import '~styles/variables';
+
 .header {
   padding: 20px 0;
-  color: var(--color-primary);
   background-color: var(--background-secondary);
   &__content {
     display: flex;
@@ -9,21 +9,18 @@
     justify-content: space-between;
   }
   &__logo {
-    padding-left: 40px;
-    color: var(--color-accent);
+    margin-right: 1.25rem;
+    padding-left: 32px;
+    color: var(--color-primary);
+    font: bold 1.5rem $font-secondary;
     text-decoration: none;
-    background-image: url('~logo.svg');
-    background-repeat: no-repeat;
-    background-position: left 48%;
-    background-size: 32px;
-  }
-  &__title {
-    font: bold 2rem $font-secondary;
+    background: url('~logo.svg') no-repeat left center / 24px;
   }
   &__menu {
     display: flex;
     justify-content: space-between;
-    width: 200px;
+    width: 150px;
+    margin-left: 1.25rem;
     font-size: 1.5rem;
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "my-movies-list",
-  "homepage": "",
+  "homepage": "https://serhii-tyshchenko.github.io/-PORTFOLIO-MyMoviesList/",
   "repository": {
     "type": "git",
     "url": "https://git.io/JkuV0"
@@ -25,7 +25,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-redux": "latest",
-    "react-router-dom": "latest",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "latest",
     "redux": "latest",
     "redux-thunk": "latest",
@@ -41,9 +41,6 @@
     "eslint-plugin-react-hooks": "latest",
     "gh-pages": "latest",
     "prettier-eslint": "latest"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": "defaults"
 }

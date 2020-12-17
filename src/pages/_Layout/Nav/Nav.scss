@@ -1,0 +1,41 @@
+@import '~styles/variables';
+
+.nav {
+  flex-shrink: 0;
+  padding: 20px 0;
+  color: var(--color-primary);
+  background-color: var(--background-secondary);
+}
+.nav-links {
+  list-style-type: none;
+  &__link {
+    display: block;
+    padding: 1rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    &:hover,
+    &.active {
+      background: var(--background-primary);
+    }
+    &::before {
+      display: inline-block;
+      width: 1em;
+      margin-right: 1em;
+      font-family: $font-icon;
+      line-height: 1em;
+      text-align: center;
+    }
+    &--home::before {
+      content: '\e809';
+    }
+    &--favourites::before {
+      content: '\e811';
+    }
+    &--watch-later::before {
+      content: '\e80c';
+    }
+    &--watched:before {
+      content: '\f1da';
+    }
+  }
+}

@@ -1,4 +1,4 @@
-const keyName = 'MyShoppingList';
+const keyName = 'MyMoviesList';
 
 export const loadState = () => {
   try {

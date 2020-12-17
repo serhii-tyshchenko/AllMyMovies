@@ -22,8 +22,8 @@ class Firebase {
     this.db = firebase.firestore();
 
     this.rootCollection = 'data';
+    this.dataCollection = 'movies-list';
     this.settingsCollection = 'settings';
-    this.dataCollection = 'shopping-list';
     this.commonSettingsDoc = 'common';
   }
 

@@ -1,11 +1,17 @@
 import React from 'react';
-import { ShoppingListContainer } from 'modules/data';
-import { BaseLayout } from '../_Layout';
+import { MovieList } from 'components';
+import { Header, Nav } from '../_Layout';
 
 const Home = () => (
-  <BaseLayout>
-    <ShoppingListContainer />
-  </BaseLayout>
+  <>
+    <Header />
+    <main className="main">
+      <Nav />
+      <div className="main__content wrapper">
+        <MovieList />
+      </div>
+    </main>
+  </>
 );
 
 export { Home };

@@ -1,6 +1,6 @@
 {
-  "short_name": "ShopList",
-  "name": "Shopping List App",
+  "short_name": "MyMovies",
+  "name": "Movies List App",
   "icons": [
     {
       "src": "favicon.ico",

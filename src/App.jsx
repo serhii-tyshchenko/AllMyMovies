@@ -1,8 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getItems, getSettings } from 'store/actions';
-import { AuthContainer } from 'modules/user';
+import { getItems, getSettings, searchMovie } from 'store/actions';
+import { AuthModal } from 'components';
 import { Home } from 'pages';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
 function App() {
   const { uid, isLogged } = useSelector((state) => state.user);
@@ -18,8 +24,10 @@ function App() {
 
   return (
     <div className="App">
-      <Home />
-      <AuthContainer />
+      <Router>
+        <Home />
+      </Router>
+      <AuthModal />
     </div>
   );
 }

@@ -1,0 +1,15 @@
+@import '~styles/variables';
+
+.ui-input {
+  padding: 0.75em;
+  color: var(--color-primary);
+  font-family: $font-primary;
+  border: 1px solid var(--color-secondary);
+  border-radius: 2px;
+  background: none;
+  background-color: inherit;
+  &::placeholder {
+    color: var(--color-secondary);
+    filter: brightness(70%);
+  }
+}

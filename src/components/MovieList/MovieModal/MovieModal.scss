@@ -1,0 +1,28 @@
+.movie-modal {
+  max-width: 800px;
+  &__content {
+    display: flex;
+  }
+  &__title {
+    margin-bottom: 0.5em;
+    font-size: 1.5rem;
+  }
+  &__plot {
+    font-style: italic;
+  }
+  &__poster {
+    align-self: center;
+    width: 240px;
+    margin-right: 1rem;
+  }
+  &__info {
+    list-style-type: none;
+    li {
+      margin-bottom: 0.75em;
+    }
+    strong {
+      font-weight: 900;
+      margin-right: 0.5em;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.movie-list {
+  flex-grow: 1;
+  margin: 0 auto;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+    list-style-type: none;
+  }
+}
