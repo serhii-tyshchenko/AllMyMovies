@@ -6,8 +6,8 @@
 - Cloud syncronization
 
 ## Tech stack
--   Hooks
--   Redux
--   Router
--   Firebase
--   Local Storage
+
+- React (Hooks, Redux, Router)
+- OMDB API
+- Google Firebase
+- Local Storage
