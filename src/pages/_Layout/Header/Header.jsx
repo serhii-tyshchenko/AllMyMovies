@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   ThemeToggler, LanguageSelector, AuthBtn, SearchMovieForm,
 } from 'components';
@@ -9,7 +8,7 @@ import './Header.scss';
 const Header = () => (
   <header className="header">
     <div className="header__content wrapper">
-      <Link to="/" className="header__logo">MyMoviesList</Link>
+      <Link to="/" className="header__logo">{process.env.REACT_APP_APP_NAME}</Link>
       <SearchMovieForm />
       <div className="header__menu">
         <LanguageSelector />

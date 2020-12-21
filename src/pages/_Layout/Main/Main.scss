@@ -3,10 +3,11 @@
 .main {
   display: flex;
   flex-grow: 1;
+  padding-top: 77px;
   color: var(--color-primary);
   background: var(--background-primary);
   overflow: hidden;
   &__content {
-    padding: 25px 40px;
+    padding: 30px 5px 25px 55px;
   }
 }
