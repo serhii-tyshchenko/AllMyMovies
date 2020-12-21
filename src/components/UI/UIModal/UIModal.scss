@@ -20,7 +20,8 @@
     z-index: 999;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
   }
   &__header {
     position: relative;
