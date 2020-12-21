@@ -19,22 +19,22 @@ const Nav = () => {
       <div className="nav__content">
         <ul className="nav-links">
           <li className="nav-links__item">
-            <NavLink className="nav-links__link nav-links__link--home" to="/" exact>
+            <NavLink to="/" exact className="nav-links__link nav-links__link--home" title={STR.HOME}>
               {STR.HOME}
             </NavLink>
           </li>
           <li className="nav-links__item">
-            <NavLink className="nav-links__link nav-links__link--favourites" to="favourites">
+            <NavLink to="favourites" className="nav-links__link nav-links__link--favourites" title={STR.FAVOURITES}>
               {STR.FAVOURITES}
             </NavLink>
           </li>
           <li className="nav-links__item">
-            <NavLink className="nav-links__link nav-links__link--watch-later" to="watch-later">
+            <NavLink to="watch-later" className="nav-links__link nav-links__link--watch-later" title={STR.WATCH_LATER}>
               {STR.WATCH_LATER}
             </NavLink>
           </li>
           <li className="nav-links__item">
-            <NavLink className="nav-links__link nav-links__link--watched" to="watched">
+            <NavLink to="watched" className="nav-links__link nav-links__link--watched" title={STR.WATCHED}>
               {STR.WATCHED}
             </NavLink>
           </li>

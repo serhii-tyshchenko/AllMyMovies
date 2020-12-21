@@ -6,6 +6,9 @@
   padding: 20px 0;
   color: var(--color-primary);
   background-color: var(--background-secondary);
+  position: fixed;
+  height: calc(100vh - 77px);
+  z-index: 100;
   &__content {
     position: relative;
     display: flex;
