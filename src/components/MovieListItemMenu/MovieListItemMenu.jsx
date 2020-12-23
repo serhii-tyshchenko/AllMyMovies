@@ -22,7 +22,6 @@ const MovieListItemMenu = ({ id }) => {
   const [isMenuOpened, toggleMenu] = useState(false);
 
   function handleAddToListClick(list) {
-    console.log(id, currMovie, list);
     if (list.length) {
       dispatch(updateItem(uid, { ...currMovie, id, lists: list }));
     } else {
