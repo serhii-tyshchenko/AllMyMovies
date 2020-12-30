@@ -17,3 +17,4 @@
 - [ ] Add user custom lists
 - [ ] Add sorting to Movie list
 - [ ] Refactor Movie item menu
+- [ ] Fix responsive design
