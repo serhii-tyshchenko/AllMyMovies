@@ -30,10 +30,21 @@
   }
 }
 
-@media screen and (max-width: $break-480) {
+@media screen and (max-width: $break-tablet) {
+  .search-movie-form {
+    flex-basis: 100%;
+    order: 3;
+    margin: 1.25rem 0 0.5rem;
+    max-width: 100%;
+  }
   .header {
     padding: 15px 0;
+    &__content {
+      flex-wrap: wrap;
+    }
     &__logo {
+      order: 1;
+      margin-right: 0;
       padding-left: 28px;
       background-size: 20px;
     }
@@ -41,8 +52,10 @@
       font-size: 1.5rem;
     }
     &__menu {
-      width: 150px;
-      font-size: 1.25rem;
+      order: 2;
+      width: 120px;
+      margin-left: 0;
+      font-size: 1.5rem;
     }
   }
 }

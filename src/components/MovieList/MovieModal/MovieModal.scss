@@ -1,5 +1,7 @@
+@import '~styles/variables';
+
 .movie-modal {
-  max-width: 800px;
+  max-width: 700px;
   &__content {
     display: flex;
   }
@@ -11,7 +13,7 @@
     font-style: italic;
   }
   &__poster {
-    align-self: center;
+    align-self: flex-start;
     width: 240px;
     margin-right: 1rem;
   }
@@ -23,6 +25,31 @@
     strong {
       font-weight: 900;
       margin-right: 0.5em;
+    }
+  }
+}
+
+@media only screen and (max-width: $break-tablet) {
+  .movie-modal {
+    &__content {
+      flex-direction: column;
+    }
+    &__poster {
+      align-self: center;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 0 1rem;
+    }
+    &__title,
+    &__plot,
+    &__info {
+      text-align: center;
+    }
+    &__title {
+      margin-bottom: 1.25rem;
+    }
+    &__plot {
+      margin-bottom: 1.25rem;
     }
   }
 }

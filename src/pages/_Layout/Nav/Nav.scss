@@ -68,3 +68,39 @@
     }
   }
 }
+
+@media only screen and (max-width: $break-tablet) {
+  .nav {
+    $self: &;
+    bottom: 0;
+    width: 100vw;
+    height: auto;
+    padding: 0;
+    opacity: 0.95;
+    &__toggler {
+      display: none;
+    }
+    &-links {
+      display: flex;
+      margin: 0 auto;
+      &__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.75rem;
+        &.active::before {
+          color: var(--color-accent);
+        }
+      }
+    }
+    &--collapsed {
+      #{ $self }-links__link {
+        font-size: 0;
+        &::before {
+          margin: 0;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
