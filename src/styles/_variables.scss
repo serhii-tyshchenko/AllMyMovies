@@ -1,35 +1,27 @@
-$color1: rgb(255, 255, 255);
-$color2: rgb(240, 242, 245);
-$color3: rgb(45, 136, 255);
-$color4: rgb(5, 5, 5);
-$color5: rgb(36, 37, 38);
-$color6: rgb(176, 179, 184);
-
+//fonts
 $font-icon: 'fontello';
 $font-primary: 'Roboto';
 $font-secondary: 'Arial Narrow';
 
 //palette
-$blue: #007bff;
-$blue-100: lighten($blue, 30%);
-$blue-200: lighten($blue, 20%);
-$blue-300: lighten($blue, 10%);
-$blue-400: lighten($blue, 5%);
-$blue-500: darken($blue, 5%);
-$blue-600: darken($blue, 10%);
-$blue-700: darken($blue, 20%);
-$blue-800: darken($blue, 30%);
-$blue-900: darken($blue, 40%);
-$indigo: #6610f2;
-$purple: #6f42c1;
-$pink: #e83e8c;
-$red: #dc3545;
-$orange: #fd7e14;
-$yellow: #ffc107;
-$green: #28a745;
-$teal: #20c997;
-$cyan: #17a2b8;
-$grey: #adb5bd;
+$color-white: rgb(255, 255, 255);
+$color-black: rgb(5, 5, 5);
+$color-solitude: rgb(240, 242, 245);
+$color-dodger-blue: rgb(45, 136, 255);
+$color-bunker: rgb(36, 37, 38);
+$color-mishka: rgb(176, 179, 184);
+
+$color-blue: #007bff;
+$color-indigo: #6610f2;
+$color-purple: #6f42c1;
+$color-pink: #e83e8c;
+$coolor-red: #dc3545;
+$color-orange: #fd7e14;
+$color-yellow: #ffc107;
+$color-green: #28a745;
+$color-teal: #20c997;
+$color-cyan: #17a2b8;
+$color-grey: #adb5bd;
 
 // media breaks
 $break-4k: 2560px;

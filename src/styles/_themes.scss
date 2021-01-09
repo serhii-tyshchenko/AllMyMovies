@@ -1,22 +1,22 @@
 :root {
-  --color-primary: #{$color4};
-  --color-secondary: #{$color6};
-  --color-secondary-darken: #{darken($color6, 10%)};
-  --color-accent: #{$color3};
-  --background-primary: #{$color2};
-  --background-secondary: #{$color1};
+  --color-primary: #{$color-black};
+  --color-secondary: #{$color-mishka};
+  --color-secondary-darken: #{darken($color-mishka, 10%)};
+  --color-accent: #{$color-dodger-blue};
+  --background-primary: #{$color-solitude};
+  --background-secondary: #{$color-white};
 }
 [data-theme='dark'] {
-  --color-primary: #{$color1};
-  --color-secondary: #{$color6};
-  --color-accent: #{$color3};
-  --background-primary: #{$color4};
-  --background-secondary: #{$color5};
+  --color-primary: #{$color-white};
+  --color-secondary: #{$color-mishka};
+  --color-accent: #{$color-dodger-blue};
+  --background-primary: #{$color-black};
+  --background-secondary: #{$color-bunker};
 }
 [data-theme='light'] {
-  --color-primary: #{$color4};
-  --color-secondary: #{$color6};
-  --color-accent: #{$color3};
-  --background-primary: #{$color2};
-  --background-secondary: #{$color1};
+  --color-primary: #{$color-black};
+  --color-secondary: #{$color-mishka};
+  --color-accent: #{$color-dodger-blue};
+  --background-primary: #{$color-solitude};
+  --background-secondary: #{$color-white};
 }
