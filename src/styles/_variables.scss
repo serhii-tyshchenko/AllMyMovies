@@ -31,10 +31,11 @@ $teal: #20c997;
 $cyan: #17a2b8;
 $grey: #adb5bd;
 
-// screen sizes
-$break-320: 320px;
-$break-480: 480px;
-$break-640: 640px;
-$break-768: 768px;
-$break-960: 960px;
-$break-1140: 1140px;
+// media breaks
+$break-4k: 2560px;
+$break-laptop-large: 1440px;
+$break-laptop: 1024px;
+$break-tablet: 768px;
+$break-mobile-large: 425px;
+$break-mobile-medium: 375px;
+$break-mobile-small: 320px;
