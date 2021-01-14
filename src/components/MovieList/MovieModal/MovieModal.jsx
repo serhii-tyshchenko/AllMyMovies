@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import { useContext } from 'react';
 import { Localization } from 'contexts';
 import PropTypes from 'prop-types';
@@ -24,34 +25,13 @@ const MovieModal = (props) => {
           <h4 className="movie-modal__title">{Title}</h4>
           <p className="movie-modal__plot">{Plot}</p>
           <ul className="movie-modal__info">
-            <li>
-              <strong>Genre:</strong>
-              {Genre}
-            </li>
-            <li>
-              <strong>Cast:</strong>
-              {Actors}
-            </li>
-            <li>
-              <strong>Director:</strong>
-              {Director}
-            </li>
-            <li>
-              <strong>Country:</strong>
-              {Country}
-            </li>
-            <li>
-              <strong>Duration:</strong>
-              {Runtime}
-            </li>
-            <li>
-              <strong>Release:</strong>
-              {Year}
-            </li>
-            <li>
-              <strong>Rating:</strong>
-              {imdbRating}
-            </li>
+            <li><strong>{STR.GENRE}:</strong>{Genre}</li>
+            <li><strong>{STR.CAST}:</strong>{Actors}</li>
+            <li><strong>{STR.DIRECTOR}:</strong>{Director}</li>
+            <li><strong>{STR.COUNTRY}:</strong>{Country}</li>
+            <li><strong>{STR.DURATION}:</strong>{Runtime}</li>
+            <li><strong>{STR.RELEASE}:</strong>{Year}</li>
+            <li><strong>{STR.RATING}:</strong>{imdbRating}</li>
           </ul>
         </div>
       </div>
