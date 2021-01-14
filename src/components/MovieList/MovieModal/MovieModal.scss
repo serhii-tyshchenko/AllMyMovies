@@ -4,13 +4,18 @@
   max-width: 700px;
   &__content {
     display: flex;
+    max-height: calc(100vh - 144px);
+    padding: 0 10px;
+    overflow-y: auto;
   }
   &__title {
     margin-bottom: 0.5em;
     font-size: 1.5rem;
   }
   &__plot {
-    font-style: italic;
+    font: 1.25rem $font-secondary;
+    line-height: 1.25em;
+    text-align: left;
   }
   &__poster {
     align-self: flex-start;
@@ -18,19 +23,24 @@
     margin-right: 1rem;
   }
   &__info {
+    font: 1rem $font-secondary;
     list-style-type: none;
     li {
-      margin-bottom: 0.75em;
+      margin-bottom: 0.5em;
+      font: inherit;
+      line-height: 1.4em;
     }
     strong {
       margin-right: 0.5em;
-      font-weight: 900;
+      font: inherit;
+      font-weight: 600;
     }
   }
 }
 
 @media only screen and (max-width: $break-tablet) {
   .movie-modal {
+    max-width: 480px;
     &__content {
       flex-direction: column;
     }
@@ -40,15 +50,25 @@
       max-width: 320px;
       margin: 0 0 1rem;
     }
-    &__title,
-    &__plot {
-      text-align: center;
-    }
     &__title {
+      text-align: center;
       margin-bottom: 1.25rem;
     }
     &__plot {
       margin-bottom: 1.25rem;
+    }
+  }
+}
+
+@media only screen and (max-width: $break-mobile-large) {
+  .movie-modal {
+    max-width: 700px;
+    &__content {
+      max-height: calc(100vh - 96px);
+      padding: 0;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }
