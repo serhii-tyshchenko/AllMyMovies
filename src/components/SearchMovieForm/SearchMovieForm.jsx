@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Localization } from 'contexts';
 import { useDispatch } from 'react-redux';
 import { searchMovie } from 'store/actions';
@@ -9,12 +10,14 @@ import './SearchMovieForm.scss';
 const SearchMovieForm = React.memo(() => {
   const STR = useContext(Localization);
   const dispatch = useDispatch();
+  const history = useHistory();
   const [query, setQuery] = useState('');
 
   function handleSubmit(evt) {
     if (query) {
       evt.preventDefault();
       dispatch(searchMovie(query));
+      history.push('/');
     }
   }
   function handleChange(evt) {
