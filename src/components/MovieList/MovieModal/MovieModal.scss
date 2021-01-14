@@ -23,8 +23,8 @@
       margin-bottom: 0.75em;
     }
     strong {
-      font-weight: 900;
       margin-right: 0.5em;
+      font-weight: 900;
     }
   }
 }
@@ -41,8 +41,7 @@
       margin: 0 0 1rem;
     }
     &__title,
-    &__plot,
-    &__info {
+    &__plot {
       text-align: center;
     }
     &__title {
