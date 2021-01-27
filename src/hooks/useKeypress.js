@@ -7,10 +7,8 @@ function useKeypress(key, action) {
         action();
       }
     }
-    console.log('mounted');
     window.addEventListener('keyup', onKeyup);
     return () => {
-      console.log('unmounted');
       window.removeEventListener('keyup', onKeyup);
     };
   }, []);
