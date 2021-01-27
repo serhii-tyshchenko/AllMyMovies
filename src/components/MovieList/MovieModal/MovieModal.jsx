@@ -17,7 +17,7 @@ const MovieModal = (props) => {
   } = props;
   const STR = useContext(Localization);
 
-  return (
+  return isVisible ? (
     <UIModal isVisible={isVisible} onClose={onClose} title={STR.MOVIE_INFO} extraClassName="movie-modal">
       <div className="movie-modal__content">
         <img src={posterUrl !== 'N/A' ? posterUrl : noImage} alt={Title} className="movie-modal__poster" />
@@ -36,7 +36,7 @@ const MovieModal = (props) => {
         </div>
       </div>
     </UIModal>
-  );
+  ) : null;
 };
 
 MovieModal.defaultProps = {

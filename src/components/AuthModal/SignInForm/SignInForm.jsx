@@ -21,6 +21,7 @@ const SignInForm = (props) => {
         extraClassName="signin-form__input"
         placeholder={STR.YOUR_EMAIL}
         onChange={onChange}
+        autofocus
         required
       />
       <UIInput

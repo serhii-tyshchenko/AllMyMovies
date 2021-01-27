@@ -52,7 +52,7 @@ const AuthModal = () => {
     setFormData(initialFormData);
   }
 
-  return (
+  return isModalVisible ? (
     <UIModal isVisible={isModalVisible} onClose={onModalClose} title={STR.AUTHENIFICATION}>
       <UITabs labels={[STR.SIGN_IN, STR.SIGN_UP]} extraClassName="auth-form__tabs" onTabClick={onFormReset}>
         <SignInForm
@@ -73,7 +73,8 @@ const AuthModal = () => {
         STR={STR}
       />
     </UIModal>
-  );
+  )
+    : null;
 };
 
 export { AuthModal };

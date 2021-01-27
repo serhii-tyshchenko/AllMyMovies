@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-autofocus */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -5,7 +6,7 @@ import './UIInput.scss';
 
 const UIInput = (props) => {
   const {
-    type, name, value, onChange, extraClassName, placeholder, required,
+    type, name, value, onChange, extraClassName, placeholder, required, autofocus,
   } = props;
   const componentClassName = extraClassName ? `ui-input ${extraClassName}` : 'ui-input';
 
@@ -18,6 +19,7 @@ const UIInput = (props) => {
       onChange={onChange}
       placeholder={placeholder}
       required={required}
+      autoFocus={autofocus}
     />
   );
 };
@@ -30,6 +32,7 @@ UIInput.defaultProps = {
   name: 'ui-input',
   placeholder: '',
   required: false,
+  autofocus: false,
 };
 
 UIInput.propTypes = {
@@ -40,6 +43,7 @@ UIInput.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   required: PropTypes.bool,
+  autofocus: PropTypes.bool,
 };
 
 export { UIInput };
