@@ -30,6 +30,7 @@ const translations = {
     DURATION: 'Duration',
     RELEASE: 'Release',
     RATING: 'Rating',
+    CLOSE: 'Close',
   },
   ua: {
     SIGN_IN: 'Увійти',
@@ -56,6 +57,7 @@ const translations = {
     DURATION: 'Тривалість',
     RELEASE: 'Рік',
     RATING: 'Рейтинг',
+    CLOSE: 'Закрити',
   },
   ru: {
     SIGN_IN: 'Войти',
@@ -82,6 +84,7 @@ const translations = {
     DURATION: 'Продолжительность',
     RELEASE: 'Год',
     RATING: 'Рейтинг',
+    CLOSE: 'Закрыть',
   },
 };
 
