@@ -5,6 +5,7 @@
   --color-accent: #{$color-dodger-blue};
   --background-primary: #{$color-solitude};
   --background-secondary: #{$color-white};
+  --background-skeleton: #{darken($color-white, 10%)};
 }
 [data-theme='dark'] {
   --color-primary: #{$color-white};
@@ -12,6 +13,7 @@
   --color-accent: #{$color-dodger-blue};
   --background-primary: #{$color-black};
   --background-secondary: #{$color-bunker};
+  --background-skeleton: #{lighten($color-bunker, 10%)};
 }
 [data-theme='light'] {
   --color-primary: #{$color-black};
@@ -19,4 +21,5 @@
   --color-accent: #{$color-dodger-blue};
   --background-primary: #{$color-solitude};
   --background-secondary: #{$color-white};
+  --background-skeleton: #{darken($color-white, 10%)};
 }
