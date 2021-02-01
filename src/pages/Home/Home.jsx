@@ -1,6 +1,4 @@
-import React from 'react';
-import { MovieList } from 'components';
-import { Header, Nav } from '../_Layout';
+import { MovieList, Header, Nav } from 'components';
 
 const Home = () => (
   <>
