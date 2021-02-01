@@ -3,7 +3,7 @@ import { data } from './_data';
 import { movieInfo } from './_movie-info';
 import { searchResults } from './_search-results';
 import { user } from './_user';
-import { error } from './_error';
+import { api } from './_api';
 import { settings } from './_settings';
 import { modals } from './_modals';
 
@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   searchResults,
   user,
   settings,
-  error,
+  api,
   modals,
 });
 
