@@ -8,6 +8,9 @@
     padding: 0 10px;
     overflow-y: auto;
   }
+  &__details {
+    flex-grow: 1;
+  }
   &__title {
     margin-bottom: 0.5em;
     font-size: 1.5rem;
@@ -18,15 +21,20 @@
     text-align: left;
   }
   &__poster {
+    display: flex;
     align-self: flex-start;
-    width: 240px;
+    min-width: 240px;
+    min-height: 350px;
     margin-right: 1rem;
+    img {
+      width: 240px;
+      height: auto;
+    }
   }
   &__info {
     font: 1rem $font-secondary;
     list-style-type: none;
     li {
-      margin-bottom: 0.5em;
       font: inherit;
       line-height: 1.4em;
     }
@@ -46,13 +54,15 @@
     }
     &__poster {
       align-self: center;
-      width: 100%;
-      max-width: 320px;
       margin: 0 0 1rem;
+      img {
+        width: 100%;
+        max-width: 320px;
+      }
     }
     &__title {
-      text-align: center;
       margin-bottom: 1.25rem;
+      text-align: center;
     }
     &__plot {
       margin-bottom: 1.25rem;
