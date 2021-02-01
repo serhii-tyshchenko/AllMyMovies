@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   updateItem,
   removeItem,
-  hideModal,
   showModal,
   getMovieInfo,
 } from 'store/actions';
@@ -15,13 +14,10 @@ import './MovieList.scss';
 const MovieList = () => {
   const pathname = useLocation().pathname.slice(1);
   const dispatch = useDispatch();
-  const {
-    user: { uid }, modals,
-  } = useSelector((state) => state);
+  const uid = useSelector((state) => state.user.uid);
   const data = pathname
     ? useSelector((state) => state.data).filter((item) => item.lists.includes(pathname))
     : useSelector((state) => state.searchResults);
-  const movieData = useSelector((state) => state.movieInfo);
 
   function handleAddToListClick(id, lists) {
     const item = data.find((el) => el.imdbID === id);
@@ -33,31 +29,22 @@ const MovieList = () => {
   }
   function handleShowInfoClick(id) {
     dispatch(getMovieInfo(id));
-    dispatch(showModal({ modalName: 'fav', data: null }));
-  }
-  function handleModalClose() {
-    dispatch(hideModal('fav'));
+    dispatch(showModal({ modalName: 'fav' }));
   }
 
   return (
     <>
-      <section className="movie-list">
-        <ul className="movie-list__list">
-          {data.map((item) => (
-            <MovieListItem
-              key={item.imdbID}
-              data={item}
-              onAddToListClick={handleAddToListClick}
-              onShowInfoClick={handleShowInfoClick}
-            />
-          ))}
-        </ul>
-      </section>
-      <MovieModal
-        isVisible={modals.fav.isVisible}
-        onClose={handleModalClose}
-        data={movieData}
-      />
+      <ul className="movie-list">
+        {data.map((item) => (
+          <MovieListItem
+            key={item.imdbID}
+            data={item}
+            onAddToListClick={handleAddToListClick}
+            onShowInfoClick={handleShowInfoClick}
+          />
+        ))}
+      </ul>
+      <MovieModal />
     </>
   );
 };
