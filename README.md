@@ -11,9 +11,3 @@
 - OMDB API
 - Google Firebase
 - Local Storage
-
-## TODO
-
-- [ ] Add user custom lists
-- [ ] Add sorting to Movie list
-- [ ] Refactor Movie item menu

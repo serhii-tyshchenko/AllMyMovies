@@ -1,6 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { api } from 'services';
-import { ERROR, GET_MOVIE_INFO } from '../action-types';
+import {
+  ERROR,
+  GET_MOVIE_INFO,
+  REQUEST_STARTED,
+  REQUEST_ENDED,
+} from '../action-types';
 
 function actionError(message) {
   return {
@@ -10,6 +15,7 @@ function actionError(message) {
 }
 
 export const getMovieInfo = (id) => (dispatch) => {
+  dispatch({ type: REQUEST_STARTED });
   api
     .getMovieInfo(id)
     .then((data) => {
@@ -19,5 +25,6 @@ export const getMovieInfo = (id) => (dispatch) => {
         dispatch(actionError(data.Error));
       }
     })
-    .catch((error) => dispatch(actionError(error.message)));
+    .catch((error) => dispatch(actionError(error.message)))
+    .finally(() => dispatch({ type: REQUEST_ENDED }));
 };

@@ -8,6 +8,7 @@
   width: 100%;
   padding: 20px 0;
   background-color: var(--background-secondary);
+  opacity: 0.98;
   &__content {
     display: flex;
     align-items: center;
@@ -30,10 +31,15 @@
   }
 }
 
-@media screen and (max-width: $break-480) {
+@media screen and (max-width: $break-tablet) {
   .header {
     padding: 15px 0;
+    &__content {
+      flex-wrap: wrap;
+    }
     &__logo {
+      order: 1;
+      margin-right: 0;
       padding-left: 28px;
       background-size: 20px;
     }
@@ -41,8 +47,16 @@
       font-size: 1.5rem;
     }
     &__menu {
-      width: 150px;
-      font-size: 1.25rem;
+      order: 2;
+      width: 120px;
+      margin-left: 0;
+      font-size: 1.5rem;
     }
+  }
+}
+
+@media screen and (max-width: $break-mobile-large) {
+  .header {
+    position: static;
   }
 }

@@ -10,5 +10,7 @@ export const SIGN_UP = 'SIGN_UP';
 export const GET_SETTINGS = 'GET_SETTINGS';
 export const UPDATE_SETTINGS = 'UPDATE_SETTINGS';
 export const ERROR = 'ERROR';
+export const REQUEST_STARTED = 'REQUEST_STARTED';
+export const REQUEST_ENDED = 'REQUEST_ENDED';
 export const SHOW_MODAL = 'SHOW_MODAL';
 export const HIDE_MODAL = 'HIDE_MODAL';

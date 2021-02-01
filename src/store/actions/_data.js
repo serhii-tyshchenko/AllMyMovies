@@ -7,6 +7,8 @@ import {
   GET_ITEMS,
   ERROR,
   SEARCH_MOVIE,
+  REQUEST_STARTED,
+  REQUEST_ENDED,
 } from '../action-types';
 
 function actionError(message) {
@@ -17,6 +19,7 @@ function actionError(message) {
 }
 
 export const searchMovie = (query) => (dispatch) => {
+  dispatch({ type: REQUEST_STARTED });
   api
     .searchMovie(query)
     .then((data) => {
@@ -26,14 +29,17 @@ export const searchMovie = (query) => (dispatch) => {
         dispatch(actionError(data.Error));
       }
     })
-    .catch((error) => dispatch(actionError(error.message)));
+    .catch((error) => dispatch(actionError(error.message)))
+    .finally(() => dispatch({ type: REQUEST_ENDED }));
 };
 
 export const addItem = (uid, data) => (dispatch) => {
   if (uid) {
+    dispatch({ type: REQUEST_STARTED });
     db.addItem(uid, data)
       .then(() => dispatch({ type: ADD_ITEM, payload: data }))
-      .catch((error) => dispatch(actionError(error.message)));
+      .catch((error) => dispatch(actionError(error.message)))
+      .finally(() => dispatch({ type: REQUEST_ENDED }));
   } else {
     dispatch({ type: ADD_ITEM, payload: data });
   }
@@ -41,9 +47,11 @@ export const addItem = (uid, data) => (dispatch) => {
 
 export const updateItem = (uid, data) => (dispatch) => {
   if (uid) {
+    dispatch({ type: REQUEST_STARTED });
     db.updateItem(uid, data)
       .then(() => dispatch({ type: UPDATE_ITEM, payload: data }))
-      .catch((error) => dispatch(actionError(error.message)));
+      .catch((error) => dispatch(actionError(error.message)))
+      .finally(() => dispatch({ type: REQUEST_ENDED }));
   } else {
     dispatch({ type: UPDATE_ITEM, payload: data });
   }
@@ -51,20 +59,24 @@ export const updateItem = (uid, data) => (dispatch) => {
 
 export const removeItem = (uid, id) => (dispatch) => {
   if (uid) {
+    dispatch({ type: REQUEST_STARTED });
     db.removeItem(uid, id)
       .then(() => dispatch({ type: REMOVE_ITEM, payload: id }))
-      .catch((error) => dispatch(actionError(error.message)));
+      .catch((error) => dispatch(actionError(error.message)))
+      .finally(() => dispatch({ type: REQUEST_ENDED }));
   } else {
     dispatch({ type: REMOVE_ITEM, payload: id });
   }
 };
 
 export const getItems = (uid) => (dispatch) => {
+  dispatch({ type: REQUEST_STARTED });
   db.getItems(uid)
     .then((response) => {
       const data = [];
       response.forEach((item) => data.push(item.data()));
       dispatch({ type: GET_ITEMS, payload: data });
     })
-    .catch((error) => dispatch(actionError(error.message)));
+    .catch((error) => dispatch(actionError(error.message)))
+    .finally(() => dispatch({ type: REQUEST_ENDED }));
 };
