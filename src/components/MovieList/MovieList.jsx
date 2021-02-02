@@ -7,7 +7,6 @@ import {
   getMovieInfo,
 } from 'store/actions';
 import { useLocation } from 'react-router-dom';
-import { MovieListItemSkeleton } from './MovieListItemSkeleton';
 import { MovieModal } from './MovieModal';
 import { MovieListItem } from './MovieListItem';
 
@@ -37,16 +36,18 @@ const MovieList = () => {
 
   return (
     <>
-      <ul className="movie-list">
-        {!isLoading ? data.map((item) => (
-          <MovieListItem
-            key={item.imdbID}
-            data={item}
-            onAddToListClick={handleAddToListClick}
-            onShowInfoClick={handleShowInfoClick}
-          />
-        )) : [1, 2, 3, 4, 5].map((item, index) => (<MovieListItemSkeleton key={`id-${index}`} />))}
-      </ul>
+      {!isLoading ? (
+        <ul className="movie-list">
+          {data.map((item) => (
+            <MovieListItem
+              key={item.imdbID}
+              data={item}
+              onAddToListClick={handleAddToListClick}
+              onShowInfoClick={handleShowInfoClick}
+            />
+          ))}
+        </ul>
+      ) : 'Loading...'}
       <MovieModal />
     </>
   );
