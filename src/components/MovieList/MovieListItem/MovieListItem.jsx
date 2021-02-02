@@ -34,6 +34,7 @@ const MovieListItem = React.memo((props) => {
         height="480"
         className="movie-list-item__poster"
         onClick={handleShowInfoClick}
+        loading="lazy"
       />
       <div className="movie-list-item__details">
         <span className="movie-list-item__title">{title}</span>

@@ -6,9 +6,9 @@ import {
 } from 'store/actions';
 import { Localization } from 'contexts';
 import { UIModal } from 'components';
-import { MovieInfoSkeleton } from 'skeletons';
 import PropTypes from 'prop-types';
 import noImage from 'assets/images/no-image.jpg';
+import { MovieModalSkeleton } from './MovieModalSkeleton';
 
 import './MovieModal.scss';
 
@@ -46,7 +46,7 @@ const MovieModal = () => {
             </ul>
           </div>
         </div>
-      ) : <MovieInfoSkeleton />}
+      ) : <MovieModalSkeleton />}
     </UIModal>
   ) : null;
 };

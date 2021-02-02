@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { useSelector, useDispatch } from 'react-redux';
 import {
   updateItem,
@@ -6,6 +7,7 @@ import {
   getMovieInfo,
 } from 'store/actions';
 import { useLocation } from 'react-router-dom';
+import { MovieListItemSkeleton } from './MovieListItemSkeleton';
 import { MovieModal } from './MovieModal';
 import { MovieListItem } from './MovieListItem';
 
@@ -15,6 +17,7 @@ const MovieList = () => {
   const pathname = useLocation().pathname.slice(1);
   const dispatch = useDispatch();
   const uid = useSelector((state) => state.user.uid);
+  const isLoading = useSelector((state) => state.api.isLoading);
   const data = pathname
     ? useSelector((state) => state.data).filter((item) => item.lists.includes(pathname))
     : useSelector((state) => state.searchResults);
@@ -35,14 +38,14 @@ const MovieList = () => {
   return (
     <>
       <ul className="movie-list">
-        {data.map((item) => (
+        {!isLoading ? data.map((item) => (
           <MovieListItem
             key={item.imdbID}
             data={item}
             onAddToListClick={handleAddToListClick}
             onShowInfoClick={handleShowInfoClick}
           />
-        ))}
+        )) : [1, 2, 3, 4, 5].map((item, index) => (<MovieListItemSkeleton key={`id-${index}`} />))}
       </ul>
       <MovieModal />
     </>
