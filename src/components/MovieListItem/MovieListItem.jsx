@@ -3,20 +3,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import noimage from 'assets/images/no-image.jpg';
-import { MovieListItemMenu } from './MovieListItemMenu';
+import { MovieMenu } from 'components';
 
 import './MovieListItem.scss';
 
 const MovieListItem = React.memo((props) => {
   const {
     data: {
-      Title: title, Poster: posterUrl, Year: year, imdbID: id, lists,
+      Title: title, Poster: posterUrl, Year: year, imdbID: id,
     },
-    onAddToListClick, onShowInfoClick,
+    onShowInfoClick,
   } = props;
-  function handleAddToListClick(data) {
-    onAddToListClick(id, data);
-  }
   function handleShowInfoClick() {
     onShowInfoClick(id);
   }
@@ -24,10 +21,7 @@ const MovieListItem = React.memo((props) => {
 
   return (
     <li id={id} className="movie-list-item">
-      <MovieListItemMenu
-        data={lists}
-        onAddToListClick={handleAddToListClick}
-      />
+      <MovieMenu id={id} />
       <img
         src={posterURL}
         alt={title}
@@ -47,7 +41,6 @@ const MovieListItem = React.memo((props) => {
 
 MovieListItem.propTypes = {
   data: PropTypes.shape().isRequired,
-  onAddToListClick: PropTypes.func.isRequired,
   onShowInfoClick: PropTypes.func.isRequired,
 };
 
