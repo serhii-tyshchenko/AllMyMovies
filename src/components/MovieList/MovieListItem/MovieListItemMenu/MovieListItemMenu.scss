@@ -3,7 +3,7 @@
 .movie-list-item-menu {
   position: relative;
   z-index: 20;
-  &__btn {
+  &__toggler {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -25,18 +25,18 @@
     border-radius: 4px;
     list-style-type: none;
     background: var(--background-secondary);
-    li {
-      label {
-        display: block;
-        padding: 0.75em 0.5em;
-        &:hover {
-          background: var(--background-primary);
-          cursor: pointer;
-        }
+  }
+  &__item {
+    label {
+      display: block;
+      padding: 0.75em 0.5em;
+      &:hover {
+        background: var(--background-primary);
+        cursor: pointer;
       }
-      input {
-        margin-right: 0.5rem;
-      }
+    }
+    input {
+      margin-right: 0.5rem;
     }
   }
 }

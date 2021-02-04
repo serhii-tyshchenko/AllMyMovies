@@ -1,12 +1,29 @@
 @import '~styles/variables';
+@import '~styles/mixins';
 
 .movie-modal {
   max-width: 700px;
+  @include for-size(tablet) {
+    max-width: 480px;
+  }
+  @include for-size(mobile-large) {
+    max-width: 100%;
+  }
   &__content {
     display: flex;
     max-height: calc(100vh - 144px);
     padding: 0 10px;
     overflow-y: auto;
+    @include for-size(tablet) {
+      flex-direction: column;
+    }
+    @include for-size(mobile-large) {
+      max-height: calc(100vh - 96px);
+      padding: 0;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
   &__details {
     flex-grow: 1;
@@ -14,21 +31,30 @@
   &__title {
     margin-bottom: 0.5em;
     font-size: 1.5rem;
+    @include for-size(tablet) {
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
   }
   &__plot {
     font: 1.25rem $font-secondary;
     line-height: 1.25em;
     text-align: left;
+    @include for-size(tablet) {
+      margin-bottom: 1.25rem;
+    }
   }
   &__poster {
-    display: flex;
-    align-self: flex-start;
-    min-width: 240px;
+    flex-shrink: 0;
+    width: 240px;
+    height: auto;
     min-height: 350px;
     margin-right: 1rem;
-    img {
-      width: 240px;
-      height: auto;
+    @include for-size(tablet) {
+      align-self: center;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 0 1rem;
     }
   }
   &__info {
@@ -42,43 +68,6 @@
       margin-right: 0.5em;
       font: inherit;
       font-weight: 600;
-    }
-  }
-}
-
-@media only screen and (max-width: $break-tablet) {
-  .movie-modal {
-    max-width: 480px;
-    &__content {
-      flex-direction: column;
-    }
-    &__poster {
-      align-self: center;
-      margin: 0 0 1rem;
-      img {
-        width: 100%;
-        max-width: 320px;
-      }
-    }
-    &__title {
-      margin-bottom: 1.25rem;
-      text-align: center;
-    }
-    &__plot {
-      margin-bottom: 1.25rem;
-    }
-  }
-}
-
-@media only screen and (max-width: $break-mobile-large) {
-  .movie-modal {
-    max-width: 700px;
-    &__content {
-      max-height: calc(100vh - 96px);
-      padding: 0;
-      &::-webkit-scrollbar {
-        display: none;
-      }
     }
   }
 }

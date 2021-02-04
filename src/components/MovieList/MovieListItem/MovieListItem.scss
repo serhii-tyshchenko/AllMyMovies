@@ -1,10 +1,14 @@
 @import '~styles/variables';
+@import '~styles/mixins';
 
 .movie-list-item {
   position: relative;
   width: 100%;
   max-width: 320px;
   margin-bottom: 3rem;
+  @include for-size(tablet) {
+    margin-bottom: 1.5rem;
+  }
   &__poster {
     display: block;
     width: 100%;
@@ -13,6 +17,9 @@
     transition: opacity 300ms ease-in;
     object-fit: cover;
     object-position: left top;
+    @include for-size(mobile-large) {
+      height: auto;
+    }
     &:hover {
       cursor: pointer;
       opacity: 0.5;
@@ -26,18 +33,5 @@
   &__title {
     margin-right: 1rem;
     font-size: 1.25rem;
-  }
-}
-@media screen and (max-width: $break-tablet) {
-  .movie-list-item {
-    margin-bottom: 1.5rem;
-  }
-}
-
-@media screen and (max-width: $break-mobile-large) {
-  .movie-list-item {
-    &__poster {
-      height: auto;
-    }
   }
 }

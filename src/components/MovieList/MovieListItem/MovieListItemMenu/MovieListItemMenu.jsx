@@ -32,10 +32,10 @@ const MovieListItemMenu = React.memo((props) => {
 
   return (
     <div className="movie-list-item-menu">
-      <UIIconButton onClick={handleMenuClick} icon="menu" extraClassName="movie-list-item-menu__btn" />
+      <UIIconButton onClick={handleMenuClick} icon="menu" extraClassName="movie-list-item-menu__toggler" />
       {isMenuOpened && (
         <ul className="movie-list-item-menu__items">
-          <li>
+          <li className="movie-list-item-menu__item">
             <label>
               <input
                 type="checkbox"
@@ -46,13 +46,13 @@ const MovieListItemMenu = React.memo((props) => {
               Watch later
             </label>
           </li>
-          <li>
+          <li className="movie-list-item-menu__item">
             <label>
               <input type="checkbox" value="watched" onChange={handleListCheckboxClick} checked={lists.includes('watched')} />
               Watched
             </label>
           </li>
-          <li>
+          <li className="movie-list-item-menu__item">
             <label>
               <input type="checkbox" value="favourites" onChange={handleListCheckboxClick} checked={lists.includes('favourites')} />
               Favourites

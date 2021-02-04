@@ -1,7 +1,12 @@
 @import '~styles/variables';
+@import '~styles/mixins';
 
 .movie-modal-skeleton {
   display: flex;
+  @include for-size(tablet) {
+    flex-direction: column;
+    justify-content: center;
+  }
   &__details {
     flex-grow: 1;
   }
@@ -10,44 +15,32 @@
     min-width: 240px;
     min-height: 350px;
     margin-right: 1rem;
+    @include for-size(tablet) {
+      align-self: center;
+      margin: 0 0 1rem;
+    }
+    @include for-size(mobile-large) {
+      width: 300px;
+      height: 450px;
+      margin: 0 0 1rem;
+    }
   }
   &__title {
     flex-basis: 50%;
     height: 30px;
     margin-bottom: 1rem;
+    @include for-size(tablet) {
+      margin-bottom: 1.25rem;
+    }
   }
   &__plot {
     height: 50px;
     margin-bottom: 1rem;
+    @include for-size(tablet) {
+      margin-bottom: 1.25rem;
+    }
   }
   &__info {
     height: 150px;
-  }
-}
-
-@media only screen and (max-width: $break-tablet) {
-  .movie-modal-skeleton {
-    flex-direction: column;
-    justify-content: center;
-    &__poster {
-      align-self: center;
-      margin: 0 0 1rem;
-    }
-    &__title {
-      margin-bottom: 1.25rem;
-    }
-    &__plot {
-      margin-bottom: 1.25rem;
-    }
-  }
-}
-
-@media only screen and (max-width: $break-mobile-large) {
-  .movie-modal-skeleton {
-    &__poster {
-      width: 300px;
-      height: 450px;
-      margin: 0 0 1rem;
-    }
   }
 }
