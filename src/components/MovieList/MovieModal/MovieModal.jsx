@@ -29,9 +29,7 @@ const MovieModal = () => {
     <UIModal isVisible={isVisible} onClose={handleModalClose} title={STR.MOVIE_INFO} extraClassName="movie-modal">
       {!isLoading ? (
         <div className="movie-modal__content">
-          <div className="movie-modal__poster">
-            <img src={posterSrc} alt={Title} width="240" height="350" />
-          </div>
+          <img src={posterSrc} alt={Title} width="240" height="350" className="movie-modal__poster" />
           <div className="movie-modal__details">
             <h4 className="movie-modal__title">{Title}</h4>
             <p className="movie-modal__plot">{Plot}</p>
