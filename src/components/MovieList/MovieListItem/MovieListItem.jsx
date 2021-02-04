@@ -20,6 +20,7 @@ const MovieListItem = React.memo((props) => {
   function handleShowInfoClick() {
     onShowInfoClick(id);
   }
+  const posterURL = posterUrl !== 'N/A' ? posterUrl : noimage;
 
   return (
     <li id={id} className="movie-list-item">
@@ -28,7 +29,7 @@ const MovieListItem = React.memo((props) => {
         onAddToListClick={handleAddToListClick}
       />
       <img
-        src={posterUrl !== 'N/A' ? posterUrl : noimage}
+        src={posterURL}
         alt={title}
         width="320"
         height="480"
