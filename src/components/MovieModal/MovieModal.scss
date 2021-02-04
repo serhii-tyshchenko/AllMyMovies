@@ -45,16 +45,21 @@
     }
   }
   &__poster {
+    position: relative;
     flex-shrink: 0;
-    width: 240px;
-    height: auto;
-    min-height: 350px;
     margin-right: 1rem;
     @include for-size(tablet) {
       align-self: center;
-      width: 100%;
-      max-width: 300px;
       margin: 0 0 1rem;
+    }
+    img {
+      width: 240px;
+      height: auto;
+      min-height: 350px;
+      @include for-size(tablet) {
+        width: 100%;
+        max-width: 300px;
+      }
     }
   }
   &__info {

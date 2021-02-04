@@ -1,12 +1,13 @@
 @import '~styles/_variables';
 
-.movie-list-item-menu {
-  position: relative;
+.movie-menu {
+  position: absolute;
   z-index: 20;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.25rem;
+  opacity: 0.9;
   &__toggler {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,24 +20,32 @@
   }
   &__items {
     position: absolute;
-    top: 3.4rem;
-    right: 1rem;
-    padding: 4px 0;
+    top: 2.25rem;
+    right: 0;
+    padding: 0.5rem 0;
     border-radius: 4px;
     list-style-type: none;
     background: var(--background-secondary);
   }
   &__item {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    &:hover {
+      background: var(--background-primary);
+      cursor: pointer;
+    }
     label {
-      display: block;
-      padding: 0.75em 0.5em;
-      &:hover {
-        background: var(--background-primary);
-        cursor: pointer;
-      }
+      padding: 0.5em;
+
+      font-size: inherit;
+      width: max-content;
+      cursor: pointer;
     }
     input {
-      margin-right: 0.5rem;
+      font-size: inherit;
+      margin-right: 0.75em;
+      cursor: pointer;
     }
   }
 }
