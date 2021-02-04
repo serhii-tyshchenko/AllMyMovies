@@ -1,11 +1,9 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   updateItem, removeItem,
 } from 'store/actions';
-// import PropTypes from 'prop-types';
 import { Localization } from 'contexts';
 import { UIIconButton } from 'components';
 
@@ -45,16 +43,22 @@ const MovieMenu = (props) => {
       {isMenuOpened && (
         <ul className="movie-menu__items">
           <li className="movie-menu__item">
-            <input type="checkbox" id="watch-later" value="watch-later" onChange={handleChange} checked={lists.includes('watch-later')} />
-            <label htmlFor="watch-later">{STR.WATCH_LATER}</label>
+            <label htmlFor="watch-later">
+              <input type="checkbox" id="watch-later" value="watch-later" onChange={handleChange} checked={lists.includes('watch-later')} />
+              {STR.WATCH_LATER}
+            </label>
           </li>
           <li className="movie-menu__item">
-            <input type="checkbox" id="watched" value="watched" onChange={handleChange} checked={lists.includes('watched')} />
-            <label htmlFor="watched">{STR.WATCHED}</label>
+            <label htmlFor="watched">
+              <input type="checkbox" id="watched" value="watched" onChange={handleChange} checked={lists.includes('watched')} />
+              {STR.WATCHED}
+            </label>
           </li>
           <li className="movie-menu__item">
-            <input type="checkbox" id="favourites" value="favourites" onChange={handleChange} checked={lists.includes('favourites')} />
-            <label htmlFor="favourites">{STR.FAVOURITES}</label>
+            <label htmlFor="favourites">
+              <input type="checkbox" id="favourites" value="favourites" onChange={handleChange} checked={lists.includes('favourites')} />
+              {STR.FAVOURITES}
+            </label>
           </li>
         </ul>
       )}
