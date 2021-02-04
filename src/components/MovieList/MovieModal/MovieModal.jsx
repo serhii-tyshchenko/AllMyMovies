@@ -5,7 +5,7 @@ import {
   hideModal,
 } from 'store/actions';
 import { Localization } from 'contexts';
-import { UIModal } from 'components';
+import { UIModal, MovieMenu } from 'components';
 import PropTypes from 'prop-types';
 import noImage from 'assets/images/no-image.jpg';
 import { MovieModalSkeleton } from './MovieModalSkeleton';
@@ -18,9 +18,9 @@ const MovieModal = () => {
   const isLoading = useSelector((state) => state.api.isLoading);
   const isVisible = useSelector((state) => state.modals.fav.isVisible);
   const {
-    Title, Year, Poster: posterUrl, Runtime, Genre, Director, Country, Plot, imdbRating, Actors,
+    Title, Year, Poster, Runtime, Genre, Director, Country, Plot, imdbRating, Actors, imdbID,
   } = useSelector((state) => state.movieInfo);
-  const posterSrc = posterUrl !== 'N/A' ? posterUrl : noImage;
+  const posterSrc = Poster !== 'N/A' ? Poster : noImage;
   function handleModalClose() {
     dispatch(hideModal('fav'));
   }
@@ -29,7 +29,10 @@ const MovieModal = () => {
     <UIModal isVisible={isVisible} onClose={handleModalClose} title={STR.MOVIE_INFO} extraClassName="movie-modal">
       {!isLoading ? (
         <div className="movie-modal__content">
-          <img src={posterSrc} alt={Title} width="240" height="350" className="movie-modal__poster" />
+          <div className="movie-modal__poster">
+            <img src={posterSrc} alt={Title} width="240" height="350" />
+            <MovieMenu id={imdbID} />
+          </div>
           <div className="movie-modal__details">
             <h4 className="movie-modal__title">{Title}</h4>
             <p className="movie-modal__plot">{Plot}</p>
