@@ -16,7 +16,6 @@ const MovieList = () => {
   const pathname = useLocation().pathname.slice(1);
   const dispatch = useDispatch();
   const uid = useSelector((state) => state.user.uid);
-  const isLoading = useSelector((state) => state.api.isLoading);
   const data = pathname
     ? useSelector((state) => state.data).filter((item) => item.lists.includes(pathname))
     : useSelector((state) => state.searchResults);
@@ -36,18 +35,16 @@ const MovieList = () => {
 
   return (
     <>
-      {!isLoading ? (
-        <ul className="movie-list">
-          {data.map((item) => (
-            <MovieListItem
-              key={item.imdbID}
-              data={item}
-              onAddToListClick={handleAddToListClick}
-              onShowInfoClick={handleShowInfoClick}
-            />
-          ))}
-        </ul>
-      ) : 'Loading...'}
+      <ul className="movie-list">
+        {data.map((item) => (
+          <MovieListItem
+            key={item.imdbID}
+            data={item}
+            onAddToListClick={handleAddToListClick}
+            onShowInfoClick={handleShowInfoClick}
+          />
+        ))}
+      </ul>
       <MovieModal />
     </>
   );
