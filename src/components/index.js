@@ -6,4 +6,3 @@ export { AuthBtn } from './AuthBtn';
 export { AuthModal } from './AuthModal';
 export { SearchMovieForm } from './SearchMovieForm';
 export { MovieList } from './MovieList';
-export { MovieListItemMenu } from './MovieListItemMenu';
