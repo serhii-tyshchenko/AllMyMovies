@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
-import noImage from 'assets/images/no-image.svg';
+import noimage from 'assets/images/no-image.svg';
 import { MovieMenu } from 'components';
 
 import './MovieListItem.scss';
@@ -14,14 +14,10 @@ const MovieListItem = React.memo((props) => {
     },
     onShowInfoClick,
   } = props;
-  function handleError(e) {
-    e.target.onerror = null;
-    e.target.src = noImage;
-  }
   function handleShowInfoClick() {
     onShowInfoClick(id);
   }
-  const posterURL = (posterUrl && posterUrl !== 'N/A') ? posterUrl : noImage;
+  const posterURL = posterUrl !== 'N/A' ? posterUrl : noimage;
 
   return (
     <li id={id} className="movie-list-item">
@@ -34,7 +30,6 @@ const MovieListItem = React.memo((props) => {
         className="movie-list-item__poster"
         onClick={handleShowInfoClick}
         loading="lazy"
-        onError={handleError}
       />
       <div className="movie-list-item__details">
         <span className="movie-list-item__title">{title}</span>

@@ -1,4 +1,5 @@
 export * from './UI';
+export * from './ErrorBoundary';
 export * from './Layout';
 export { LanguageSelector } from './LanguageSelector';
 export { ThemeToggler } from './ThemeToggler';
