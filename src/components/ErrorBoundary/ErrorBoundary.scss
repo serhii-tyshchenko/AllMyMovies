@@ -8,9 +8,9 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 4rem;
-  color: $color-white;
+  color: var(--color-primary);
   border-radius: 10px;
-  background-color: var(--background-primary);
+  background-color: var(--background-secondary);
   transform: translate(-50%, -50%);
   &__title {
     margin-bottom: 1.5rem;
