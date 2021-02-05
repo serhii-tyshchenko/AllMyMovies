@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getItems, getSettings } from 'store/actions';
-import { AuthModal } from 'components';
+import { AuthModal, NotificationService } from 'components';
 import { Home } from 'pages';
 import {
   HashRouter as Router,
@@ -17,7 +17,7 @@ const App = () => {
       dispatch(getItems(uid));
       dispatch(getSettings(uid));
     }
-  }, []);
+  }, [isLogged]);
 
   return (
     <>
@@ -25,6 +25,7 @@ const App = () => {
         <Home />
       </Router>
       <AuthModal />
+      <NotificationService />
     </>
   );
 };

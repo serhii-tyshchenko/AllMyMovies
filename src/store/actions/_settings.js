@@ -2,15 +2,15 @@ import { db } from 'services';
 import {
   GET_SETTINGS,
   UPDATE_SETTINGS,
-  ERROR,
+  SHOW_NOTIFICATION,
   DB_REQUEST_STARTED,
   DB_REQUEST_ENDED,
 } from '../action-types';
 
 function actionError(message) {
   return {
-    type: ERROR,
-    payload: message,
+    type: SHOW_NOTIFICATION,
+    payload: { type: 'error', message },
   };
 }
 

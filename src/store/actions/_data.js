@@ -5,7 +5,7 @@ import {
   UPDATE_ITEM,
   REMOVE_ITEM,
   GET_ITEMS,
-  ERROR,
+  SHOW_NOTIFICATION,
   SEARCH_MOVIE,
   API_REQUEST_STARTED,
   API_REQUEST_ENDED,
@@ -15,8 +15,8 @@ import {
 
 function actionError(message) {
   return {
-    type: ERROR,
-    payload: message,
+    type: SHOW_NOTIFICATION,
+    payload: { type: 'error', message },
   };
 }
 
