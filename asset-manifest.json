@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/-PORTFOLIO-MyMoviesList/static/css/main.768ae14b.chunk.css",
+    "main.css": "/-PORTFOLIO-MyMoviesList/static/css/main.e1e1c229.chunk.css",
     "main.js": "/-PORTFOLIO-MyMoviesList/static/js/main.6f9a6e19.chunk.js",
     "main.js.map": "/-PORTFOLIO-MyMoviesList/static/js/main.6f9a6e19.chunk.js.map",
     "runtime-main.js": "/-PORTFOLIO-MyMoviesList/static/js/runtime-main.3855a685.js",
@@ -8,7 +8,7 @@
     "static/js/2.1c043da0.chunk.js": "/-PORTFOLIO-MyMoviesList/static/js/2.1c043da0.chunk.js",
     "static/js/2.1c043da0.chunk.js.map": "/-PORTFOLIO-MyMoviesList/static/js/2.1c043da0.chunk.js.map",
     "index.html": "/-PORTFOLIO-MyMoviesList/index.html",
-    "static/css/main.768ae14b.chunk.css.map": "/-PORTFOLIO-MyMoviesList/static/css/main.768ae14b.chunk.css.map",
+    "static/css/main.e1e1c229.chunk.css.map": "/-PORTFOLIO-MyMoviesList/static/css/main.e1e1c229.chunk.css.map",
     "static/js/2.1c043da0.chunk.js.LICENSE.txt": "/-PORTFOLIO-MyMoviesList/static/js/2.1c043da0.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/-PORTFOLIO-MyMoviesList/static/media/fontello.b6ea07db.ttf",
     "static/media/Header.scss": "/-PORTFOLIO-MyMoviesList/static/media/logo.1b1f6125.svg",
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.3855a685.js",
     "static/js/2.1c043da0.chunk.js",
-    "static/css/main.768ae14b.chunk.css",
+    "static/css/main.e1e1c229.chunk.css",
     "static/js/main.6f9a6e19.chunk.js"
   ]
 }
