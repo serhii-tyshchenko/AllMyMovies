@@ -39,7 +39,7 @@ const MovieMenu = (props) => {
 
   return (
     <div className="movie-menu">
-      <UIIconButton onClick={handleMenuClick} icon="menu" extraClassName="movie-menu__toggler" />
+      <UIIconButton onClick={handleMenuClick} icon="ellipsis-vert" extraClassName="movie-menu__toggler" />
       {isMenuOpened && (
         <ul className="movie-menu__items">
           <li className="movie-menu__item">

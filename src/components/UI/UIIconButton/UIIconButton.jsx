@@ -1,13 +1,13 @@
 /* eslint-disable react/button-has-type */
-import React from 'react';
 import PropTypes from 'prop-types';
+
 import './UIIconButton.scss';
 
 const UIIconButton = (props) => {
   const {
     icon, children, onClick, extraClassName, title, type,
   } = props;
-  const buttonClassName = extraClassName ? `ui-icon-button ui-icon-button--${icon} ${extraClassName}` : `ui-icon-button ui-icon-button--${icon}`;
+  const buttonClassName = extraClassName ? `ui-icon-button icon-${icon} ${extraClassName}` : `ui-icon-button icon-${icon}`;
 
   return (
     <button type={type} className={buttonClassName} onClick={onClick} title={title}>
