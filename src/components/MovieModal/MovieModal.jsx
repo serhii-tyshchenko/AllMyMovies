@@ -7,7 +7,7 @@ import {
 import { Localization } from 'contexts';
 import { UIModal, MovieMenu } from 'components';
 import PropTypes from 'prop-types';
-import noImage from 'assets/images/no-image.jpg';
+import noImage from 'assets/images/no-image.svg';
 import { MovieModalSkeleton } from './MovieModalSkeleton';
 
 import './MovieModal.scss';
