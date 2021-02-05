@@ -5,7 +5,7 @@ import './Main.scss';
 
 const Main = ({ children }) => (
   <main className="main">
-    <div className="main__content wrapper">
+    <div className="main__content">
       {children}
     </div>
   </main>

@@ -3,19 +3,34 @@
 
 .nav {
   $self: &;
+  $offset: 77px;
   position: fixed;
+  top: $offset;
   z-index: 100;
   flex-shrink: 0;
-  height: calc(100vh - 77px);
+  height: calc(100vh - #{$offset});
   padding: 20px 0;
   color: var(--color-primary);
   background-color: var(--background-secondary);
   opacity: 0.98;
   @include for-size(tablet) {
+    top: unset;
     bottom: 0;
     width: 100vw;
     height: auto;
     padding: 0;
+  }
+  &--collapsed {
+    #{ $self }-links__link {
+      font-size: 0;
+      &::before {
+        margin: 0;
+        font-size: 1.25rem;
+        @include for-size(tablet) {
+          font-size: 2rem;
+        }
+      }
+    }
   }
   &__content {
     position: relative;
@@ -33,18 +48,6 @@
     background: var(--background-secondary);
     @include for-size(tablet) {
       display: none;
-    }
-  }
-  &--collapsed {
-    #{ $self }-links__link {
-      font-size: 0;
-      &::before {
-        margin: 0;
-        font-size: 1.25rem;
-        @include for-size(tablet) {
-          font-size: 2rem;
-        }
-      }
     }
   }
 }

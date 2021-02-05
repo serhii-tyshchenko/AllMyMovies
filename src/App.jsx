@@ -7,7 +7,7 @@ import {
   HashRouter as Router,
 } from 'react-router-dom';
 
-function App() {
+const App = () => {
   const { uid, isLogged } = useSelector((state) => state.user);
   const theme = useSelector((state) => state.settings.theme);
   document.documentElement.setAttribute('data-theme', theme);
@@ -20,13 +20,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <>
       <Router>
         <Home />
       </Router>
       <AuthModal />
-    </div>
+    </>
   );
-}
+};
 
 export default App;

@@ -1,15 +1,15 @@
-import { MovieList, Header, Nav } from 'components';
+import {
+  MovieList, Nav, Main, Header,
+} from 'components';
 
 const Home = () => (
-  <>
+  <div className="container">
     <Header />
-    <main className="main">
-      <Nav />
-      <div className="main__content wrapper">
-        <MovieList />
-      </div>
-    </main>
-  </>
+    <Nav />
+    <Main>
+      <MovieList />
+    </Main>
+  </div>
 );
 
 export { Home };

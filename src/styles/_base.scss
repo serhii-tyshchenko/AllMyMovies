@@ -7,7 +7,7 @@ html {
   padding: 0;
   font: 1rem $font-primary;
 }
-.App {
+.container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -17,7 +17,6 @@ html {
   width: 100%;
   max-width: 1900px;
   margin: 0 auto;
-  padding: 0 15px;
 }
 ::-webkit-scrollbar {
   width: 4px;
