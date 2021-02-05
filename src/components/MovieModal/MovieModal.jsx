@@ -20,7 +20,11 @@ const MovieModal = () => {
   const {
     Title, Year, Poster, Runtime, Genre, Director, Country, Plot, imdbRating, Actors, imdbID,
   } = useSelector((state) => state.movieInfo);
-  const posterSrc = Poster !== 'N/A' ? Poster : noImage;
+  const posterSrc = (Poster && Poster !== 'N/A') ? Poster : noImage;
+  function handleError(e) {
+    e.target.onerror = null;
+    e.target.src = noImage;
+  }
   function handleModalClose() {
     dispatch(hideModal('fav'));
   }
@@ -30,7 +34,7 @@ const MovieModal = () => {
       {!isLoading ? (
         <div className="movie-modal__content">
           <div className="movie-modal__poster">
-            <img src={posterSrc} alt={Title} width="240" height="350" />
+            <img src={posterSrc} alt={Title} width="240" height="350" onError={handleError} />
             <MovieMenu id={imdbID} />
           </div>
           <div className="movie-modal__details">
