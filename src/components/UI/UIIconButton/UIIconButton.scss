@@ -6,4 +6,7 @@
   border: 0;
   background: inherit;
   cursor: pointer;
+  &__text {
+    font-size: 0;
+  }
 }

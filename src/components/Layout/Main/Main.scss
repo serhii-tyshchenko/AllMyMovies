@@ -15,6 +15,7 @@
     padding: 0 0 70px;
   }
   &__content {
+    width: 100%;
     padding: 30px 15px 30px 65px;
     @include for-size(tablet) {
       padding: 30px 15px;

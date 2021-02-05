@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { api } from 'services';
 import {
-  ERROR,
+  SHOW_NOTIFICATION,
   GET_MOVIE_INFO,
   API_REQUEST_STARTED,
   API_REQUEST_ENDED,
@@ -9,8 +9,8 @@ import {
 
 function actionError(message) {
   return {
-    type: ERROR,
-    payload: message,
+    type: SHOW_NOTIFICATION,
+    payload: { type: 'error', message },
   };
 }
 

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Localization } from 'contexts';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateSettings } from 'store/actions';
