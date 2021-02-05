@@ -1,9 +1,108 @@
 @font-face {
-    font-family: 'fontello';
-    src: url('~assets/fonts/fontello.ttf') format('truetype');
+  font-weight: normal;
+  font-family: 'fontello';
+  font-style: normal;
+  src: url('~assets/fonts/fontello.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
 }
+
+[class^='icon-']:before,
+[class*=' icon-']:before {
+  display: inline-block;
+  width: 1em;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  font-weight: normal;
+  font-family: 'fontello';
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1em;
+  text-align: center;
+  text-transform: none;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-minus:before {
+  content: '\2d';
+} /* '-' */
+.icon-star:before {
+  content: '\2605';
+} /* '★' */
+.icon-star-empty:before {
+  content: '\2606';
+} /* '☆' */
+.icon-cog:before {
+  content: '\2699';
+} /* '⚙' */
+.icon-eye:before {
+  content: '\e70a';
+} /* '' */
+.icon-eye-off:before {
+  content: '\e70b';
+} /* '' */
+.icon-user:before {
+  content: '\e800';
+} /* '' */
+.icon-ok:before {
+  content: '\e801';
+} /* '' */
+.icon-clock:before {
+  content: '\e802';
+} /* '' */
+.icon-trash-empty:before {
+  content: '\e803';
+} /* '' */
+.icon-left-open:before {
+  content: '\e804';
+} /* '' */
+.icon-right-open:before {
+  content: '\e805';
+} /* '' */
+.icon-plus:before {
+  content: '\e806';
+} /* '' */
+.icon-cancel:before {
+  content: '\e807';
+} /* '' */
+.icon-home:before {
+  content: '\e80c';
+} /* '' */
+.icon-heart:before {
+  content: '\e811';
+} /* '' */
+.icon-heart-empty:before {
+  content: '\e812';
+} /* '' */
+.icon-menu:before {
+  content: '\f0c9';
+} /* '' */
+.icon-ellipsis-vert:before {
+  content: '\f142';
+} /* '' */
+.icon-sun:before {
+  content: '\f185';
+} /* '' */
+.icon-moon:before {
+  content: '\f186';
+} /* '' */
+.icon-google:before {
+  content: '\f1a0';
+} /* '' */
+.icon-history:before {
+  content: '\f1da';
+} /* '' */
+.icon-trash:before {
+  content: '\f1f8';
+} /* '' */
+.icon-user-o:before {
+  content: '\f2c0';
+} /* '' */
+.icon-search:before {
+  content: '🔍';
+} /* '\1f50d' */

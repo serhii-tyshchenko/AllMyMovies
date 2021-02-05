@@ -15,12 +15,14 @@ import './MovieModal.scss';
 const MovieModal = () => {
   const dispatch = useDispatch();
   const STR = useContext(Localization);
-  const isLoading = useSelector((state) => state.api.isLoading);
   const isVisible = useSelector((state) => state.modals.fav.isVisible);
   const {
-    Title, Year, Poster, Runtime, Genre, Director, Country, Plot, imdbRating, Actors, imdbID,
+    isLoading, data: {
+      Title, Year, Poster, Runtime, Genre, Director, Country, Plot, imdbRating, Actors, imdbID,
+    },
   } = useSelector((state) => state.movieInfo);
   const posterSrc = (Poster && Poster !== 'N/A') ? Poster : noImage;
+
   function handleError(e) {
     e.target.onerror = null;
     e.target.src = noImage;

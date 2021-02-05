@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { createContext } from 'react';
+import { createContext } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getLocalization } from 'assets/localization';

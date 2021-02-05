@@ -6,6 +6,7 @@ import { user } from './_user';
 import { api } from './_api';
 import { settings } from './_settings';
 import { modals } from './_modals';
+import { notifications } from './_notifications';
 
 const rootReducer = combineReducers({
   data,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   settings,
   api,
   modals,
+  notifications,
 });
 
 export default rootReducer;

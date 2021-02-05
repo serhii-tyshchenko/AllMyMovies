@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getItems, getSettings } from 'store/actions';
-import { AuthModal } from 'components';
+import { AuthModal, NotificationService } from 'components';
 import { Home } from 'pages';
 import {
   HashRouter as Router,
 } from 'react-router-dom';
 
-function App() {
+const App = () => {
   const { uid, isLogged } = useSelector((state) => state.user);
   const theme = useSelector((state) => state.settings.theme);
   document.documentElement.setAttribute('data-theme', theme);
@@ -17,16 +17,17 @@ function App() {
       dispatch(getItems(uid));
       dispatch(getSettings(uid));
     }
-  }, []);
+  }, [isLogged]);
 
   return (
-    <div className="App">
+    <>
       <Router>
         <Home />
       </Router>
       <AuthModal />
-    </div>
+      <NotificationService />
+    </>
   );
-}
+};
 
 export default App;

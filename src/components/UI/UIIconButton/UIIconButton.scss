@@ -1,97 +1,12 @@
 @import '~styles/_variables';
 
 .ui-icon-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--color-primary);
   font-size: inherit;
-  border: none;
+  border: 0;
   background: inherit;
   cursor: pointer;
-  &::before {
-    display: inline-block;
-    width: 1em;
-    margin: 0 0.2em;
-    font-weight: normal;
-    font-family: $font-icon;
-    font-style: normal;
-    font-variant: normal;
-    line-height: 1em;
-    text-align: center;
-    text-transform: none;
-    text-decoration: inherit;
-  }
-  &--user:before {
-    content: '\e800';
-  }
-  &--user-o:before {
-    content: '\f2c0';
-  }
-  &--ok:before {
-    content: '\e801';
-  }
-  &--plus:before {
-    content: '\e806';
-  }
-  &--minus:before {
-    content: '\e802';
-  }
-  &--trash-empty:before {
-    content: '\e803';
-  }
-  &--star:before {
-    content: '\e804';
-  }
-  &--star-empty:before {
-    content: '\e805';
-  }
-  &--cancel:before {
-    content: '\e807';
-  }
-  &--search:before {
-    content: '\e808';
-  }
-  &--home:before {
-    content: '\e809';
-  }
-  &--list:before {
-    content: '\e80a';
-  }
-  &--cog:before {
-    content: '\e80b';
-  }
-  &--clock:before {
-    content: '\e80c';
-  }
-  &--heart:before {
-    content: '\e811';
-  }
-  &--heart-empty:before {
-    content: '\e812';
-  }
-  &--menu:before {
-    content: '\f0c9';
-  }
-  &--sun:before {
-    content: '\f185';
-  }
-  &--moon:before {
-    content: '\f186';
-  }
-  &--google:before {
-    content: '\f1a0';
-  }
-  &--history:before {
-    content: '\f1da';
-  }
-  &--trash:before {
-    content: '\f1f8';
-  }
-  &--right-open:before {
-    content: '\e80d';
-  }
-  &--left-open:before {
-    content: '\e80e';
+  &__text {
+    font-size: 0;
   }
 }
