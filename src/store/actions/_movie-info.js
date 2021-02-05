@@ -3,8 +3,8 @@ import { api } from 'services';
 import {
   ERROR,
   GET_MOVIE_INFO,
-  REQUEST_STARTED,
-  REQUEST_ENDED,
+  API_REQUEST_STARTED,
+  API_REQUEST_ENDED,
 } from '../action-types';
 
 function actionError(message) {
@@ -15,7 +15,7 @@ function actionError(message) {
 }
 
 export const getMovieInfo = (id) => (dispatch) => {
-  dispatch({ type: REQUEST_STARTED });
+  dispatch({ type: API_REQUEST_STARTED });
   api
     .getMovieInfo(id)
     .then((data) => {
@@ -26,5 +26,5 @@ export const getMovieInfo = (id) => (dispatch) => {
       }
     })
     .catch((error) => dispatch(actionError(error.message)))
-    .finally(() => dispatch({ type: REQUEST_ENDED }));
+    .finally(() => dispatch({ type: API_REQUEST_ENDED }));
 };
