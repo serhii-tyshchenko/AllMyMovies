@@ -1,37 +1,37 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { useContext } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  hideModal,
+} from 'store/actions';
 import { Localization } from 'contexts';
-import { UIModal } from 'components';
-import { MovieInfoSkeleton } from 'skeletons';
+import { UIModal, MovieMenu } from 'components';
 import PropTypes from 'prop-types';
-import noImage from 'assets/images/no-image.jpg';
+import noImage from 'assets/images/no-image.svg';
+import { MovieModalSkeleton } from './MovieModalSkeleton';
 
 import './MovieModal.scss';
 
-const MovieModal = (props) => {
-  const {
-    data: {
-      Title, Year, Poster: posterUrl, Runtime, Genre, Director, Country, Plot, imdbRating, Actors,
-    },
-    isVisible,
-    onClose,
-  } = props;
+const MovieModal = () => {
+  const dispatch = useDispatch();
   const STR = useContext(Localization);
   const isLoading = useSelector((state) => state.api.isLoading);
-  const posterSrc = posterUrl !== 'N/A' ? posterUrl : noImage;
+  const isVisible = useSelector((state) => state.modals.fav.isVisible);
+  const {
+    Title, Year, Poster, Runtime, Genre, Director, Country, Plot, imdbRating, Actors, imdbID,
+  } = useSelector((state) => state.movieInfo);
+  const posterSrc = Poster !== 'N/A' ? Poster : noImage;
+  function handleModalClose() {
+    dispatch(hideModal('fav'));
+  }
 
   return isVisible ? (
-    <UIModal
-      isVisible={isVisible}
-      onClose={onClose}
-      title={STR.MOVIE_INFO}
-      extraClassName="movie-modal"
-    >
+    <UIModal isVisible={isVisible} onClose={handleModalClose} title={STR.MOVIE_INFO} extraClassName="movie-modal">
       {!isLoading ? (
         <div className="movie-modal__content">
           <div className="movie-modal__poster">
             <img src={posterSrc} alt={Title} width="240" height="350" />
+            <MovieMenu id={imdbID} />
           </div>
           <div className="movie-modal__details">
             <h4 className="movie-modal__title">{Title}</h4>
@@ -47,7 +47,7 @@ const MovieModal = (props) => {
             </ul>
           </div>
         </div>
-      ) : <MovieInfoSkeleton />}
+      ) : <MovieModalSkeleton />}
     </UIModal>
   ) : null;
 };
@@ -59,9 +59,6 @@ MovieModal.defaultProps = {
 };
 
 MovieModal.propTypes = {
-  data: PropTypes.shape().isRequired,
-  onClose: PropTypes.func.isRequired,
-  isVisible: PropTypes.bool.isRequired,
   STR: PropTypes.shape({
     MOVIE_INFO: PropTypes.string,
   }),

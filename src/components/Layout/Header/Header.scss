@@ -1,4 +1,5 @@
 @import '~styles/variables';
+@import '~styles/mixins';
 
 .header {
   position: fixed;
@@ -9,10 +10,19 @@
   padding: 20px 0;
   background-color: var(--background-secondary);
   opacity: 0.98;
+  @include for-size(tablet) {
+    padding: 15px 0;
+  }
+  @include for-size(mobile-large) {
+    position: static;
+  }
   &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include for-size(tablet) {
+      flex-wrap: wrap;
+    }
   }
   &__logo {
     margin-right: 1.25rem;
@@ -21,6 +31,17 @@
     font: bold 1.5rem $font-secondary;
     text-decoration: none;
     background: url('~logo.svg') no-repeat left center / 24px;
+    @include for-size(tablet) {
+      order: 1;
+      margin-right: 0;
+      padding-left: 28px;
+      background-size: 20px;
+    }
+  }
+  &__title {
+    @include for-size(tablet) {
+      font-size: 1.5rem;
+    }
   }
   &__menu {
     display: flex;
@@ -28,35 +49,11 @@
     width: 150px;
     margin-left: 1.25rem;
     font-size: 1.5rem;
-  }
-}
-
-@media screen and (max-width: $break-tablet) {
-  .header {
-    padding: 15px 0;
-    &__content {
-      flex-wrap: wrap;
-    }
-    &__logo {
-      order: 1;
-      margin-right: 0;
-      padding-left: 28px;
-      background-size: 20px;
-    }
-    &__title {
-      font-size: 1.5rem;
-    }
-    &__menu {
+    @include for-size(tablet) {
       order: 2;
       width: 120px;
       margin-left: 0;
       font-size: 1.5rem;
     }
-  }
-}
-
-@media screen and (max-width: $break-mobile-large) {
-  .header {
-    position: static;
   }
 }

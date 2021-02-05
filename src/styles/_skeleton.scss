@@ -2,5 +2,18 @@
   position: relative;
   color: var(--background-skeleton);
   background-color: var(--background-skeleton);
+  animation: fade-in-out 1500ms infinite;
   overflow: hidden;
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
 }

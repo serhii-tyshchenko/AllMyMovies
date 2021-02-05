@@ -1,8 +1,11 @@
 export * from './UI';
+export * from './Layout';
 export { LanguageSelector } from './LanguageSelector';
 export { ThemeToggler } from './ThemeToggler';
 export { AuthBtn } from './AuthBtn';
 export { AuthModal } from './AuthModal';
 export { SearchMovieForm } from './SearchMovieForm';
 export { MovieList } from './MovieList';
-export { MovieListItemMenu } from './MovieListItemMenu';
+export { MovieListItem } from './MovieListItem';
+export { MovieModal } from './MovieModal';
+export { MovieMenu } from './MovieMenu';

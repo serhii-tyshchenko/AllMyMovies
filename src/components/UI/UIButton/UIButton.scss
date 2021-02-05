@@ -17,7 +17,7 @@
     font-size: 1.25rem;
   }
   &--primary {
-    color: white;
+    color: $color-white;
     background: var(--color-accent);
     &:hover {
       filter: brightness(110%);
@@ -28,7 +28,7 @@
     border-color: var(--color-secondary);
     background: transparent;
     &:hover {
-      color: white;
+      color: $color-white;
       filter: brightness(110%);
     }
   }

@@ -17,7 +17,7 @@ function App() {
       dispatch(getItems(uid));
       dispatch(getSettings(uid));
     }
-  });
+  }, []);
 
   return (
     <div className="App">
