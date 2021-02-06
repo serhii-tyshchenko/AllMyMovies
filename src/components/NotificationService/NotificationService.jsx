@@ -6,10 +6,8 @@ const NotificationService = () => {
   const dispatch = useDispatch();
   const { message, type } = useSelector((state) => state.notifications);
   const isVisible = !!message;
-  const timer = isVisible ? setTimeout(() => dispatch(hideNotification()), 3000) : null;
 
   function handleCloseClick() {
-    clearTimeout(timer);
     dispatch(hideNotification());
   }
 
