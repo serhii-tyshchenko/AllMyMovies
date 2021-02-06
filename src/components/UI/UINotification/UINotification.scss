@@ -9,6 +9,7 @@
   z-index: 1000;
   display: flex;
   align-items: flex-start;
+  width: 100%;
   min-width: 300px;
   max-width: 500px;
   margin-left: $offset;
@@ -16,8 +17,9 @@
   color: $color-white;
   border-radius: 2px;
   background: var(--background-secondary);
-  @include for-size(mobile-large) {
-    border: 1px solid var(--color-secondary);
+  @include for-size(tablet) {
+    min-width: auto;
+    max-width: calc(100vw - 2 * #{$offset});
   }
   &--info {
     background: $color-dodger-blue;
