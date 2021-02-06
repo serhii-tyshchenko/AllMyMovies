@@ -12,7 +12,7 @@ const titles = {
 
 const UINotification = (props) => {
   const {
-    message, type, extraClassName, isVisible, onCloseClick,
+    message, type, extraClassName, isVisible, onCloseClick, autoclose,
   } = props;
   const modalRoot = document.getElementById('modal-root');
   let componentClassName = 'ui-notification';
@@ -23,6 +23,13 @@ const UINotification = (props) => {
     componentClassName += ` ${extraClassName}`;
   }
 
+  const timer = (autoclose && isVisible) ? setTimeout(() => onCloseClick(), 3000) : null;
+
+  function handleCloseClick() {
+    clearTimeout(timer);
+    onCloseClick();
+  }
+
   return isVisible ? createPortal((
     <div className={componentClassName}>
       <main className="ui-notification__content">
@@ -31,7 +38,7 @@ const UINotification = (props) => {
       </main>
       <UIIconButton
         icon="cancel"
-        onClick={onCloseClick}
+        onClick={handleCloseClick}
         title="Close"
         extraClassName="ui-notification__close-btn"
       />
@@ -45,6 +52,7 @@ UINotification.defaultProps = {
   extraClassName: '',
   isVisible: false,
   onCloseClick: null,
+  autoclose: true,
 };
 
 UINotification.propTypes = {
@@ -52,6 +60,7 @@ UINotification.propTypes = {
   message: PropTypes.string,
   extraClassName: PropTypes.string,
   isVisible: PropTypes.bool,
+  autoclose: PropTypes.bool,
   onCloseClick: PropTypes.func,
 };
 
