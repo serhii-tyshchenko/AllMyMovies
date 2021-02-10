@@ -6,7 +6,7 @@
   position: fixed;
   right: $offset;
   bottom: $offset;
-  z-index: 1000;
+  z-index: $zindex-tooltip;
   display: flex;
   align-items: flex-start;
   width: 100%;

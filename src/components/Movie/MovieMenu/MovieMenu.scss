@@ -2,7 +2,7 @@
 
 .movie-menu {
   position: absolute;
-  z-index: 20;
+  z-index: $zindex-dropdown;
   top: 0.5rem;
   right: 0.5rem;
   font-size: 0.25rem;
