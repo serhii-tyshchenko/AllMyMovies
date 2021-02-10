@@ -21,22 +21,19 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 15px;
-    @include for-size(tablet) {
-      flex-wrap: wrap;
-    }
   }
   &__logo {
     margin-right: 1.25rem;
     padding-left: 32px;
     color: var(--color-primary);
     font: bold 1.5rem $font-secondary;
+    line-height: 1;
     text-decoration: none;
     background: url('~logo.svg') no-repeat left center / 24px;
-    @include for-size(tablet) {
-      order: 1;
+    @include for-size(mobile-large) {
       margin-right: 0;
-      padding-left: 28px;
-      background-size: 20px;
+      padding-left: 0;
+      background: none;
     }
   }
   &__title {
@@ -47,14 +44,14 @@
   &__menu {
     display: flex;
     justify-content: space-between;
-    width: 150px;
+    width: 130px;
     margin-left: 1.25rem;
     font-size: 1.5rem;
-    @include for-size(tablet) {
-      order: 2;
-      width: 120px;
+    @include for-size(mobile-large) {
+      width: 100%;
+      max-width: 110px;
       margin-left: 0;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
   }
 }
