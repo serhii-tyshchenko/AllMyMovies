@@ -2,11 +2,10 @@
 
 .movie-menu {
   position: absolute;
-  z-index: 20;
+  z-index: $zindex-dropdown;
   top: 0.5rem;
   right: 0.5rem;
   font-size: 0.25rem;
-  opacity: 0.85;
   &__toggler {
     display: flex;
     align-items: center;
@@ -20,7 +19,7 @@
   }
   &__items {
     position: absolute;
-    top: 2.25rem;
+    top: 2rem;
     right: 0;
     padding: 0.5rem 0;
     border-radius: 4px;

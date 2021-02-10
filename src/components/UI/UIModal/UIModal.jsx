@@ -16,7 +16,7 @@ const UIModal = ({
 
   return isVisible && createPortal(
     (
-      <div className="ui-modal__overlay">
+      <div className="ui-modal__backdrop">
         <div
           role="dialog"
           aria-labelledby="ui-modal-title"

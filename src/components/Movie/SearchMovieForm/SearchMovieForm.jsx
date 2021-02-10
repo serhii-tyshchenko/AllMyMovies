@@ -12,6 +12,7 @@ const SearchMovieForm = React.memo(() => {
   const dispatch = useDispatch();
   const history = useHistory();
   const [query, setQuery] = useState('');
+  const [isFormVisible, setFormVisible] = useState(false);
 
   function handleSubmit(evt) {
     if (query) {
@@ -23,25 +24,40 @@ const SearchMovieForm = React.memo(() => {
   function handleChange(evt) {
     setQuery(evt.target.value);
   }
+  function toggleForm() {
+    setFormVisible(!isFormVisible);
+  }
 
   return (
-    <form className="search-movie-form" onSubmit={handleSubmit}>
-      <UIInput
-        type="search"
-        value={query}
-        onChange={handleChange}
-        extraClassName="search-movie-form__input"
-        placeholder={STR.SEARCH_MOVIE_PLACEHOLDER}
-        required
-      />
+    <div className={`search-movie-form-container${isFormVisible ? ' visible' : ''}`}>
       <UIIconButton
-        type="submit"
-        icon="search"
-        title={STR.SEARCH_MOVIE}
-        extraClassName="search-movie-form__btn"
-        onClick={handleSubmit}
+        icon="left-open"
+        extraClassName="search-movie-form__btn-hide"
+        onClick={toggleForm}
       />
-    </form>
+      <form className="search-movie-form" onSubmit={handleSubmit}>
+        <UIInput
+          type="search"
+          value={query}
+          onChange={handleChange}
+          extraClassName="search-movie-form__input"
+          placeholder={STR.SEARCH_MOVIE_PLACEHOLDER}
+          required
+        />
+        <UIIconButton
+          type="submit"
+          icon="search"
+          title={STR.SEARCH_MOVIE}
+          extraClassName="search-movie-form__btn"
+          onClick={handleSubmit}
+        />
+      </form>
+      <UIIconButton
+        icon="search"
+        extraClassName="search-movie-form__btn-show"
+        onClick={toggleForm}
+      />
+    </div>
   );
 });
 

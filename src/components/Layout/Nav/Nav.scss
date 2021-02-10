@@ -6,7 +6,7 @@
   $offset: 77px;
   position: fixed;
   top: $offset;
-  z-index: 100;
+  z-index: $zindex-fixed;
   flex-shrink: 0;
   height: calc(100vh - #{$offset});
   padding: 20px 0;

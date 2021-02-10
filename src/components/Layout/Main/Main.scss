@@ -9,7 +9,7 @@
   background: var(--background-primary);
   overflow: hidden;
   @include for-size(tablet) {
-    padding: 135px 0 70px;
+    padding-bottom: 70px;
   }
   @include for-size(mobile-large) {
     padding: 0 0 70px;
