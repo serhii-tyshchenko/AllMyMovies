@@ -1,19 +1,17 @@
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  showModal,
-  getMovieInfo,
-} from 'store/actions';
+import { showModal, getMovieInfo } from 'store/actions';
+import { getSearchResults, getMoviesByList } from 'store/selectors';
 import { useLocation } from 'react-router-dom';
 import { MovieModal, MovieListItem } from 'components';
 
 import './MovieList.scss';
 
 const MovieList = () => {
-  const pathname = useLocation().pathname.slice(1);
+  const list = useLocation().pathname.slice(1);
   const dispatch = useDispatch();
-  const data = pathname
-    ? useSelector((state) => state.data).filter((item) => item.lists.includes(pathname))
-    : useSelector((state) => state.searchResults);
+  const data = list
+    ? useSelector((state) => getMoviesByList(state, list))
+    : useSelector(getSearchResults);
 
   function handleShowInfoClick(id) {
     dispatch(getMovieInfo(id));

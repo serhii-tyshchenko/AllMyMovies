@@ -1,10 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { UINotification } from 'components';
 import { hideNotification } from 'store/actions';
+import { getNotifications } from 'store/selectors';
 
 const NotificationService = () => {
   const dispatch = useDispatch();
-  const { message, type } = useSelector((state) => state.notifications);
+  const { message, type } = useSelector(getNotifications);
   const isVisible = !!message;
 
   function handleCloseClick() {
