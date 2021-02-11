@@ -2,13 +2,14 @@ import { useContext } from 'react';
 import { Localization } from 'contexts';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateSettings } from 'store/actions';
+import { getUserId, getAppTheme } from 'store/selectors';
 import { UIIconButton } from 'components';
 
 const ThemeToggler = () => {
   const STR = useContext(Localization);
   const dispatch = useDispatch();
-  const theme = useSelector((state) => state.settings.theme);
-  const uid = useSelector((state) => state.user.uid);
+  const theme = useSelector(getAppTheme);
+  const uid = useSelector(getUserId);
   const btnIcon = theme === 'light' ? 'moon' : 'sun';
 
   function handleThemeChange() {

@@ -10,6 +10,7 @@ import './Nav.scss';
 const Nav = () => {
   const STR = useContext(Localization);
   const [isNavExpanded, toggleNav] = useState(false);
+
   function handleHideMenuClick() {
     toggleNav(!isNavExpanded);
   }

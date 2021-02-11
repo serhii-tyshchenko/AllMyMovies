@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   signInWithEmail, signInWithGoogle, signUpWithEmail, hideModal,
 } from 'store/actions';
+import { getIsUserLogged, getIsAuthModalVisible } from 'store/selectors';
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 import { SocialLogInForm } from './SocialLogInForm';
@@ -15,8 +16,8 @@ import './AuthModal.scss';
 const AuthModal = () => {
   const STR = useContext(Localization);
   const dispatch = useDispatch();
-  const isLogged = useSelector((state) => state.user.isLogged);
-  const isModalVisible = useSelector((state) => state.modals.auth.isVisible);
+  const isLogged = useSelector(getIsUserLogged);
+  const isModalVisible = useSelector(getIsAuthModalVisible);
   const initialFormData = { email: '', password: '' };
   const [formData, setFormData] = useState(initialFormData);
   useEffect(() => {

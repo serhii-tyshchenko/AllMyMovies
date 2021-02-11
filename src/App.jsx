@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getItems, getSettings } from 'store/actions';
+import { getUserId, getIsUserLogged, getAppTheme } from 'store/selectors';
 import { AuthModal, NotificationService } from 'components';
 import { Home } from 'pages';
-import {
-  HashRouter as Router,
-} from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 const App = () => {
-  const { uid, isLogged } = useSelector((state) => state.user);
-  const theme = useSelector((state) => state.settings.theme);
+  const uid = useSelector(getUserId);
+  const isLogged = useSelector(getIsUserLogged);
+  const theme = useSelector(getAppTheme);
   document.documentElement.setAttribute('data-theme', theme);
   const dispatch = useDispatch();
   useEffect(() => {

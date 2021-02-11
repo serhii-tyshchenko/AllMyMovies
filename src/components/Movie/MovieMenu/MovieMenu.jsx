@@ -1,24 +1,24 @@
 /* eslint-disable react/prop-types */
 import { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  updateItem, removeItem,
-} from 'store/actions';
+import { updateItem, removeItem } from 'store/actions';
+import { getUserId, getMovieById, getSearchResultById } from 'store/selectors';
 import { Localization } from 'contexts';
 import { UIIconButton } from 'components';
 
 import './MovieMenu.scss';
 
 const MovieMenu = (props) => {
+  const { id } = props;
   const dispatch = useDispatch();
+  const uid = useSelector(getUserId);
+  const saved = useSelector((state) => getMovieById(state, id));
+  const searched = useSelector((state) => getSearchResultById(state, id));
   const STR = useContext(Localization);
   const [isMenuOpened, toggleMenu] = useState(false);
-  const { id } = props;
-  const uid = useSelector((state) => state.user.uid);
-  const saved = useSelector((state) => state.data).find((item) => item.id === id);
-  const searched = useSelector((state) => state.searchResults).find((item) => item.imdbID === id);
   const movie = saved || searched;
   let lists = movie?.lists ? movie.lists : [];
+
   function handleMenuClick() {
     toggleMenu(!isMenuOpened);
   }

@@ -1,26 +1,26 @@
 /* eslint-disable react/jsx-one-expression-per-line */
+
+import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  hideModal,
-} from 'store/actions';
+import { hideModal } from 'store/actions';
+import { getIsFavModalVisible, getMovieInfo } from 'store/selectors';
 import { Localization } from 'contexts';
 import { UIModal, MovieMenu } from 'components';
-import PropTypes from 'prop-types';
 import noImage from 'assets/images/no-image.svg';
 import { MovieModalSkeleton } from './MovieModalSkeleton';
 
 import './MovieModal.scss';
 
 const MovieModal = () => {
-  const dispatch = useDispatch();
-  const STR = useContext(Localization);
-  const isVisible = useSelector((state) => state.modals.fav.isVisible);
+  const isVisible = useSelector(getIsFavModalVisible);
   const {
     isLoading, data: {
       Title, Year, Poster, Runtime, Genre, Director, Country, Plot, imdbRating, Actors, imdbID,
     },
-  } = useSelector((state) => state.movieInfo);
+  } = useSelector(getMovieInfo);
+  const dispatch = useDispatch();
+  const STR = useContext(Localization);
   const posterSrc = (Poster && Poster !== 'N/A') ? Poster : noImage;
 
   function handleError(e) {
