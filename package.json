@@ -29,6 +29,7 @@
     "react-scripts": "latest",
     "redux": "latest",
     "redux-thunk": "latest",
+    "reselect": "latest",
     "uuid": "latest"
   },
   "devDependencies": {
