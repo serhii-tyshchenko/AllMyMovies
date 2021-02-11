@@ -56,6 +56,8 @@
       width: 240px;
       height: auto;
       min-height: 350px;
+      object-fit: cover;
+      object-position: left;
       @include for-size(tablet) {
         width: 100%;
         max-width: 300px;
