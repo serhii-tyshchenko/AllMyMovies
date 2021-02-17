@@ -31,6 +31,11 @@ const translations = {
     RELEASE: 'Release',
     RATING: 'Rating',
     CLOSE: 'Close',
+    SORT_MOVIES: 'Sort',
+    SORT_BY_TITLE_A_Z: 'Title A-Z',
+    SORT_BY_TITLE_Z_A: 'Title Z-A',
+    SORT_BY_YEAR_ASC: 'Year ↑',
+    SORT_BY_YEAR_DSC: 'Year ↓',
   },
   ua: {
     SIGN_IN: 'Увійти',
@@ -58,6 +63,11 @@ const translations = {
     RELEASE: 'Рік',
     RATING: 'Рейтинг',
     CLOSE: 'Закрити',
+    SORT_MOVIES: 'Сортувати',
+    SORT_BY_TITLE_A_Z: 'Назва А-Я',
+    SORT_BY_TITLE_Z_A: 'Назва Я-А',
+    SORT_BY_YEAR_ASC: 'Рік ↑',
+    SORT_BY_YEAR_DSC: 'Рік ↓',
   },
   ru: {
     SIGN_IN: 'Войти',
@@ -85,6 +95,11 @@ const translations = {
     RELEASE: 'Год',
     RATING: 'Рейтинг',
     CLOSE: 'Закрыть',
+    SORT_MOVIES: 'Сортировать',
+    SORT_BY_TITLE_A_Z: 'Название А-Я',
+    SORT_BY_TITLE_Z_A: 'Название Я-А',
+    SORT_BY_YEAR_ASC: 'Год ↑',
+    SORT_BY_YEAR_DSC: 'Год ↓',
   },
 };
 
