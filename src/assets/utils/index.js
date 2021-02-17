@@ -38,3 +38,19 @@ export function sortByABC(a, b) {
   }
   return 0;
 }
+
+export function sortArrayOfObjects(array, parameter, order = 'asc') {
+  return [
+    ...array.sort((a, b) => {
+      const itemA = a[parameter].toUpperCase();
+      const itemB = b[parameter].toUpperCase();
+      if (itemA < itemB) {
+        return order === 'asc' ? -1 : 1;
+      }
+      if (itemA > itemB) {
+        return order === 'asc' ? 1 : -1;
+      }
+      return 0;
+    }),
+  ];
+}

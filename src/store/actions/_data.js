@@ -5,6 +5,7 @@ import {
   UPDATE_ITEM,
   REMOVE_ITEM,
   GET_ITEMS,
+  SORT_MOVIES,
   SHOW_NOTIFICATION,
   SEARCH_MOVIE,
   API_REQUEST_STARTED,
@@ -82,3 +83,5 @@ export const getItems = (uid) => (dispatch) => {
     .catch((error) => dispatch(actionError(error.message)))
     .finally(() => dispatch({ type: DB_REQUEST_ENDED }));
 };
+
+export const sortMovies = (sortedBy) => ({ type: SORT_MOVIES, payload: sortedBy });

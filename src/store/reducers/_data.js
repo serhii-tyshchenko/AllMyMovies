@@ -2,10 +2,12 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-confusing-arrow */
+import { sortArrayOfObjects } from 'assets/utils';
 import {
   ADD_ITEM,
   REMOVE_ITEM,
   GET_ITEMS,
+  SORT_MOVIES,
   UPDATE_ITEM,
   SIGN_OUT,
 } from '../action-types';
@@ -25,7 +27,6 @@ export const data = (state = initialState, action) => {
           item.id === payload.id ? { ...item, ...payload } : item
         );
       }
-
       return [...state, payload];
 
     case REMOVE_ITEM:
@@ -33,6 +34,20 @@ export const data = (state = initialState, action) => {
 
     case GET_ITEMS:
       return [...payload];
+
+    case SORT_MOVIES:
+      switch (payload) {
+        case 'title-asc':
+          return sortArrayOfObjects(state, 'Title', 'asc');
+        case 'title-dsc':
+          return sortArrayOfObjects(state, 'Title', 'dsc');
+        case 'year-asc':
+          return sortArrayOfObjects(state, 'Year', 'asc');
+        case 'year-dsc':
+          return sortArrayOfObjects(state, 'Year', 'dsc');
+        default:
+          return state;
+      }
 
     case SIGN_OUT:
       return [];
