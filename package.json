@@ -1,11 +1,11 @@
 {
   "name": "my-movies-list",
-  "homepage": "https://serhii-tyshchenko.github.io/-PORTFOLIO-MyMoviesList/",
+  "homepage": "https://serhii-tyshchenko.github.io/MyMoviesList/",
   "repository": {
     "type": "git",
-    "url": "https://git.io/JkuV0"
+    "url": "https://github.com/serhii-tyshchenko/MyMoviesList"
   },
-  "version": "1.1.1",
+  "version": "1.1.2",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
