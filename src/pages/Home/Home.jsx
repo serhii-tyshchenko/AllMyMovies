@@ -1,15 +1,10 @@
-import {
-  MovieList, Nav, Main, Header,
-} from 'components';
+import { MovieList } from 'components';
+import { BaseLayout } from 'layouts';
 
 const Home = () => (
-  <div className="container">
-    <Header />
-    <Nav />
-    <Main>
-      <MovieList />
-    </Main>
-  </div>
+  <BaseLayout>
+    <MovieList />
+  </BaseLayout>
 );
 
 export { Home };
