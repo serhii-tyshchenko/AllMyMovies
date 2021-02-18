@@ -20,7 +20,7 @@ const UISelect = (props) => {
         <option
           key={option.value}
           value={option.value}
-          disabled={!option.value}
+          disabled={option.disabled}
           className="ui-select__option"
         >
           {option.label}
@@ -36,9 +36,18 @@ UISelect.defaultProps = {
   value: '',
   title: 'Select me',
   options: [
-    { value: 'opt1', label: 'Option 1' },
-    { value: 'opt2', label: 'Option 2' },
-    { value: 'opt3', label: 'Option 3' },
+    {
+      value: 'opt1',
+      label: 'Option 1',
+    },
+    {
+      value: 'opt2',
+      label: 'Option 2',
+    },
+    {
+      value: 'opt3',
+      label: 'Option 3',
+    },
   ],
   required: false,
 };
@@ -52,6 +61,7 @@ UISelect.propTypes = {
     PropTypes.shape({
       value: PropTypes.string,
       label: PropTypes.string,
+      disabled: PropTypes.bool,
     }),
   ),
   required: PropTypes.bool,
