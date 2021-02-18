@@ -10,19 +10,19 @@ import './MovieList.scss';
 
 const MovieList = () => {
   const STR = useContext(Localization);
-  const list = useLocation().pathname.slice(1);
   const dispatch = useDispatch();
-  const [sortedBy, setSortedBy] = useState('');
-  const data = list
-    ? useSelector((state) => getMoviesByList(state, list))
-    : useSelector(getSearchResults);
+  const [sortedBy, setSortedBy] = useState('none');
   const sortOptions = [
-    { label: '— — —' },
+    { value: 'none', label: '— — —', disabled: true },
     { value: 'title-asc', label: STR.SORT_BY_TITLE_A_Z },
     { value: 'title-dsc', label: STR.SORT_BY_TITLE_Z_A },
     { value: 'year-asc', label: STR.SORT_BY_YEAR_ASC },
     { value: 'year-dsc', label: STR.SORT_BY_YEAR_DSC },
   ];
+  const list = useLocation().pathname.slice(1);
+  const data = list
+    ? useSelector((state) => getMoviesByList(state, list))
+    : useSelector(getSearchResults);
 
   function handleShowInfoClick(id) {
     dispatch(getMovieInfo(id));
@@ -35,15 +35,15 @@ const MovieList = () => {
   }
 
   return (
-    <>
-      {(data.length && list) ? (
+    <section className="movie-list-container">
+      {(data.length > 0 && list) && (
         <MovieListSorter
           options={sortOptions}
           onChange={handleMoviesSort}
           title={STR.SORT_MOVIES}
           value={sortedBy}
         />
-      ) : null}
+      )}
       <ul className="movie-list">
         {data.map((item) => (
           <MovieListItem
@@ -54,7 +54,7 @@ const MovieList = () => {
         ))}
       </ul>
       <MovieModal />
-    </>
+    </section>
   );
 };
 
