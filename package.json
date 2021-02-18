@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/serhii-tyshchenko/MyMoviesList"
   },
-  "version": "1.1.2",
+  "version": "1.2.1",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
