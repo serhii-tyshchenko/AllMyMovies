@@ -2,14 +2,16 @@
 
 .ui-select {
   padding: 0.375em 0.75em;
+  color: var(--color-primary);
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 0.25rem;
-  background-clip: padding-box;
-  color: var(--color-primary);
   border: 1px solid var(--color-secondary);
+  border-radius: 0.25rem;
   background-color: inherit;
+  background-clip: padding-box;
   &__option {
     color: inherit;
+    font-size: inherit;
+    background: var(--background-secondary);
   }
 }
