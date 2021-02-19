@@ -1,4 +1,8 @@
-import { SHOW_NOTIFICATION, HIDE_NOTIFICATION } from '../action-types';
+import {
+  SHOW_NOTIFICATION,
+  HIDE_NOTIFICATION,
+  SIGN_OUT,
+} from '../action-types';
 
 const initialState = { type: '', message: '' };
 
@@ -11,6 +15,8 @@ export const notifications = (state = initialState, action) => {
         message: action.payload.message,
       };
     case HIDE_NOTIFICATION:
+      return initialState;
+    case SIGN_OUT:
       return initialState;
     default:
       return state;
