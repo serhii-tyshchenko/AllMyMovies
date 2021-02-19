@@ -27,25 +27,4 @@
     list-style-type: none;
     background: var(--background-secondary);
   }
-  &__item {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    &:hover {
-      background: var(--background-primary);
-      cursor: pointer;
-    }
-    label {
-      padding: 0.5em;
-
-      font-size: inherit;
-      width: max-content;
-      cursor: pointer;
-    }
-    input {
-      font-size: inherit;
-      margin-right: 0.75em;
-      cursor: pointer;
-    }
-  }
 }
