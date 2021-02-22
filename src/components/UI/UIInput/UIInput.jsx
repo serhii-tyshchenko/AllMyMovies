@@ -5,7 +5,7 @@ import './UIInput.scss';
 
 const UIInput = (props) => {
   const {
-    type, name, value, onChange, extraClassName, placeholder, required, autofocus,
+    type, name, value, onChange, extraClassName, placeholder, required, autofocus, disabled,
   } = props;
   const componentClassName = extraClassName ? `ui-input ${extraClassName}` : 'ui-input';
 
@@ -19,6 +19,8 @@ const UIInput = (props) => {
       placeholder={placeholder}
       required={required}
       autoFocus={autofocus}
+      disabled={disabled}
+      size={value.length}
     />
   );
 };
@@ -32,6 +34,7 @@ UIInput.defaultProps = {
   placeholder: '',
   required: false,
   autofocus: false,
+  disabled: false,
 };
 
 UIInput.propTypes = {
@@ -43,6 +46,7 @@ UIInput.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   autofocus: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 export { UIInput };
