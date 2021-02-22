@@ -4,20 +4,19 @@
   display: flex;
   align-items: center;
   font-size: 1rem;
-  &:hover {
-    background: var(--background-primary);
-    cursor: pointer;
-  }
   label {
+    width: 100%;
     padding: 0.5em;
-
     font-size: inherit;
-    width: max-content;
     cursor: pointer;
+    &:hover {
+      background: var(--background-primary);
+      cursor: pointer;
+    }
   }
   input {
-    font-size: inherit;
     margin-right: 0.75em;
+    font-size: inherit;
     cursor: pointer;
   }
 }

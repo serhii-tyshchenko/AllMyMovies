@@ -5,7 +5,11 @@
   top: 0.5rem;
   right: 0.5rem;
   &__items {
-    list-style-type: none;
+    min-width: 190px;
+    max-width: 240px;
+    max-height: 300px;
     margin-bottom: 1rem;
+    list-style-type: none;
+    overflow-y: auto;
   }
 }

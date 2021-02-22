@@ -37,6 +37,9 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    @include for-size(tablet) {
+      overflow-x: auto;
+    }
   }
   &__toggler {
     position: absolute;
