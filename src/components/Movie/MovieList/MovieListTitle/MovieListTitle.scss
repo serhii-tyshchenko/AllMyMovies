@@ -1,0 +1,12 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.movie-list-title {
+  display: flex;
+  align-items: center;
+  &__input {
+    font-size: 2rem;
+    padding: 0;
+    border: 0;
+  }
+}
