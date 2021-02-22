@@ -1,10 +1,17 @@
 import { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { showModal, getMovieInfo, sortMovies } from 'store/actions';
-import { getSearchResults, getMoviesByList } from 'store/selectors';
+import {
+  showModal, getMovieInfo, sortMovies, updateSettings,
+} from 'store/actions';
+import {
+  getSearchResults, getMoviesByList, getUserLists, getUserId,
+} from 'store/selectors';
 import { useLocation } from 'react-router-dom';
 import { Localization } from 'contexts';
-import { MovieModal, MovieListItem, MovieListSorter } from 'components';
+import {
+  MovieModal, MovieListItem, MovieListSorter,
+} from 'components';
+import { MovieListTitle } from './MovieListTitle';
 
 import './MovieList.scss';
 
@@ -19,7 +26,16 @@ const MovieList = () => {
     { value: 'year-asc', label: STR.SORT_BY_YEAR_ASC },
     { value: 'year-dsc', label: STR.SORT_BY_YEAR_DSC },
   ];
+  const predefinedLists = [
+    { id: 'favourites', title: STR.FAVOURITES, icon: 'heart' },
+    { id: 'watched', title: STR.WATCHED, icon: 'history' },
+    { id: 'watch-later', title: STR.WATCH_LATER, icon: 'clock' }];
+  const userLists = useSelector(getUserLists);
+  const uid = useSelector(getUserId);
+  const availableLists = [...predefinedLists, ...userLists];
   const list = useLocation().pathname.slice(1);
+  const isUserList = userLists.some((item) => item.id === list);
+  const listTitle = availableLists.find((item) => item.id === list)?.title || STR.HOME;
   const data = list
     ? useSelector((state) => getMoviesByList(state, list))
     : useSelector(getSearchResults);
@@ -34,8 +50,24 @@ const MovieList = () => {
     setSortedBy(sortOption);
   }
 
+  function handleSaveChangesClick(newTitle) {
+    const updatedUserLists = userLists.map((item) => {
+      if (item.id === list) {
+        return { ...item, title: newTitle };
+      }
+      return item;
+    });
+    dispatch(updateSettings(uid, { userLists: updatedUserLists }));
+  }
+
   return (
     <section className="movie-list-container">
+      <MovieListTitle
+        title={listTitle}
+        onSaveClick={handleSaveChangesClick}
+        isUserList={isUserList}
+      />
+
       {(data.length > 0 && list) && (
         <MovieListSorter
           options={sortOptions}
