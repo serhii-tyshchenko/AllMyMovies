@@ -2,50 +2,14 @@
 
 .movie-menu {
   position: absolute;
-  z-index: $zindex-dropdown;
   top: 0.5rem;
   right: 0.5rem;
-  font-size: 0.25rem;
-  &__toggler {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2em;
-    height: 2em;
-    color: var(--color-primary);
-    font-size: 1rem;
-    border-radius: 4px;
-    background: var(--background-secondary);
-    opacity: 0.65;
-  }
   &__items {
-    position: absolute;
-    top: 2rem;
-    right: 0;
-    padding: 0.5rem 0;
-    border-radius: 4px;
+    min-width: 190px;
+    max-width: 240px;
+    max-height: 300px;
+    margin-bottom: 1rem;
     list-style-type: none;
-    background: var(--background-secondary);
-  }
-  &__item {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    &:hover {
-      background: var(--background-primary);
-      cursor: pointer;
-    }
-    label {
-      padding: 0.5em;
-
-      font-size: inherit;
-      width: max-content;
-      cursor: pointer;
-    }
-    input {
-      font-size: inherit;
-      margin-right: 0.75em;
-      cursor: pointer;
-    }
+    overflow-y: auto;
   }
 }

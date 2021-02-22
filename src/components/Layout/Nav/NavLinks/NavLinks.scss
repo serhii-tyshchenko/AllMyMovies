@@ -1,0 +1,11 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.nav-links {
+  flex-grow: 1;
+  list-style-type: none;
+  @include for-size(tablet) {
+    display: flex;
+    margin: 0 auto;
+  }
+}

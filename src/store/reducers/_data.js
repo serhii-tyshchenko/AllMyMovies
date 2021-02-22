@@ -50,7 +50,7 @@ export const data = (state = initialState, action) => {
       }
 
     case SIGN_OUT:
-      return [];
+      return initialState;
 
     default:
       return state;

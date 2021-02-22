@@ -1,4 +1,4 @@
-import { SEARCH_MOVIE } from '../action-types';
+import { SEARCH_MOVIE, SIGN_OUT } from '../action-types';
 
 const initialState = [];
 
@@ -8,6 +8,8 @@ export const searchResults = (state = initialState, action) => {
   switch (type) {
     case SEARCH_MOVIE:
       return [...payload];
+    case SIGN_OUT:
+      return initialState;
 
     default:
       return state;

@@ -1,0 +1,27 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.nav-links-item {
+  display: block;
+  padding: 1rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  @include for-size(tablet) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.75rem;
+  }
+  &[class*='icon-']::before {
+    margin-right: 0.75em;
+  }
+  &:hover,
+  &.active {
+    background: var(--background-primary);
+  }
+  &.active::before {
+    @include for-size(tablet) {
+      color: var(--color-accent);
+    }
+  }
+}

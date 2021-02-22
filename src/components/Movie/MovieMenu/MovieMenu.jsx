@@ -1,68 +1,71 @@
 /* eslint-disable react/prop-types */
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateItem, removeItem } from 'store/actions';
-import { getUserId, getMovieById, getSearchResultById } from 'store/selectors';
+import { updateItem, removeItem, updateSettings } from 'store/actions';
+import {
+  getUserId, getMovieById, getSearchResultById, getUserLists,
+} from 'store/selectors';
 import { Localization } from 'contexts';
-import { UIIconButton } from 'components';
+import { v4 as uuidv4 } from 'uuid';
+
+import { UIDropdown } from 'components';
+import { MovieMenuItem } from './MovieMenuItem';
+import { MovieMenuForm } from './MovieMenuForm';
 
 import './MovieMenu.scss';
 
-const MovieMenu = (props) => {
-  const { id } = props;
+const MovieMenu = ({ id }) => {
   const dispatch = useDispatch();
   const uid = useSelector(getUserId);
   const saved = useSelector((state) => getMovieById(state, id));
   const searched = useSelector((state) => getSearchResultById(state, id));
+  const userLists = useSelector(getUserLists);
   const STR = useContext(Localization);
-  const [isMenuOpened, toggleMenu] = useState(false);
+  const predefinedLists = [
+    { id: 'favourites', title: STR.FAVOURITES },
+    { id: 'watch-later', title: STR.WATCH_LATER },
+    { id: 'watched', title: STR.WATCHED },
+  ];
+  const [isMenuOpened, setMenuOpened] = useState(false);
   const movie = saved || searched;
-  let lists = movie?.lists ? movie.lists : [];
+  const lists = movie?.lists ? movie.lists : [];
 
-  function handleMenuClick() {
-    toggleMenu(!isMenuOpened);
-  }
-  function handleChange(evt) {
+  function handleMenuItemClick(evt) {
     const list = evt.target.value;
-    if (lists.includes(list)) {
-      lists = lists.filter((item) => item !== list);
-    } else {
-      lists = [...lists, list];
-    }
+    const isChecked = evt.target.checked;
+    const updatedLists = isChecked === true
+      ? [...lists, list]
+      : lists.filter((item) => item !== list);
     if (lists.length) {
-      dispatch(updateItem(uid, { ...movie, id, lists }));
+      dispatch(updateItem(uid, { ...movie, id, lists: updatedLists }));
     } else {
       dispatch(removeItem(uid, id));
     }
-    toggleMenu(!isMenuOpened);
+    setMenuOpened(false);
+  }
+  function handleAddNewList(title) {
+    const updatedUserLists = [...userLists, { id: uuidv4(), title }];
+    dispatch(updateSettings(uid, { userLists: updatedUserLists }));
+  }
+  function handleMenuToggle() {
+    setMenuOpened(!isMenuOpened);
   }
 
   return (
-    <div className="movie-menu">
-      <UIIconButton onClick={handleMenuClick} icon={isMenuOpened ? 'cancel' : 'ellipsis-vert'} extraClassName="movie-menu__toggler" />
-      {isMenuOpened && (
-        <ul className="movie-menu__items">
-          <li className="movie-menu__item">
-            <label htmlFor="watch-later">
-              <input type="checkbox" id="watch-later" value="watch-later" onChange={handleChange} checked={lists.includes('watch-later')} />
-              {STR.WATCH_LATER}
-            </label>
-          </li>
-          <li className="movie-menu__item">
-            <label htmlFor="watched">
-              <input type="checkbox" id="watched" value="watched" onChange={handleChange} checked={lists.includes('watched')} />
-              {STR.WATCHED}
-            </label>
-          </li>
-          <li className="movie-menu__item">
-            <label htmlFor="favourites">
-              <input type="checkbox" id="favourites" value="favourites" onChange={handleChange} checked={lists.includes('favourites')} />
-              {STR.FAVOURITES}
-            </label>
-          </li>
-        </ul>
-      )}
-    </div>
+    <UIDropdown isOpened={isMenuOpened} onToggle={handleMenuToggle} extraClassName="movie-menu">
+      <ul className="movie-menu__items">
+        {[...predefinedLists, ...userLists].map((list) => (
+          <MovieMenuItem
+            key={list.id}
+            list={list.id}
+            checked={lists.includes(list.id)}
+            title={list.title}
+            onClick={handleMenuItemClick}
+          />
+        ))}
+      </ul>
+      <MovieMenuForm onSubmit={handleAddNewList} STR={STR} />
+    </UIDropdown>
   );
 };
 

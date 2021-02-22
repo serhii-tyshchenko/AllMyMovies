@@ -12,7 +12,7 @@
   padding: 20px 0;
   color: var(--color-primary);
   background-color: var(--background-secondary);
-  opacity: 0.98;
+  opacity: 0.95;
   @include for-size(tablet) {
     top: unset;
     bottom: 0;
@@ -21,7 +21,7 @@
     padding: 0;
   }
   &--collapsed {
-    #{ $self }-links__link {
+    #{ $self }-links-item {
       font-size: 0;
       &[class*='icon-']::before {
         margin: 0;
@@ -37,6 +37,9 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    @include for-size(tablet) {
+      overflow-x: auto;
+    }
   }
   &__toggler {
     position: absolute;
@@ -48,39 +51,6 @@
     background: var(--background-secondary);
     @include for-size(tablet) {
       display: none;
-    }
-  }
-}
-
-.nav-links {
-  flex-grow: 1;
-  list-style-type: none;
-  @include for-size(tablet) {
-    display: flex;
-    margin: 0 auto;
-  }
-  &__link {
-    display: block;
-    padding: 1rem;
-    color: var(--color-primary);
-    text-decoration: none;
-    @include for-size(tablet) {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 0.75rem;
-    }
-    &[class*='icon-']::before {
-      margin-right: 0.75em;
-    }
-    &:hover,
-    &.active {
-      background: var(--background-primary);
-    }
-    &.active::before {
-      @include for-size(tablet) {
-        color: var(--color-accent);
-      }
     }
   }
 }

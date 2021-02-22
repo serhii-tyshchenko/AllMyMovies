@@ -1,0 +1,17 @@
+@import '~styles/_variables';
+
+.movie-menu-form {
+  position: relative;
+  width: 100%;
+  &__input {
+    width: 100%;
+    padding: 0.5em 2em 0.5em 0.5em;
+    font-size: 0.85rem;
+  }
+  &__btn {
+    position: absolute;
+    top: 0.25rem;
+    right: 0;
+    font-size: 1.25rem;
+  }
+}

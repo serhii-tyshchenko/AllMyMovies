@@ -10,6 +10,7 @@ const getIsAuthModalVisible = (state) => state.modals.auth.isVisible;
 const getIsFavModalVisible = (state) => state.modals.fav.isVisible;
 const getAppLanguage = (state) => state.settings.language;
 const getAppTheme = (state) => state.settings.theme;
+const getUserLists = (state) => state.settings.userLists;
 const getSearchResults = (state) => state.searchResults;
 const getMovieInfo = (state) => state.movieInfo;
 const getNotifications = (state) => state.notifications;
@@ -36,6 +37,7 @@ export {
   getIsFavModalVisible,
   getAppLanguage,
   getAppTheme,
+  getUserLists,
   getSearchResults,
   getUserId,
   getMovieInfo,
