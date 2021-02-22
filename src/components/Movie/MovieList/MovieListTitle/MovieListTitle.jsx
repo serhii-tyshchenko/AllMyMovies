@@ -6,7 +6,7 @@ import { UIIconButton, UIInput } from 'components';
 import './MovieListTitle.scss';
 
 const MovieListTitle = ({
-  title, isUserList, onSaveClick,
+  title, isUserList, onSaveClick, onDeleteClick,
 }) => {
   const [listTitle, setListTitle] = useState(title);
   const [oldTitle, setOldTitle] = useState(title);
@@ -31,6 +31,13 @@ const MovieListTitle = ({
     setListTitle(evt.target.value);
   }
 
+  function handleDeleteClick() {
+    if (window.confirm('Are you sure you want to delete this list?')) {
+      setEditMode(false);
+      onDeleteClick();
+    }
+  }
+
   return (
     <div className="movie-list-title">
       <UIInput
@@ -43,6 +50,7 @@ const MovieListTitle = ({
         <>
           {!isEditMode && (<UIIconButton icon="pencil" title="edit list" onClick={handleEditClick} />)}
           {isEditMode && (<UIIconButton icon="ok" title="Save changes" onClick={handleSaveClick} />)}
+          {isEditMode && (<UIIconButton icon="trash" title="Delete list" onClick={handleDeleteClick} />)}
         </>
       )}
     </div>

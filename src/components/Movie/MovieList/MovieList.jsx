@@ -6,7 +6,7 @@ import {
 import {
   getSearchResults, getMoviesByList, getUserLists, getUserId,
 } from 'store/selectors';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { Localization } from 'contexts';
 import {
   MovieModal, MovieListItem, MovieListSorter,
@@ -33,6 +33,7 @@ const MovieList = () => {
   const userLists = useSelector(getUserLists);
   const uid = useSelector(getUserId);
   const availableLists = [...predefinedLists, ...userLists];
+  const history = useHistory();
   const list = useLocation().pathname.slice(1);
   const isUserList = userLists.some((item) => item.id === list);
   const listTitle = availableLists.find((item) => item.id === list)?.title || STR.HOME;
@@ -60,11 +61,18 @@ const MovieList = () => {
     dispatch(updateSettings(uid, { userLists: updatedUserLists }));
   }
 
+  function handleDeleteListClick() {
+    const updatedUserLists = userLists.filter((item) => item.id !== list);
+    dispatch(updateSettings(uid, { userLists: updatedUserLists }));
+    history.push('/');
+  }
+
   return (
     <section className="movie-list-container">
       <MovieListTitle
         title={listTitle}
         onSaveClick={handleSaveChangesClick}
+        onDeleteClick={handleDeleteListClick}
         isUserList={isUserList}
       />
 
