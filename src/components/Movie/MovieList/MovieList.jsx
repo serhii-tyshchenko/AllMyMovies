@@ -74,6 +74,7 @@ const MovieList = () => {
         onSaveClick={handleSaveChangesClick}
         onDeleteClick={handleDeleteListClick}
         isUserList={isUserList}
+        STR={STR}
       />
 
       {(data.length > 0 && list) && (

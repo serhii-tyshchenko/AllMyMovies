@@ -30,6 +30,7 @@ const Nav = () => {
         <UIIconButton
           icon={isNavExpanded ? 'left-open' : 'right-open'}
           onClick={handleToggleNav}
+          title={isNavExpanded ? STR.COLLAPSE : STR.EXPAND}
           extraClassName="nav__toggler"
         />
       </div>

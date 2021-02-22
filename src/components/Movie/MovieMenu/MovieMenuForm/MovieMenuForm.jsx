@@ -4,7 +4,7 @@ import { UIInput, UIIconButton } from 'components';
 
 import './MovieMenuForm.scss';
 
-const MovieMenuForm = ({ onSubmit }) => {
+const MovieMenuForm = ({ onSubmit, STR }) => {
   const [listTitle, setListTitle] = useState('');
 
   function handleSubmit(evt) {
@@ -23,13 +23,13 @@ const MovieMenuForm = ({ onSubmit }) => {
         value={listTitle}
         onChange={handleChange}
         extraClassName="movie-menu-form__input"
-        placeholder="New list"
+        placeholder={STR.NEW_LIST}
         required
       />
       <UIIconButton
         type="submit"
         icon="plus"
-        title="add"
+        title={STR.ADD}
         extraClassName="movie-menu-form__btn"
       />
     </form>
@@ -38,10 +38,12 @@ const MovieMenuForm = ({ onSubmit }) => {
 
 MovieMenuForm.defaultProps = {
   onSubmit: null,
+  STR: PropTypes.shape({ NEW_LIST: 'New list', ADD: 'Add' }),
 };
 
 MovieMenuForm.propTypes = {
   onSubmit: PropTypes.func,
+  STR: PropTypes.shape({ NEW_LIST: PropTypes.string, ADD: PropTypes.string }),
 };
 
 export { MovieMenuForm };

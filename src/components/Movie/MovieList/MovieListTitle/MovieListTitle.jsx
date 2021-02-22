@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable react/prop-types */
 
 import { useState, useEffect } from 'react';
@@ -6,7 +7,7 @@ import { UIIconButton, UIInput } from 'components';
 import './MovieListTitle.scss';
 
 const MovieListTitle = ({
-  title, isUserList, onSaveClick, onDeleteClick,
+  title, isUserList, onSaveClick, onDeleteClick, STR,
 }) => {
   const [listTitle, setListTitle] = useState(title);
   const [oldTitle, setOldTitle] = useState(title);
@@ -32,7 +33,7 @@ const MovieListTitle = ({
   }
 
   function handleDeleteClick() {
-    if (window.confirm('Are you sure you want to delete this list?')) {
+    if (window.confirm(STR.ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST)) {
       setEditMode(false);
       onDeleteClick();
     }
@@ -48,9 +49,9 @@ const MovieListTitle = ({
       />
       {isUserList && (
         <>
-          {!isEditMode && (<UIIconButton icon="pencil" title="edit list" onClick={handleEditClick} />)}
-          {isEditMode && (<UIIconButton icon="ok" title="Save changes" onClick={handleSaveClick} />)}
-          {isEditMode && (<UIIconButton icon="trash" title="Delete list" onClick={handleDeleteClick} />)}
+          {!isEditMode && (<UIIconButton icon="pencil" title={STR.EDIT_LIST} onClick={handleEditClick} />)}
+          {isEditMode && (<UIIconButton icon="ok" title={STR.SAVE_CHANGES} onClick={handleSaveClick} />)}
+          {isEditMode && (<UIIconButton icon="trash" title={STR.DELETE_LIST} onClick={handleDeleteClick} />)}
         </>
       )}
     </div>

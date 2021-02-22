@@ -64,7 +64,7 @@ const MovieMenu = ({ id }) => {
           />
         ))}
       </ul>
-      <MovieMenuForm onSubmit={handleAddNewList} />
+      <MovieMenuForm onSubmit={handleAddNewList} STR={STR} />
     </UIDropdown>
   );
 };
