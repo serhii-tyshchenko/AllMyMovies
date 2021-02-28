@@ -3,6 +3,7 @@ export const UPDATE_ITEM = 'UPDATE_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const GET_ITEMS = 'GET_ITEMS';
 export const SORT_MOVIES = 'SORT_MOVIES';
+export const REMOVE_LIST = 'REMOVE_LIST';
 export const SEARCH_MOVIE = 'SEARCH_MOVIE';
 export const GET_MOVIE_INFO = 'GET_MOVIE_INFO';
 export const SIGN_IN = 'SIGN_IN';

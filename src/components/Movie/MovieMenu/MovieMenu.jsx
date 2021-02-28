@@ -32,11 +32,10 @@ const MovieMenu = ({ id }) => {
 
   function handleMenuItemClick(evt) {
     const list = evt.target.value;
-    const isChecked = evt.target.checked;
-    const updatedLists = isChecked === true
-      ? [...lists, list]
-      : lists.filter((item) => item !== list);
-    if (lists.length) {
+    const updatedLists = lists.includes(list)
+      ? lists.filter((item) => item !== list)
+      : [...lists, list];
+    if (updatedLists.length) {
       dispatch(updateItem(uid, { ...movie, id, lists: updatedLists }));
     } else {
       dispatch(removeItem(uid, id));

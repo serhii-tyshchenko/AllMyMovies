@@ -27,7 +27,7 @@ const getSearchResultById = createSelector(
 const getMoviesByList = createSelector(
   getData,
   (_, list) => list,
-  (data, list) => data.filter((item) => item.lists.includes(list))
+  (data, list) => data.filter((item) => item?.lists.includes(list))
 );
 
 export {

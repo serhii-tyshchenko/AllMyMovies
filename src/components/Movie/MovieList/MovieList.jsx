@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  showModal, getMovieInfo, sortMovies, updateSettings,
+  showModal, getMovieInfo, sortMovies, updateSettings, removeList,
 } from 'store/actions';
 import {
   getSearchResults, getMoviesByList, getUserLists, getUserId,
@@ -64,6 +64,7 @@ const MovieList = () => {
   function handleDeleteListClick() {
     const updatedUserLists = userLists.filter((item) => item.id !== list);
     dispatch(updateSettings(uid, { userLists: updatedUserLists }));
+    dispatch(removeList(uid, list));
     history.push('/');
   }
 

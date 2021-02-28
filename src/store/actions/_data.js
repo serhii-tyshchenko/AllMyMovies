@@ -4,6 +4,7 @@ import {
   ADD_ITEM,
   UPDATE_ITEM,
   REMOVE_ITEM,
+  REMOVE_LIST,
   GET_ITEMS,
   SORT_MOVIES,
   SHOW_NOTIFICATION,
@@ -72,6 +73,18 @@ export const removeItem = (uid, id) => (dispatch) => {
   }
 };
 
+export const removeList = (uid, list) => (dispatch) => {
+  if (uid) {
+    dispatch({ type: DB_REQUEST_STARTED });
+    db.removeList(uid, list)
+      .then(() => dispatch({ type: REMOVE_LIST, payload: list }))
+      .catch((error) => dispatch(actionError(error.message)))
+      .finally(() => dispatch({ type: DB_REQUEST_ENDED }));
+  } else {
+    dispatch({ type: REMOVE_LIST, payload: list });
+  }
+};
+
 export const getItems = (uid) => (dispatch) => {
   dispatch({ type: DB_REQUEST_STARTED });
   db.getItems(uid)
@@ -84,4 +97,7 @@ export const getItems = (uid) => (dispatch) => {
     .finally(() => dispatch({ type: DB_REQUEST_ENDED }));
 };
 
-export const sortMovies = (sortedBy) => ({ type: SORT_MOVIES, payload: sortedBy });
+export const sortMovies = (sortedBy) => ({
+  type: SORT_MOVIES,
+  payload: sortedBy,
+});
