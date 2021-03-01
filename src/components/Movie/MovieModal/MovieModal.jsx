@@ -7,7 +7,6 @@ import { hideModal } from 'store/actions';
 import { getIsFavModalVisible, getMovieInfo } from 'store/selectors';
 import { Localization } from 'contexts';
 import { UIModal, MovieMenu } from 'components';
-import noImage from 'assets/images/no-image.svg';
 import { MovieModalSkeleton } from './MovieModalSkeleton';
 
 import './MovieModal.scss';
@@ -21,12 +20,7 @@ const MovieModal = () => {
   } = useSelector(getMovieInfo);
   const dispatch = useDispatch();
   const STR = useContext(Localization);
-  const posterSrc = (Poster && Poster !== 'N/A') ? Poster : noImage;
 
-  function handleError(e) {
-    e.target.onerror = null;
-    e.target.src = noImage;
-  }
   function handleModalClose() {
     dispatch(hideModal('fav'));
   }
@@ -36,7 +30,7 @@ const MovieModal = () => {
       {!isLoading ? (
         <div className="movie-modal__content">
           <div className="movie-modal__poster">
-            <img src={posterSrc} alt={Title} width="240" height="350" onError={handleError} />
+            <img src={Poster} alt={Title} width="240" height="350" />
             <MovieMenu id={imdbID} />
           </div>
           <div className="movie-modal__details">

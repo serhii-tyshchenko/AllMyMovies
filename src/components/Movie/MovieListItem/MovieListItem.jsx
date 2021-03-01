@@ -4,8 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MovieMenu } from 'components';
 
-import noimage from 'assets/images/no-image.svg';
-
 import './MovieListItem.scss';
 
 const MovieListItem = React.memo((props) => {
@@ -15,7 +13,6 @@ const MovieListItem = React.memo((props) => {
     },
     onShowInfoClick,
   } = props;
-  const posterURL = posterUrl !== 'N/A' ? posterUrl : noimage;
 
   function handleShowInfoClick() {
     onShowInfoClick(id);
@@ -25,7 +22,7 @@ const MovieListItem = React.memo((props) => {
     <li id={id} className="movie-list-item">
       <MovieMenu id={id} />
       <img
-        src={posterURL}
+        src={posterUrl}
         alt={title}
         width="320"
         height="480"
