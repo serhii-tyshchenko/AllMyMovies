@@ -28,6 +28,7 @@ const MovieMenu = ({ id }) => {
   ];
   const [isMenuOpened, setMenuOpened] = useState(false);
   const movie = saved || searched;
+  console.log(movie);
   const lists = movie?.lists ? movie.lists : [];
 
   function handleMenuItemClick(evt) {

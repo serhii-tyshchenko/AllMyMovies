@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable object-curly-newline */
 import { db, api } from 'services';
 import {
   ADD_ITEM,
@@ -9,17 +9,49 @@ import {
   SORT_MOVIES,
   SHOW_NOTIFICATION,
   SEARCH_MOVIE,
+  GET_MOVIE_INFO,
   API_REQUEST_STARTED,
   API_REQUEST_ENDED,
   DB_REQUEST_STARTED,
   DB_REQUEST_ENDED,
 } from '../action-types';
 
-function actionError(message) {
+function formatAPIResponse(data) {
   return {
-    type: SHOW_NOTIFICATION,
-    payload: { type: 'error', message },
+    title: data.Title || '',
+    type: data.Type,
+    year: data.Year,
+    genre: data.Genre || '',
+    imdbID: data.imdbID,
+    poster: data.Poster,
+    actors: data.Actors || '',
+    director: data.Director || '',
+    country: data.Country || '',
+    duration: data.Duration || '',
+    release: data.Release || '',
+    imdbRating: data.imdbRating || '',
+    runtime: data.Runtime || '',
+    plot: data.Plot || '',
   };
+}
+
+function actionError(message) {
+  return { type: SHOW_NOTIFICATION, payload: { type: 'error', message } };
+}
+
+function actionRemoveList(list) {
+  return { type: REMOVE_LIST, payload: list };
+}
+
+function actionSearchMovie(data) {
+  return {
+    type: SEARCH_MOVIE,
+    payload: data.map((item) => formatAPIResponse(item)),
+  };
+}
+
+function actionGetMovieInfo(data) {
+  return { type: GET_MOVIE_INFO, payload: formatAPIResponse(data) };
 }
 
 export const searchMovie = (query) => (dispatch) => {
@@ -28,7 +60,22 @@ export const searchMovie = (query) => (dispatch) => {
     .searchMovie(query)
     .then((data) => {
       if (data?.Search) {
-        dispatch({ type: SEARCH_MOVIE, payload: data.Search });
+        dispatch(actionSearchMovie(data.Search));
+      } else {
+        dispatch(actionError(data.Error));
+      }
+    })
+    .catch((error) => dispatch(actionError(error.message)))
+    .finally(() => dispatch({ type: API_REQUEST_ENDED }));
+};
+
+export const getMovieInfo = (id) => (dispatch) => {
+  dispatch({ type: API_REQUEST_STARTED });
+  api
+    .getMovieInfo(id)
+    .then((data) => {
+      if (data) {
+        dispatch(actionGetMovieInfo(data));
       } else {
         dispatch(actionError(data.Error));
       }
@@ -77,11 +124,11 @@ export const removeList = (uid, list) => (dispatch) => {
   if (uid) {
     dispatch({ type: DB_REQUEST_STARTED });
     db.removeList(uid, list)
-      .then(() => dispatch({ type: REMOVE_LIST, payload: list }))
+      .then(() => dispatch(actionRemoveList(list)))
       .catch((error) => dispatch(actionError(error.message)))
       .finally(() => dispatch({ type: DB_REQUEST_ENDED }));
   } else {
-    dispatch({ type: REMOVE_LIST, payload: list });
+    dispatch(actionRemoveList(list));
   }
 };
 

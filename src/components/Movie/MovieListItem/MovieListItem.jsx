@@ -9,20 +9,20 @@ import './MovieListItem.scss';
 const MovieListItem = React.memo((props) => {
   const {
     data: {
-      Title: title, Poster: posterUrl, Year: year, imdbID: id,
+      title, poster, year, imdbID,
     },
     onShowInfoClick,
   } = props;
 
   function handleShowInfoClick() {
-    onShowInfoClick(id);
+    onShowInfoClick(imdbID);
   }
 
   return (
-    <li id={id} className="movie-list-item">
-      <MovieMenu id={id} />
+    <li id={imdbID} className="movie-list-item">
+      <MovieMenu id={imdbID} />
       <img
-        src={posterUrl}
+        src={poster}
         alt={title}
         width="320"
         height="480"
