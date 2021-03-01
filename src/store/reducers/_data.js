@@ -10,6 +10,7 @@ import {
   SORT_MOVIES,
   UPDATE_ITEM,
   SIGN_OUT,
+  REMOVE_LIST,
 } from '../action-types';
 
 const initialState = [];
@@ -31,6 +32,13 @@ export const data = (state = initialState, action) => {
 
     case REMOVE_ITEM:
       return state.filter((item) => item.id !== payload);
+
+    case REMOVE_LIST:
+      return state.map((item) =>
+        item.lists.includes(payload)
+          ? { ...item, lists: item.lists.filter((list) => list !== payload) }
+          : item
+      );
 
     case GET_ITEMS:
       return [...payload];
