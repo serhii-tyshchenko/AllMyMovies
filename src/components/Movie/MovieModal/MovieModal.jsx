@@ -30,7 +30,7 @@ const MovieModal = () => {
       {!isLoading ? (
         <div className="movie-modal__content">
           <div className="movie-modal__poster">
-            <img src={poster} alt={title} width="240" height="350" />
+            <img src={poster} alt="Poster" width="240" height="350" />
             <MovieMenu id={imdbID} />
           </div>
           <div className="movie-modal__details">
