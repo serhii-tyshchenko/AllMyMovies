@@ -7,3 +7,4 @@ export { UITabs } from './UITabs';
 export { UIModal } from './UIModal';
 export { UIModalConfirm } from './UIModalConfirm';
 export { UINotification } from './UINotification';
+export { UIDropdown } from './UIDropdown';

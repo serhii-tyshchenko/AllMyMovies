@@ -4,28 +4,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MovieMenu } from 'components';
 
-import noimage from 'assets/images/no-image.svg';
-
 import './MovieListItem.scss';
 
 const MovieListItem = React.memo((props) => {
   const {
     data: {
-      Title: title, Poster: posterUrl, Year: year, imdbID: id,
+      title, poster, year, imdbID,
     },
     onShowInfoClick,
   } = props;
-  const posterURL = posterUrl !== 'N/A' ? posterUrl : noimage;
 
   function handleShowInfoClick() {
-    onShowInfoClick(id);
+    onShowInfoClick(imdbID);
   }
 
   return (
-    <li id={id} className="movie-list-item">
-      <MovieMenu id={id} />
+    <li id={imdbID} className="movie-list-item">
+      <MovieMenu id={imdbID} />
       <img
-        src={posterURL}
+        src={poster}
         alt={title}
         width="320"
         height="480"

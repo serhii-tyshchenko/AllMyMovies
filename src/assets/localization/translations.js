@@ -36,6 +36,15 @@ const translations = {
     SORT_BY_TITLE_Z_A: 'Title Z-A',
     SORT_BY_YEAR_ASC: 'Year ↑',
     SORT_BY_YEAR_DSC: 'Year ↓',
+    ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST:
+      'Are you sure you want to delete this list?',
+    EDIT_LIST: 'Edit list',
+    SAVE_CHANGES: 'Save changes',
+    DELETE_LIST: 'Delete list',
+    NEW_LIST: 'New list',
+    ADD: 'Add',
+    EXPAND: 'Expand',
+    COLLAPSE: 'Collapse',
   },
   ua: {
     SIGN_IN: 'Увійти',
@@ -68,6 +77,15 @@ const translations = {
     SORT_BY_TITLE_Z_A: 'Назва Я-А',
     SORT_BY_YEAR_ASC: 'Рік ↑',
     SORT_BY_YEAR_DSC: 'Рік ↓',
+    ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST:
+      'Ви дійсно хочете видалити цей список?',
+    EDIT_LIST: 'Редагувати',
+    SAVE_CHANGES: 'Зберегти зміни',
+    DELETE_LIST: 'Видалити список',
+    NEW_LIST: 'Новий список',
+    ADD: 'Додати',
+    EXPAND: 'Показати',
+    COLLAPSE: 'Сховати',
   },
   ru: {
     SIGN_IN: 'Войти',
@@ -100,6 +118,15 @@ const translations = {
     SORT_BY_TITLE_Z_A: 'Название Я-А',
     SORT_BY_YEAR_ASC: 'Год ↑',
     SORT_BY_YEAR_DSC: 'Год ↓',
+    ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST:
+      'Вы действительно хотите удалить этот список?',
+    EDIT_LIST: 'Редактировать',
+    SAVE_CHANGES: 'Сохранить изменения',
+    DELETE_LIST: 'Удалить список',
+    NEW_LIST: 'Новый список',
+    ADD: 'Добавить',
+    EXPAND: 'Показать',
+    COLLAPSE: 'Скрыть',
   },
 };
 

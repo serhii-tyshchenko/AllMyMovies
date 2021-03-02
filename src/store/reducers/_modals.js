@@ -1,4 +1,4 @@
-import { SHOW_MODAL, HIDE_MODAL } from '../action-types';
+import { SHOW_MODAL, HIDE_MODAL, SIGN_OUT } from '../action-types';
 
 const initialState = {
   auth: { isVisible: false, data: null },
@@ -16,12 +16,13 @@ export const modals = (state = initialState, action) => {
           data: payload.data,
         },
       };
-
     case HIDE_MODAL:
       return {
         ...state,
         [payload]: { isVisible: false },
       };
+    case SIGN_OUT:
+      return initialState;
     default:
       return state;
   }

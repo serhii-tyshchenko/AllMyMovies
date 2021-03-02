@@ -10,6 +10,7 @@ import {
   SORT_MOVIES,
   UPDATE_ITEM,
   SIGN_OUT,
+  REMOVE_LIST,
 } from '../action-types';
 
 const initialState = [];
@@ -32,6 +33,15 @@ export const data = (state = initialState, action) => {
     case REMOVE_ITEM:
       return state.filter((item) => item.id !== payload);
 
+    case REMOVE_LIST:
+      return state
+        .filter((movie) => movie.lists.includes(payload))
+        .map((movie) => ({
+          ...movie,
+          lists: movie.lists.filter((list) => list !== payload),
+        }))
+        .filter((movie) => movie.lists.length > 0);
+
     case GET_ITEMS:
       return [...payload];
 
@@ -50,7 +60,7 @@ export const data = (state = initialState, action) => {
       }
 
     case SIGN_OUT:
-      return [];
+      return initialState;
 
     default:
       return state;

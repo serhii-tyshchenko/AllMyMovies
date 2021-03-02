@@ -10,6 +10,7 @@ const getIsAuthModalVisible = (state) => state.modals.auth.isVisible;
 const getIsFavModalVisible = (state) => state.modals.fav.isVisible;
 const getAppLanguage = (state) => state.settings.language;
 const getAppTheme = (state) => state.settings.theme;
+const getUserLists = (state) => state.settings.userLists;
 const getSearchResults = (state) => state.searchResults;
 const getMovieInfo = (state) => state.movieInfo;
 const getNotifications = (state) => state.notifications;
@@ -26,7 +27,7 @@ const getSearchResultById = createSelector(
 const getMoviesByList = createSelector(
   getData,
   (_, list) => list,
-  (data, list) => data.filter((item) => item.lists.includes(list))
+  (data, list) => data.filter((item) => item?.lists.includes(list))
 );
 
 export {
@@ -36,6 +37,7 @@ export {
   getIsFavModalVisible,
   getAppLanguage,
   getAppTheme,
+  getUserLists,
   getSearchResults,
   getUserId,
   getMovieInfo,

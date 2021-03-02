@@ -20,6 +20,16 @@
     @include for-size(mobile-large) {
       height: auto;
     }
+    &::before {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 320px;
+      height: 480px;
+      background: var(--background-skeleton);
+      content: '\2639'' ' attr(alt);
+    }
     &:hover {
       cursor: pointer;
       opacity: 0.5;
