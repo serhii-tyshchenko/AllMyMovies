@@ -23,7 +23,7 @@ class Firebase {
     this.db = firebase.firestore();
 
     this.rootCollection = 'data';
-    this.dataCollection = 'movies-list';
+    this.dataCollection = 'movies';
     this.settingsCollection = 'settings';
     this.commonSettingsDoc = 'common';
   }
@@ -97,9 +97,13 @@ class Firebase {
         const batch = this.db.batch();
         querySnapshot.forEach((doc) => {
           const updatedLists = doc.data().lists.filter((item) => item !== list);
-          batch.update(doc.ref, {
-            lists: updatedLists,
-          });
+          if (updatedLists.length > 0) {
+            batch.update(doc.ref, {
+              lists: updatedLists,
+            });
+          } else {
+            batch.delete(doc.ref);
+          }
         });
         return batch.commit();
       });

@@ -34,11 +34,13 @@ export const data = (state = initialState, action) => {
       return state.filter((item) => item.id !== payload);
 
     case REMOVE_LIST:
-      return state.map((item) =>
-        item.lists.includes(payload)
-          ? { ...item, lists: item.lists.filter((list) => list !== payload) }
-          : item
-      );
+      return state
+        .filter((movie) => movie.lists.includes(payload))
+        .map((movie) => ({
+          ...movie,
+          lists: movie.lists.filter((list) => list !== payload),
+        }))
+        .filter((movie) => movie.lists.length > 0);
 
     case GET_ITEMS:
       return [...payload];
