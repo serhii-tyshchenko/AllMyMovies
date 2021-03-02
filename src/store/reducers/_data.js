@@ -1,3 +1,6 @@
+/* eslint-disable consistent-return */
+/* eslint-disable array-callback-return */
+/* eslint-disable no-case-declarations */
 /* eslint-disable function-paren-newline */
 /* eslint-disable comma-dangle */
 /* eslint-disable implicit-arrow-linebreak */
@@ -34,13 +37,17 @@ export const data = (state = initialState, action) => {
       return state.filter((item) => item.id !== payload);
 
     case REMOVE_LIST:
-      return state
+      const unfilteredMovies = state.filter(
+        (movie) => !movie.lists.includes(payload)
+      );
+      const filteredMovies = state
         .filter((movie) => movie.lists.includes(payload))
         .map((movie) => ({
           ...movie,
           lists: movie.lists.filter((list) => list !== payload),
         }))
         .filter((movie) => movie.lists.length > 0);
+      return [...unfilteredMovies, ...filteredMovies];
 
     case GET_ITEMS:
       return [...payload];
