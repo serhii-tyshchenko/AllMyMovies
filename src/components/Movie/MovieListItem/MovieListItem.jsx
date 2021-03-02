@@ -23,7 +23,7 @@ const MovieListItem = React.memo((props) => {
       <MovieMenu id={imdbID} />
       <img
         src={poster}
-        alt={title}
+        alt="Poster"
         width="320"
         height="480"
         className="movie-list-item__poster"
