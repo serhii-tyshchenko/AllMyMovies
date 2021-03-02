@@ -55,13 +55,13 @@ export const data = (state = initialState, action) => {
     case SORT_MOVIES:
       switch (payload) {
         case 'title-asc':
-          return sortArrayOfObjects(state, 'Title', 'asc');
+          return sortArrayOfObjects(state, 'title', 'asc');
         case 'title-dsc':
-          return sortArrayOfObjects(state, 'Title', 'dsc');
+          return sortArrayOfObjects(state, 'title', 'dsc');
         case 'year-asc':
-          return sortArrayOfObjects(state, 'Year', 'asc');
+          return sortArrayOfObjects(state, 'year', 'asc');
         case 'year-dsc':
-          return sortArrayOfObjects(state, 'Year', 'dsc');
+          return sortArrayOfObjects(state, 'year', 'dsc');
         default:
           return state;
       }
