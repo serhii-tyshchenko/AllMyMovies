@@ -23,8 +23,8 @@ const MovieMenu = ({ id }) => {
   const STR = useContext(Localization);
   const predefinedLists = [
     { id: 'favourites', title: STR.FAVOURITES },
-    { id: 'watch-later', title: STR.WATCH_LATER },
     { id: 'watched', title: STR.WATCHED },
+    { id: 'watch-later', title: STR.WATCH_LATER },
   ];
   const [isMenuOpened, setMenuOpened] = useState(false);
   const movie = saved || searched;
