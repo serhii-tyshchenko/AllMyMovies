@@ -1,5 +1,10 @@
 /* eslint-disable object-curly-newline */
-import { sortByABC, formatDate, formatTime, sortArrayOfObjects } from './index';
+import {
+  sortByABC,
+  formatDate,
+  formatTime,
+  sortArrayOfObjects,
+} from './index.ts';
 
 describe('sortByABC function', () => {
   test('should return -1 if a < b', () => {
