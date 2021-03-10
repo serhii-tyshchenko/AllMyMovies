@@ -10,7 +10,11 @@
     "import/prefer-default-export": "off",
     "max-len": "warn",
     "react/react-in-jsx-scope": "off",
-    "jsx-a11y/label-has-associated-control": "off"
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".tsx"] }
+    ]
   },
   "settings": {
     "import/resolver": {
