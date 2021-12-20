@@ -9,11 +9,11 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "test-coverage": "react-scripts test --coverage",
-    "ghp-predeploy": "npm run build",
-    "ghp-deploy": "gh-pages -d build",
+    "test:coverage": "react-scripts test --coverage",
+    "build": "react-scripts build",
+    "ghp:predeploy": "npm run build",
+    "ghp:deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "dependencies": {
