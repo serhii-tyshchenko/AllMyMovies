@@ -1,5 +1,6 @@
-export function formatDate(date) {
-  const monthNames = [
+/* eslint-disable comma-dangle */
+export function formatDate(date: Date): string {
+  const monthNames: string[] = [
     '01',
     '02',
     '03',
@@ -20,14 +21,14 @@ export function formatDate(date) {
   return `${year}-${monthNames[monthIndex]}-${day}`;
 }
 
-export function formatTime(date) {
+export function formatTime(date: Date): string {
   const hours = date.getHours().toString().padStart(2, '0');
   const minutes = date.getMinutes().toString().padStart(2, '0');
 
   return `${hours}:${minutes}`;
 }
 
-export function sortByABC(a, b) {
+export function sortByABC(a: string, b: string): number {
   const nameA = a.toUpperCase();
   const nameB = b.toUpperCase();
   if (nameA < nameB) {
@@ -39,11 +40,15 @@ export function sortByABC(a, b) {
   return 0;
 }
 
-export function sortArrayOfObjects(array, parameter, order = 'asc') {
+export function sortArrayOfObjects(
+  arr: Array<{}>,
+  param: string,
+  order: string = 'asc'
+) {
   return [
-    ...array.sort((a, b) => {
-      const itemA = a[parameter].toUpperCase();
-      const itemB = b[parameter].toUpperCase();
+    ...arr.sort((a, b) => {
+      const itemA = a[param].toUpperCase();
+      const itemB = b[param].toUpperCase();
       if (itemA < itemB) {
         return order === 'asc' ? -1 : 1;
       }

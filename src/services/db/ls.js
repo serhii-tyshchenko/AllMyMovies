@@ -1,4 +1,4 @@
-const keyName = 'MyMoviesList';
+const keyName = process.env.REACT_APP_NAME;
 
 export const loadState = () => {
   try {
@@ -17,7 +17,7 @@ export const saveState = (state) => {
     const serializedState = JSON.stringify(state);
     localStorage.setItem(keyName, serializedState);
   } catch {
-    // ignore write errors
+    console.log('Unable to save to LS');
   }
 };
 

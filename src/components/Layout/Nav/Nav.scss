@@ -39,6 +39,9 @@
     height: 100%;
     @include for-size(tablet) {
       overflow-x: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
   &__toggler {

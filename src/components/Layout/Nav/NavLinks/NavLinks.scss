@@ -3,9 +3,12 @@
 
 .nav-links {
   flex-grow: 1;
+  max-height: calc(100% - 80px);
   list-style-type: none;
+  overflow-y: auto;
   @include for-size(tablet) {
     display: flex;
     margin: 0 auto;
+    overflow-y: unset;
   }
 }

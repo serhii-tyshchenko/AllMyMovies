@@ -1,10 +1,14 @@
-const languages = [
+const languages: Array<{ value: string; label: string }> = [
   { value: 'en', label: 'EN' },
   { value: 'ua', label: 'UA' },
   { value: 'ru', label: 'RU' },
 ];
 
-const translations = {
+interface Translation {
+  [key: string]: { [key: string]: string };
+}
+
+const translations: Translation = {
   en: {
     SIGN_IN: 'Sign In',
     SIGN_UP: 'Sign Up',

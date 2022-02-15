@@ -1,4 +1,4 @@
-import { translations, languages } from './translations';
+import { translations, languages } from './translations.ts';
 
 const getLocalization = (lang) => translations[lang];
 

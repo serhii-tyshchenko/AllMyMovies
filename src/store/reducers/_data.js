@@ -53,18 +53,8 @@ export const data = (state = initialState, action) => {
       return [...payload];
 
     case SORT_MOVIES:
-      switch (payload) {
-        case 'title-asc':
-          return sortArrayOfObjects(state, 'title', 'asc');
-        case 'title-dsc':
-          return sortArrayOfObjects(state, 'title', 'dsc');
-        case 'year-asc':
-          return sortArrayOfObjects(state, 'year', 'asc');
-        case 'year-dsc':
-          return sortArrayOfObjects(state, 'year', 'dsc');
-        default:
-          return state;
-      }
+      const [property, order] = payload.split('-');
+      return sortArrayOfObjects(state, property, order);
 
     case SIGN_OUT:
       return initialState;

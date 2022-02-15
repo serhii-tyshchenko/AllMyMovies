@@ -1,1 +1,1 @@
-export { UIIconButton } from './UIIconButton';
+export { UIIconButton } from './UIIconButton.tsx';
