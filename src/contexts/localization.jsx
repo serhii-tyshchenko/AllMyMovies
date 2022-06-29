@@ -7,7 +7,7 @@ import { getLocalization } from 'assets/localization';
 const Localization = createContext();
 Localization.displayName = 'Localization';
 
-const LocalizationProvider = ({ children }) => {
+function LocalizationProvider({ children }) {
   const language = useSelector(getAppLanguage);
 
   return (
@@ -15,6 +15,6 @@ const LocalizationProvider = ({ children }) => {
       {children}
     </Localization.Provider>
   );
-};
+}
 
 export { Localization, LocalizationProvider };

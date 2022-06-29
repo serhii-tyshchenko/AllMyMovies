@@ -4,7 +4,7 @@ import { UIInput, UIIconButton } from 'components';
 
 import './MovieMenuForm.scss';
 
-const MovieMenuForm = ({ onSubmit, STR }) => {
+function MovieMenuForm({ onSubmit, STR }) {
   const [listTitle, setListTitle] = useState('');
 
   function handleSubmit(evt) {
@@ -12,7 +12,7 @@ const MovieMenuForm = ({ onSubmit, STR }) => {
     onSubmit(listTitle);
     setListTitle('');
   }
-  function handleChange(evt) {
+  const handleChange = (evt) => {
     setListTitle(evt.target.value);
   }
 
@@ -34,7 +34,7 @@ const MovieMenuForm = ({ onSubmit, STR }) => {
       />
     </form>
   );
-};
+}
 
 MovieMenuForm.defaultProps = {
   onSubmit: null,

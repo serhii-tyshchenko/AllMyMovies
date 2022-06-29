@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable max-len */
 import firebase from 'firebase/compat/app';
@@ -16,97 +17,100 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_FB_MEASUREMENT_ID,
 };
 
-class Firebase {
-  constructor() {
-    firebase.initializeApp(firebaseConfig);
-    this.auth = firebase.auth();
-    this.db = firebase.firestore();
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+const _rootCollection = 'data';
+const _dataCollection = 'movies';
+const _settingsCollection = 'settings';
+const _commonSettingsDoc = 'common';
 
-    this.rootCollection = 'data';
-    this.dataCollection = 'movies';
-    this.settingsCollection = 'settings';
-    this.commonSettingsDoc = 'common';
-  }
+const signInWithEmail = (email, password) =>
+  auth.signInWithEmailAndPassword(email, password);
 
-  signInWithEmail = (email, password) =>
-    this.auth.signInWithEmailAndPassword(email, password);
+const signUpWithEmail = (email, password) =>
+  auth.createUserWithEmailAndPassword(email, password);
 
-  signUpWithEmail = (email, password) =>
-    this.auth.createUserWithEmailAndPassword(email, password);
+const signInWithGoogle = () =>
+  auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
 
-  signInWithGoogle = () =>
-    firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider());
+const signOut = () => auth.signOut();
 
-  signOut = () => this.auth.signOut();
+const addItem = (userID, item, dataCollection = _dataCollection) =>
+  db
+    .collection(_rootCollection)
+    .doc(userID)
+    .collection(dataCollection)
+    .doc(item.id)
+    .set(item);
 
-  addItem = (userID, item, dataCollection = this.dataCollection) =>
-    this.db
-      .collection(this.rootCollection)
-      .doc(userID)
-      .collection(dataCollection)
-      .doc(item.id)
-      .set(item);
+const updateItem = (userID, data, dataCollection = _dataCollection) =>
+  db
+    .collection(_rootCollection)
+    .doc(userID)
+    .collection(dataCollection)
+    .doc(data.id)
+    .set(data, { merge: true });
 
-  updateItem = (userID, data, dataCollection = this.dataCollection) =>
-    this.db
-      .collection(this.rootCollection)
-      .doc(userID)
-      .collection(dataCollection)
-      .doc(data.id)
-      .set(data, { merge: true });
+const removeItem = (userID, itemId, dataCollection = _dataCollection) =>
+  this.db
+    .collection(_rootCollection)
+    .doc(userID)
+    .collection(dataCollection)
+    .doc(itemId)
+    .delete();
 
-  removeItem = (userID, itemId, dataCollection = this.dataCollection) =>
-    this.db
-      .collection(this.rootCollection)
-      .doc(userID)
-      .collection(dataCollection)
-      .doc(itemId)
-      .delete();
+const getItems = (userID, dataCollection = _dataCollection) =>
+  db.collection(_rootCollection).doc(userID).collection(dataCollection).get();
 
-  getItems = (userID, dataCollection = this.dataCollection) =>
-    this.db
-      .collection(this.rootCollection)
-      .doc(userID)
-      .collection(dataCollection)
-      .get();
+const getSettings = (userID) =>
+  db
+    .collection(_rootCollection)
+    .doc(userID)
+    .collection(_settingsCollection)
+    .doc(_commonSettingsDoc)
+    .get();
 
-  getSettings = (userID) =>
-    this.db
-      .collection(this.rootCollection)
-      .doc(userID)
-      .collection(this.settingsCollection)
-      .doc(this.commonSettingsDoc)
-      .get();
+const updateSettings = (userID, data) =>
+  this.db
+    .collection(_rootCollection)
+    .doc(userID)
+    .collection(_settingsCollection)
+    .doc(_commonSettingsDoc)
+    .set(data, { merge: true });
 
-  updateSettings = (userID, data) =>
-    this.db
-      .collection(this.rootCollection)
-      .doc(userID)
-      .collection(this.settingsCollection)
-      .doc(this.commonSettingsDoc)
-      .set(data, { merge: true });
-
-  removeList = (userID, list) =>
-    this.db
-      .collection(this.rootCollection)
-      .doc(userID)
-      .collection(this.dataCollection)
-      .where('lists', 'array-contains', list)
-      .get()
-      .then((querySnapshot) => {
-        const batch = this.db.batch();
-        querySnapshot.forEach((doc) => {
-          const updatedLists = doc.data().lists.filter((item) => item !== list);
-          if (updatedLists.length > 0) {
-            batch.update(doc.ref, {
-              lists: updatedLists,
-            });
-          } else {
-            batch.delete(doc.ref);
-          }
-        });
-        return batch.commit();
+const removeList = (userID, list) =>
+  db
+    .collection(_rootCollection)
+    .doc(userID)
+    .collection(_dataCollection)
+    .where('lists', 'array-contains', list)
+    .get()
+    .then((querySnapshot) => {
+      const batch = db.batch();
+      querySnapshot.forEach((doc) => {
+        const updatedLists = doc.data().lists.filter((item) => item !== list);
+        if (updatedLists.length > 0) {
+          batch.update(doc.ref, {
+            lists: updatedLists,
+          });
+        } else {
+          batch.delete(doc.ref);
+        }
       });
-}
+      return batch.commit();
+    });
 
-export default new Firebase();
+export {
+  signInWithEmail,
+  signUpWithEmail,
+  signInWithGoogle,
+  signOut,
+  addItem,
+  updateItem,
+  removeItem,
+  getItems,
+  getSettings,
+  updateSettings,
+  removeList,
+};

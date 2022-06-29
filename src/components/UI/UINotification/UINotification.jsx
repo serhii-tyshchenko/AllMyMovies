@@ -10,7 +10,7 @@ const titles = {
   success: 'Succes',
 };
 
-const UINotification = (props) => {
+function UINotification(props) {
   const {
     message, type, extraClassName, isVisible, onCloseClick, autoclose,
   } = props;
@@ -25,7 +25,7 @@ const UINotification = (props) => {
 
   const timer = (autoclose && isVisible) ? setTimeout(() => onCloseClick(), 3000) : null;
 
-  function handleCloseClick() {
+  const handleCloseClick = () => {
     clearTimeout(timer);
     onCloseClick();
   }
@@ -44,7 +44,7 @@ const UINotification = (props) => {
       />
     </div>
   ), modalRoot) : null;
-};
+}
 
 UINotification.defaultProps = {
   message: 'Info message',

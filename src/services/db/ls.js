@@ -17,7 +17,8 @@ export const saveState = (state) => {
     const serializedState = JSON.stringify(state);
     localStorage.setItem(keyName, serializedState);
   } catch {
-    console.log('Unable to save to LS');
+    // eslint-disable-next-line no-console
+    console.error('Unable to save to LS');
   }
 };
 

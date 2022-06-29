@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './UITabs.scss';
 
-const UITabs = (props) => {
+function UITabs(props) {
   const {
     extraClassName, labels, children, activeTab, onTabClick,
   } = props;

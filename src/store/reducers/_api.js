@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import {
   API_REQUEST_ENDED,
   API_REQUEST_STARTED,

@@ -13,7 +13,7 @@ import { SocialLogInForm } from './SocialLogInForm';
 
 import './AuthModal.scss';
 
-const AuthModal = () => {
+function AuthModal() {
   const STR = useContext(Localization);
   const dispatch = useDispatch();
   const isLogged = useSelector(getIsUserLogged);
@@ -26,30 +26,30 @@ const AuthModal = () => {
       dispatch(hideModal('auth'));
     }
   }, [isLogged]);
-  function onModalClose() {
+  const onModalClose = () => {
     setFormData(initialFormData);
     dispatch(hideModal('auth'));
   }
-  function onSignIn(event) {
+  const onSignIn = (event) => {
     if (formData.email && formData.password) {
       event.preventDefault();
       dispatch(signInWithEmail(formData.email, formData.password));
     }
   }
-  function onSignInWithGoogle() {
+  const onSignInWithGoogle = () => {
     dispatch(signInWithGoogle());
   }
-  function onSignUp(event) {
+  const onSignUp = (event) => {
     if (formData.email && formData.password) {
       event.preventDefault();
       dispatch(signUpWithEmail(formData.email, formData.password));
     }
   }
-  function onFormChange(event) {
+  const onFormChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   }
-  function onFormReset() {
+  const onFormReset = () => {
     setFormData(initialFormData);
   }
 
@@ -76,6 +76,6 @@ const AuthModal = () => {
     </UIModal>
   )
     : null;
-};
+}
 
 export { AuthModal };

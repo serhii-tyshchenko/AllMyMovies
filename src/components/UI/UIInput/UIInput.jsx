@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './UIInput.scss';
 
-const UIInput = (props) => {
+function UIInput(props) {
   const {
     type, name, value, onChange, extraClassName, placeholder, required, autofocus, disabled,
   } = props;
@@ -23,7 +23,7 @@ const UIInput = (props) => {
       size={value.length}
     />
   );
-};
+}
 
 UIInput.defaultProps = {
   extraClassName: '',

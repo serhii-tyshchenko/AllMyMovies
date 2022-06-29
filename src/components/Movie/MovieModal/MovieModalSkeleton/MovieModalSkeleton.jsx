@@ -1,7 +1,7 @@
 import './MovieModalSkeleton.scss';
 
-const MovieModalSkeleton = () => (
-  <div className="movie-modal-skeleton">
+function MovieModalSkeleton() {
+  return <div className="movie-modal-skeleton">
     <div className="movie-modal-skeleton__poster skeleton" />
     <div className="movie-modal-skeleton__details">
       <div className="movie-modal-skeleton__title skeleton" />
@@ -9,6 +9,6 @@ const MovieModalSkeleton = () => (
       <div className="movie-modal-skeleton__info skeleton" />
     </div>
   </div>
-);
+}
 
 export { MovieModalSkeleton };

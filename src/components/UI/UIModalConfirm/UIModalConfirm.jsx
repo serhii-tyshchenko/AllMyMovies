@@ -3,7 +3,7 @@ import { UIModal, UIButton } from 'components';
 
 import './UIModalConfirm.scss';
 
-const UIModalConfirm = (props) => {
+function UIModalConfirm(props) {
   const {
     title, isVisible, onClose, onSave, children,
   } = props;
@@ -16,7 +16,7 @@ const UIModalConfirm = (props) => {
       </div>
     </UIModal>
   );
-};
+}
 
 UIModalConfirm.defaultProps = {
   title: 'Modal Confirm Title',

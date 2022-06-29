@@ -1,9 +1,7 @@
-# MyMoviesList
-
 ## Features
 
 - Dark/light theme
-- Cloud syncronization
+- Firebase integration
 
 ## Tech stack
 

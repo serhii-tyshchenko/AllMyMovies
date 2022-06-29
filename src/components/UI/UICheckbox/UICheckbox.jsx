@@ -3,21 +3,19 @@ import PropTypes from 'prop-types';
 
 import './UICheckbox.scss';
 
-const UICheckbox = (props) => {
+function UICheckbox(props) {
   const {
     id, name, onChange, extraClassName, title, checked,
   } = props;
   const componentClassName = extraClassName ? `ui-checkbox ${extraClassName}` : 'ui-checkbox';
 
   return (
-    <>
-      <label className={componentClassName}>
-        <input type="checkbox" name={name} id={id} className="ui-checkbox__inp" title={title} onChange={onChange} checked={checked} />
-        <span className="ui-checkbox__checkmark" />
-      </label>
-    </>
+    <label className={componentClassName}>
+      <input type="checkbox" name={name} id={id} className="ui-checkbox__inp" title={title} onChange={onChange} checked={checked} />
+      <span className="ui-checkbox__checkmark" />
+    </label>
   );
-};
+}
 
 UICheckbox.defaultProps = {
   extraClassName: '',

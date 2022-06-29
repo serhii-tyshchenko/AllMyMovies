@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { SIGN_IN, SIGN_OUT } from '../action-types';
 
 const initialState = { uid: null, isLogged: false };

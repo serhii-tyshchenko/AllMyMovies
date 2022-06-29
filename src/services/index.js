@@ -1,6 +1,3 @@
-import firebaseService from './db/firebase';
-import api from './api/omdb';
-import * as ls from './db/ls';
-
-const db = firebaseService;
-export { db, ls, api };
+export * as db from './db/firebase';
+export * as api from './api/omdb';
+export * as ls from './db/ls';

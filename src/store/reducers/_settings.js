@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { GET_SETTINGS, UPDATE_SETTINGS, SIGN_OUT } from '../action-types';
 
 const initialState = {

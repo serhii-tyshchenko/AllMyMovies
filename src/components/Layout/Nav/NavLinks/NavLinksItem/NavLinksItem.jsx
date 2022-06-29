@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom';
 
 import './NavLinksItem.scss';
 
-const NavLinksItem = ({ route, icon, title }) => (
-  <li>
-    <NavLink to={route} exact className={`nav-links-item icon-${icon}`} title={title}>
+function NavLinksItem({ route, icon, title }) {
+  return <li>
+    <NavLink to={route} exact="true" className={`nav-links-item icon-${icon}`} title={title}>
       {title}
     </NavLink>
   </li>
-);
+}
 
 NavLinksItem.defaultProps = {
   route: '',

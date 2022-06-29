@@ -3,7 +3,7 @@ import { UIButton, UIInput } from 'components';
 
 import './SignUpForm.scss';
 
-const SignUpForm = (props) => {
+function SignUpForm(props) {
   const {
     onSubmit,
     onChange,
@@ -41,7 +41,7 @@ const SignUpForm = (props) => {
       </div>
     </form>
   );
-};
+}
 
 SignUpForm.defaultProps = {
   STR: {

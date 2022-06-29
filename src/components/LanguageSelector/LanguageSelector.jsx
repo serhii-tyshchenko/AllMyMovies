@@ -8,13 +8,13 @@ import { UISelect } from 'components';
 
 import './LanguageSelector.scss';
 
-const LanguageSelector = () => {
+function LanguageSelector() {
   const dispatch = useDispatch();
   const STR = useContext(Localization);
   const currLang = useSelector(getAppLanguage);
   const uid = useSelector(getUserId);
 
-  function handleLanguageChange(evt) {
+  const handleLanguageChange = (evt) => {
     const language = evt.target.value;
     dispatch(updateSettings(uid, { language }));
   }
@@ -28,6 +28,6 @@ const LanguageSelector = () => {
       title={STR.TOGGLE_LANGUAGE}
     />
   );
-};
+}
 
 export { LanguageSelector };

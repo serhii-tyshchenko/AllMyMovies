@@ -6,7 +6,7 @@ import { AuthModal, NotificationService } from 'components';
 import { Home } from 'pages';
 import { HashRouter as Router } from 'react-router-dom';
 
-const App = () => {
+function App() {
   const uid = useSelector(getUserId);
   const isLogged = useSelector(getIsUserLogged);
   const theme = useSelector(getAppTheme);

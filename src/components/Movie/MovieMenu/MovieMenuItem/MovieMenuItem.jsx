@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 
 import './MovieMenuItem.scss';
 
-const MovieMenuItem = ({
+function MovieMenuItem({
   list, onClick, checked, title,
-}) => (
-  <li className="movie-menu-item">
+}) {
+  return <li className="movie-menu-item">
     <label htmlFor={list}>
       <input type="checkbox" id={list} value={list} onChange={onClick} checked={checked} />
       {title}
     </label>
   </li>
-);
+}
 
 MovieMenuItem.defaultProps = {
   list: '',

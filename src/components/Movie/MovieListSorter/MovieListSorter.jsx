@@ -3,7 +3,7 @@ import { UISelect } from 'components';
 
 import './MovieListSorter.scss';
 
-const MovieListSorter = (props) => {
+function MovieListSorter(props) {
   const {
     onChange, value, options, title,
   } = props;
@@ -22,7 +22,7 @@ const MovieListSorter = (props) => {
       />
     </div>
   );
-};
+}
 
 MovieListSorter.defaultProps = {
   title: '',

@@ -6,7 +6,7 @@ import {
 import {
   getSearchResults, getMoviesByList, getUserLists, getUserId,
 } from 'store/selectors';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Localization } from 'contexts';
 import {
   MovieModal, MovieListItem, MovieListSorter,
@@ -15,7 +15,7 @@ import { MovieListTitle } from './MovieListTitle';
 
 import './MovieList.scss';
 
-const MovieList = () => {
+function MovieList() {
   const STR = useContext(Localization);
   const dispatch = useDispatch();
   const [sortedBy, setSortedBy] = useState('none');
@@ -33,7 +33,7 @@ const MovieList = () => {
   const userLists = useSelector(getUserLists);
   const uid = useSelector(getUserId);
   const availableLists = [...predefinedLists, ...userLists];
-  const history = useHistory();
+  const navigate = useNavigate();
   const list = useLocation().pathname.slice(1);
   const isUserList = userLists.some((item) => item.id === list);
   const listTitle = availableLists.find((item) => item.id === list)?.title || STR.HOME;
@@ -41,17 +41,17 @@ const MovieList = () => {
     ? useSelector((state) => getMoviesByList(state, list))
     : useSelector(getSearchResults);
 
-  function handleShowInfoClick(id) {
+  const handleShowInfoClick = (id) => {
     dispatch(getMovieInfo(id));
     dispatch(showModal({ modalName: 'fav' }));
   }
-  function handleMoviesSort(evt) {
+  const handleMoviesSort = (evt) => {
     const sortOption = evt.target.value;
     dispatch(sortMovies(sortOption));
     setSortedBy(sortOption);
   }
 
-  function handleSaveChangesClick(newTitle) {
+  const handleSaveChangesClick = (newTitle) => {
     const updatedUserLists = userLists.map((item) => {
       if (item.id === list) {
         return { ...item, title: newTitle };
@@ -61,11 +61,11 @@ const MovieList = () => {
     dispatch(updateSettings(uid, { userLists: updatedUserLists }));
   }
 
-  function handleDeleteListClick() {
+  const handleDeleteListClick = () => {
     const updatedUserLists = userLists.filter((item) => item.id !== list);
     dispatch(updateSettings(uid, { userLists: updatedUserLists }));
     dispatch(removeList(uid, list));
-    history.push('/');
+    navigate('/');
   }
 
   return (
@@ -98,6 +98,6 @@ const MovieList = () => {
       <MovieModal />
     </section>
   );
-};
+}
 
 export { MovieList };

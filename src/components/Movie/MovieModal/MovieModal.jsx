@@ -11,7 +11,7 @@ import { MovieModalSkeleton } from './MovieModalSkeleton';
 
 import './MovieModal.scss';
 
-const MovieModal = () => {
+function MovieModal() {
   const isVisible = useSelector(getIsFavModalVisible);
   const {
     isLoading, data: {
@@ -21,7 +21,7 @@ const MovieModal = () => {
   const dispatch = useDispatch();
   const STR = useContext(Localization);
 
-  function handleModalClose() {
+  const handleModalClose = () => {
     dispatch(hideModal('fav'));
   }
 
@@ -50,7 +50,7 @@ const MovieModal = () => {
       ) : <MovieModalSkeleton />}
     </UIModal>
   ) : null;
-};
+}
 
 MovieModal.defaultProps = {
   STR: {

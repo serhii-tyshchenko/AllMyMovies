@@ -4,9 +4,9 @@ import { UIIconButton } from 'components';
 
 import './UIDropdown.scss';
 
-const UIDropdown = ({
+function UIDropdown({
   children, onToggle, extraClassName, isOpened,
-}) => {
+}) {
   const menuTogglerIcon = isOpened ? 'cancel' : 'ellipsis-vert';
   const componentClassName = extraClassName ? `ui-dropdown ${extraClassName}` : 'ui-dropdown';
   return (
@@ -19,7 +19,7 @@ const UIDropdown = ({
       )}
     </div>
   );
-};
+}
 
 UIDropdown.defaultProps = {
   extraClassName: '',

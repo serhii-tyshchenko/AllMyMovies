@@ -3,12 +3,12 @@ import { UINotification } from 'components';
 import { hideNotification } from 'store/actions';
 import { getNotifications } from 'store/selectors';
 
-const NotificationService = () => {
+function NotificationService() {
   const dispatch = useDispatch();
   const { message, type } = useSelector(getNotifications);
   const isVisible = !!message;
 
-  function handleCloseClick() {
+  const handleCloseClick = () => {
     dispatch(hideNotification());
   }
 
@@ -20,6 +20,6 @@ const NotificationService = () => {
       onCloseClick={handleCloseClick}
     />
   );
-};
+}
 
 export { NotificationService };

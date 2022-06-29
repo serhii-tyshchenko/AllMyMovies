@@ -7,7 +7,7 @@ import { NavLinks } from './NavLinks';
 
 import './Nav.scss';
 
-const Nav = () => {
+function Nav() {
   const STR = useContext(Localization);
   const [isNavExpanded, toggleNav] = useState(false);
   const userLists = useSelector(getUserLists);
@@ -19,7 +19,7 @@ const Nav = () => {
   ];
   const navClassName = isNavExpanded ? 'nav' : 'nav nav--collapsed';
 
-  function handleToggleNav() {
+  const handleToggleNav = () => {
     toggleNav(!isNavExpanded);
   }
 
@@ -36,6 +36,6 @@ const Nav = () => {
       </div>
     </nav>
   );
-};
+}
 
 export { Nav };

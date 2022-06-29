@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import {
   GET_MOVIE_INFO,
   API_REQUEST_STARTED,

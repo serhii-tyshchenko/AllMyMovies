@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import './UISelect.scss';
 
-const UISelect = (props) => {
+function UISelect(props) {
   const {
     value, onChange, options, extraClassName, title, required,
   } = props;

@@ -1,10 +1,10 @@
 import { MovieList } from 'components';
 import { BaseLayout } from 'layouts';
 
-const Home = () => (
-  <BaseLayout>
+function Home() {
+  return <BaseLayout>
     <MovieList />
   </BaseLayout>
-);
+}
 
 export { Home };

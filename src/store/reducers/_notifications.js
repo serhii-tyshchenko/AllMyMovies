@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import {
   SHOW_NOTIFICATION,
   HIDE_NOTIFICATION,

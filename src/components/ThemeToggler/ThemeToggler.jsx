@@ -5,14 +5,14 @@ import { updateSettings } from 'store/actions';
 import { getUserId, getAppTheme } from 'store/selectors';
 import { UIIconButton } from 'components';
 
-const ThemeToggler = () => {
+function ThemeToggler() {
   const STR = useContext(Localization);
   const dispatch = useDispatch();
   const theme = useSelector(getAppTheme);
   const uid = useSelector(getUserId);
   const btnIcon = theme === 'light' ? 'moon' : 'sun';
 
-  function handleThemeChange() {
+  const handleThemeChange = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     dispatch(updateSettings(uid, { theme: newTheme }));
   }
@@ -24,6 +24,6 @@ const ThemeToggler = () => {
       title={STR.TOGGLE_THEME}
     />
   );
-};
+}
 
 export { ThemeToggler };

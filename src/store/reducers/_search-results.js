@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { SEARCH_MOVIE, SIGN_OUT } from '../action-types';
 
 const initialState = [];

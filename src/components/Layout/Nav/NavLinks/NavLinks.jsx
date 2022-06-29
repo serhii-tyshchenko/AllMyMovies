@@ -3,8 +3,8 @@ import { NavLinksItem } from './NavLinksItem';
 
 import './NavLinks.scss';
 
-const NavLinks = ({ data }) => (
-  <ul className="nav-links">
+function NavLinks({ data }) {
+  return <ul className="nav-links">
     {data.map((item) => (
       <NavLinksItem
         key={item.id}
@@ -14,7 +14,7 @@ const NavLinks = ({ data }) => (
       />
     ))}
   </ul>
-);
+}
 
 NavLinks.defaultProps = {
   data: [],

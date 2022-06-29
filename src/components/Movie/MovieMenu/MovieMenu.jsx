@@ -14,7 +14,7 @@ import { MovieMenuForm } from './MovieMenuForm';
 
 import './MovieMenu.scss';
 
-const MovieMenu = ({ id }) => {
+function MovieMenu({ id }) {
   const dispatch = useDispatch();
   const uid = useSelector(getUserId);
   const saved = useSelector((state) => getMovieById(state, id));
@@ -30,7 +30,7 @@ const MovieMenu = ({ id }) => {
   const movie = saved || searched;
   const lists = movie?.lists ? movie.lists : [];
 
-  function handleMenuItemClick(evt) {
+  const handleMenuItemClick = (evt) => {
     const list = evt.target.value;
     const updatedLists = lists.includes(list)
       ? lists.filter((item) => item !== list)
@@ -42,11 +42,11 @@ const MovieMenu = ({ id }) => {
     }
     setMenuOpened(false);
   }
-  function handleAddNewList(title) {
+  const handleAddNewList = (title) => {
     const updatedUserLists = [...userLists, { id: uuidv4(), title }];
     dispatch(updateSettings(uid, { userLists: updatedUserLists }));
   }
-  function handleMenuToggle() {
+  const handleMenuToggle = () => {
     setMenuOpened(!isMenuOpened);
   }
 
@@ -66,6 +66,6 @@ const MovieMenu = ({ id }) => {
       <MovieMenuForm onSubmit={handleAddNewList} STR={STR} />
     </UIDropdown>
   );
-};
+}
 
 export { MovieMenu };

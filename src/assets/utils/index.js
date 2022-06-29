@@ -1,19 +1,6 @@
 /* eslint-disable comma-dangle */
-export function formatDate(date: Date): string {
-  const monthNames: string[] = [
-    '01',
-    '02',
-    '03',
-    '04',
-    '05',
-    '06',
-    '07',
-    '08',
-    '09',
-    '10',
-    '11',
-    '12',
-  ];
+export function formatDate(date) {
+  const monthNames = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
   const day = date.getDate().toString().padStart(2, '0');
   const monthIndex = date.getMonth();
   const year = date.getFullYear();
@@ -21,14 +8,14 @@ export function formatDate(date: Date): string {
   return `${year}-${monthNames[monthIndex]}-${day}`;
 }
 
-export function formatTime(date: Date): string {
+export function formatTime(date) {
   const hours = date.getHours().toString().padStart(2, '0');
   const minutes = date.getMinutes().toString().padStart(2, '0');
 
   return `${hours}:${minutes}`;
 }
 
-export function sortByABC(a: string, b: string): number {
+export function sortByABC(a, b) {
   const nameA = a.toUpperCase();
   const nameB = b.toUpperCase();
   if (nameA < nameB) {
@@ -40,11 +27,7 @@ export function sortByABC(a: string, b: string): number {
   return 0;
 }
 
-export function sortArrayOfObjects(
-  arr: Array<{}>,
-  param: string,
-  order: string = 'asc'
-) {
+export function sortArrayOfObjects(arr, param, order = 'asc') {
   return [
     ...arr.sort((a, b) => {
       const itemA = a[param].toUpperCase();

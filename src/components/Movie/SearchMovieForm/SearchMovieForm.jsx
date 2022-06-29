@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Localization } from 'contexts';
 import { useDispatch } from 'react-redux';
 import { searchMovie } from 'store/actions';
@@ -10,21 +10,21 @@ import './SearchMovieForm.scss';
 const SearchMovieForm = React.memo(() => {
   const STR = useContext(Localization);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
   const [query, setQuery] = useState('');
   const [isFormVisible, setFormVisible] = useState(false);
 
-  function handleSubmit(evt) {
+  const handleSubmit = (evt) => {
     if (query) {
       evt.preventDefault();
       dispatch(searchMovie(query));
-      history.push('/');
+      navigate('/');
     }
   }
-  function handleChange(evt) {
+  const handleChange = (evt) => {
     setQuery(evt.target.value);
   }
-  function toggleForm() {
+  const toggleForm = () => {
     setFormVisible(!isFormVisible);
   }
 

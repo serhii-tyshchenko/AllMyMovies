@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 import { SHOW_MODAL, HIDE_MODAL, SIGN_OUT } from '../action-types';
 
 const initialState = {

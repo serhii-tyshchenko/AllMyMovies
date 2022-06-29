@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 import './Header.scss';
 
-const Header = () => (
-  <header className="header">
+function Header() {
+  return <header className="header">
     <div className="header__content">
-      <Link to="/" className="header__logo">{process.env.REACT_APP_NAME}</Link>
+      <Link to="/" className="header__logo">AllMyMovies</Link>
       <SearchMovieForm />
       <div className="header__menu">
         <LanguageSelector />
@@ -17,6 +17,6 @@ const Header = () => (
       </div>
     </div>
   </header>
-);
+}
 
 export { Header };

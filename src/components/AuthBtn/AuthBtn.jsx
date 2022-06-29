@@ -5,12 +5,12 @@ import { showModal, signOut } from 'store/actions';
 import { getIsUserLogged } from 'store/selectors';
 import { UIIconButton } from 'components';
 
-const AuthBtn = () => {
+function AuthBtn() {
   const STR = useContext(Localization);
   const dispatch = useDispatch();
   const isLogged = useSelector(getIsUserLogged);
 
-  function handleLogInClick() {
+  const handleLogInClick = () => {
     if (isLogged) {
       dispatch(signOut());
     } else {
@@ -25,6 +25,6 @@ const AuthBtn = () => {
       onClick={handleLogInClick}
     />
   );
-};
+}
 
 export { AuthBtn };

@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 /* eslint-disable no-case-declarations */

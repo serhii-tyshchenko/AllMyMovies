@@ -3,7 +3,7 @@ import { UIIconButton } from 'components';
 
 import './SocialLogInForm.scss';
 
-const SocialLogInForm = (props) => {
+function SocialLogInForm(props) {
   const { onSignInWithGoogle, STR } = props;
 
   return (
@@ -18,7 +18,7 @@ const SocialLogInForm = (props) => {
       </div>
     </div>
   );
-};
+}
 SocialLogInForm.defaultProps = {
   STR: { CONNECT_WITH: 'or connect with' },
 };

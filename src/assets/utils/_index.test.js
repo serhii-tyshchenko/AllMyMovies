@@ -4,7 +4,7 @@ import {
   formatDate,
   formatTime,
   sortArrayOfObjects,
-} from './index.ts';
+} from './index.js';
 
 describe('sortByABC function', () => {
   test('should return -1 if a < b', () => {
