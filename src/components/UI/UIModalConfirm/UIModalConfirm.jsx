@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { UIModal, UIButton } from 'components';
 
-import './UIModalConfirm.scss';
-
 function UIModalConfirm(props) {
   const {
     title, isVisible, onClose, onSave, children,

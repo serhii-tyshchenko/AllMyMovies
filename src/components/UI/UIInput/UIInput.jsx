@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import PropTypes from 'prop-types';
 
-import './UIInput.scss';
-
 function UIInput(props) {
   const {
     type, name, value, onChange, extraClassName, placeholder, required, autofocus, disabled,

@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { UIButton, UIInput } from 'components';
 
-import './SignUpForm.scss';
-
 function SignUpForm(props) {
   const {
     onSubmit,

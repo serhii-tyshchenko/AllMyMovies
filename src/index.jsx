@@ -3,9 +3,9 @@ import { Provider } from 'react-redux';
 import store from 'store';
 import { ErrorBoundary } from 'components';
 
-import App from './App';
-
 import './index.scss';
+
+import App from './App';
 
 const container = document.getElementById('root');
 const root = createRoot(container);

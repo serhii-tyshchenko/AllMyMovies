@@ -1,30 +1,28 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { getClassName } from 'utils';
 
-import './UITabs.scss';
-
+const getTabClass = (index, activeTabIndex) => getClassName('ui-tabs__item', { 'ui-tabs__item--active': index === activeTabIndex });
 function UITabs(props) {
   const {
     extraClassName, labels, children, activeTab, onTabClick,
   } = props;
-  const tabsClassName = `ui-tabs ${extraClassName}`;
   const [activeTabIndex, setActiveTabIndex] = useState(activeTab);
 
-  function handleTabClick(e) {
+  const handleTabClick = (e) => {
     setActiveTabIndex(labels.indexOf(e.target.value));
     if (onTabClick) {
       onTabClick();
     }
   }
-  function setTabClass(index) {
-    return index === activeTabIndex ? 'ui-tabs__item ui-tabs__item--active' : 'ui-tabs__item';
-  }
+  const componentClassName = getClassName('ui-tabs', extraClassName);
+
 
   return (
-    <div className={tabsClassName}>
+    <div className={componentClassName}>
       <ol className="ui-tabs__list">
         {labels.map((label, index) => (
-          <li key={label} className={setTabClass(index)}>
+          <li key={label} className={getTabClass(index, activeTabIndex)}>
             <input
               className="ui-tabs__btn"
               type="button"

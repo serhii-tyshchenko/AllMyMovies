@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 
-import './MovieMenuItem.scss';
-
 function MovieMenuItem({
   list, onClick, checked, title,
 }) {

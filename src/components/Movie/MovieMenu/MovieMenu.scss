@@ -1,15 +1,14 @@
-@import '~styles/_variables';
-
 .movie-menu {
   position: absolute;
-  top: 0.5rem;
   right: 0.5rem;
+  top: 0.5rem;
+
   &__items {
-    min-width: 190px;
-    max-width: 240px;
-    max-height: 220px;
-    margin-bottom: 1rem;
     list-style-type: none;
+    margin-bottom: 1rem;
+    max-height: 220px;
+    max-width: 240px;
+    min-width: 190px;
     overflow-y: auto;
   }
 }

@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { UISelect } from 'components';
 
-import './MovieListSorter.scss';
-
 function MovieListSorter(props) {
   const {
     onChange, value, options, title,

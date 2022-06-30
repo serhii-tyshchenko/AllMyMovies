@@ -8,8 +8,6 @@ import { useLocalization } from 'hooks';
 import { UIModal, MovieMenu } from 'components';
 import { MovieModalSkeleton } from './MovieModalSkeleton';
 
-import './MovieModal.scss';
-
 function MovieModal() {
   const isVisible = useSelector(getIsFavModalVisible);
   const {
@@ -20,11 +18,9 @@ function MovieModal() {
   const dispatch = useDispatch();
   const dic = useLocalization();
 
-  const handleModalClose = () => {
-    dispatch(hideModal('fav'));
-  }
+  const handleModalClose = () => dispatch(hideModal('fav'));
 
-  return isVisible ? (
+  return (
     <UIModal isVisible={isVisible} onClose={handleModalClose} title={dic.MOVIE_INFO} extraClassName="movie-modal">
       {!isLoading ? (
         <div className="movie-modal__content">
@@ -48,7 +44,7 @@ function MovieModal() {
         </div>
       ) : <MovieModalSkeleton />}
     </UIModal>
-  ) : null;
+  );
 }
 
 MovieModal.defaultProps = {

@@ -1,19 +1,19 @@
 import PropTypes from 'prop-types';
 
-import './UISelect.scss';
+import { getClassName } from 'utils';
 
 function UISelect(props) {
   const {
     value, onChange, options, extraClassName, title, required,
   } = props;
-  const className = extraClassName ? `ui-select ${extraClassName}` : 'ui-select';
+  const componentClassName = getClassName('ui-select', extraClassName);
 
   return (
     <select
       onChange={onChange}
       value={value}
       required={required}
-      className={className}
+      className={componentClassName}
       title={title}
     >
       {options.map((option) => (

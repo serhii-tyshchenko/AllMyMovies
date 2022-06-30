@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { NavLinksItem } from './NavLinksItem';
 
-import './NavLinks.scss';
-
 function NavLinks({ data }) {
   return <ul className="nav-links">
     {data.map((item) => (

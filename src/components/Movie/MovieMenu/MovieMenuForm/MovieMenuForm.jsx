@@ -2,19 +2,15 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { UIInput, UIIconButton } from 'components';
 
-import './MovieMenuForm.scss';
-
 function MovieMenuForm({ onSubmit, dic }) {
   const [listTitle, setListTitle] = useState('');
 
-  function handleSubmit(evt) {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
     onSubmit(listTitle);
     setListTitle('');
   }
-  const handleChange = (evt) => {
-    setListTitle(evt.target.value);
-  }
+  const handleChange = (evt) => setListTitle(evt.target.value);
 
   return (
     <form className="movie-menu-form" onSubmit={handleSubmit}>

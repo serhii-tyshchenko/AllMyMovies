@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { UIIconButton } from 'components';
 
-import './UINotification.scss';
-
 const titles = {
   error: 'Error',
   warning: 'Warning',

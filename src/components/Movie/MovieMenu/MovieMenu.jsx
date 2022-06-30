@@ -12,8 +12,6 @@ import { UIDropdown } from 'components';
 import { MovieMenuItem } from './MovieMenuItem';
 import { MovieMenuForm } from './MovieMenuForm';
 
-import './MovieMenu.scss';
-
 function MovieMenu({ id }) {
   const dispatch = useDispatch();
   const uid = useSelector(getUserId);

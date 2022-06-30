@@ -6,8 +6,6 @@ import { searchMovie } from 'store/actions';
 import { UIInput, UIIconButton } from 'components';
 import { getClassName } from 'utils';
 
-import './SearchMovieForm.scss';
-
 const NAME_SPACE = 'search-movie-form';
 
 const SearchMovieForm = React.memo(() => {

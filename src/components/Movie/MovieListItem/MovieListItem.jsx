@@ -4,8 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MovieMenu } from 'components';
 
-import './MovieListItem.scss';
-
 const MovieListItem = React.memo((props) => {
   const {
     data: {

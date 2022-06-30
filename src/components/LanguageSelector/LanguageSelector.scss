@@ -1,9 +1,7 @@
-@import '~styles/variables';
-
 .language-selector {
-  font-weight: bold;
-  text-transform: uppercase;
+  appearance: none;
   border: 0;
   cursor: pointer;
-  appearance: none;
+  font-weight: bold;
+  text-transform: uppercase;
 }

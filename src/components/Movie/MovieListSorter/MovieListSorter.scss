@@ -1,17 +1,19 @@
 .movie-list-sorter {
-  display: flex;
   align-items: center;
+  display: flex;
+  font-size: 0.85rem;
   justify-content: flex-end;
   margin-bottom: 1.5rem;
   padding-right: 1rem;
-  font-size: 0.85rem;
+
   &__label {
-    margin-right: 0.5rem;
     font-size: inherit;
+    margin-right: 0.5rem;
     text-transform: uppercase;
   }
+
   &__select {
-    font-size: inherit;
     background-color: var(--background-secondary);
+    font-size: inherit;
   }
 }

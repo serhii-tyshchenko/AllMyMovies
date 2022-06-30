@@ -3,38 +3,33 @@
 
 import { useState, useEffect } from 'react';
 import { UIIconButton, UIInput } from 'components';
+import { useToggle } from 'hooks';
 
-import './MovieListTitle.scss';
+function MovieListTitle(props) {
+  const {
+    title, isUserList, onSaveClick, onDeleteClick, dic,
+  } = props;
 
-function MovieListTitle({
-  title, isUserList, onSaveClick, onDeleteClick, dic,
-}) {
   const [listTitle, setListTitle] = useState(title);
   const [oldTitle, setOldTitle] = useState(title);
-  const [isEditMode, setEditMode] = useState(false);
+  const [isEditMode, toggleEditMode] = useToggle();
   useEffect(() => {
     setListTitle(title);
     setOldTitle(title);
   }, [title]);
 
-  const handleEditClick = () => {
-    setEditMode(!isEditMode);
-  }
-
   const handleSaveClick = () => {
     if (listTitle !== oldTitle) {
       onSaveClick(listTitle);
     }
-    setEditMode(false);
+    toggleEditMode();
   }
 
-  const handleChange = (evt) => {
-    setListTitle(evt.target.value);
-  }
+  const handleChange = (evt) => setListTitle(evt.target.value);
 
   const handleDeleteClick = () => {
     if (window.confirm(dic.ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST)) {
-      setEditMode(false);
+      toggleEditMode();
       onDeleteClick();
     }
   }
@@ -49,7 +44,7 @@ function MovieListTitle({
       />
       {isUserList && (
         <>
-          {!isEditMode && (<UIIconButton icon="pencil" title={dic.EDIT_LIST} onClick={handleEditClick} />)}
+          {!isEditMode && (<UIIconButton icon="pencil" title={dic.EDIT_LIST} onClick={toggleEditMode} />)}
           {isEditMode && (<UIIconButton icon="ok" title={dic.SAVE_CHANGES} onClick={handleSaveClick} />)}
           {isEditMode && (<UIIconButton icon="trash" title={dic.DELETE_LIST} onClick={handleDeleteClick} />)}
         </>

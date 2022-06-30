@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 
 import { NavLink } from 'react-router-dom';
 
-import './NavLinksItem.scss';
-
 function NavLinksItem({ route, icon, title }) {
   return <li>
     <NavLink to={route} exact="true" className={`nav-links-item icon-${icon}`} title={title}>

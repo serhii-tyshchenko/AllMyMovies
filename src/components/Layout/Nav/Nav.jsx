@@ -7,8 +7,6 @@ import { getClassName } from 'utils';
 import getPredefinedLists from './utils';
 import { NavLinks } from './NavLinks';
 
-import './Nav.scss';
-
 const NAME_SPACE = 'nav';
 
 function Nav() {
@@ -17,10 +15,10 @@ function Nav() {
   const userLists = useSelector(getUserLists);
 
   const predefinedLists = getPredefinedLists(dic);
-  const navBtnIcon = isNavExpanded ? 'right-open' : 'left-open';
+  const navBtnIcon = isNavExpanded ? 'left-open' : 'right-open';
   const navBtnTitle = isNavExpanded ? dic.COLLAPSE : dic.EXPAND;
 
-  const navClassName = getClassName(NAME_SPACE, { [`${NAME_SPACE}--collapsed`]: isNavExpanded });
+  const navClassName = getClassName(NAME_SPACE, { [`${NAME_SPACE}--collapsed`]: !isNavExpanded });
 
   return (
     <nav className={navClassName}>

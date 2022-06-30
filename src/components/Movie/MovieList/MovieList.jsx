@@ -13,8 +13,6 @@ import {
 } from 'components';
 import { MovieListTitle } from './MovieListTitle';
 
-import './MovieList.scss';
-
 function MovieList() {
   const dic = useLocalization();
   const dispatch = useDispatch();

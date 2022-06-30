@@ -6,8 +6,6 @@ import { languages } from 'localization';
 import { useLocalization } from 'hooks';
 import { UISelect } from 'components';
 
-import './LanguageSelector.scss';
-
 function LanguageSelector() {
   const dispatch = useDispatch();
   const dic = useLocalization();

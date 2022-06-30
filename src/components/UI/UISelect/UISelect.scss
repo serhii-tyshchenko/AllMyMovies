@@ -1,17 +1,16 @@
-@import '~styles/variables';
-
 .ui-select {
-  padding: 0.375em 0.75em;
+  background-clip: padding-box;
+  background-color: inherit;
+  border: 1px solid var(--color-secondary);
+  border-radius: 0.25rem;
   color: var(--color-primary);
   font-size: 1rem;
   line-height: 1.5;
-  border: 1px solid var(--color-secondary);
-  border-radius: 0.25rem;
-  background-color: inherit;
-  background-clip: padding-box;
+  padding: 0.375em 0.75em;
+
   &__option {
+    background: var(--background-secondary);
     color: inherit;
     font-size: inherit;
-    background: var(--background-secondary);
   }
 }

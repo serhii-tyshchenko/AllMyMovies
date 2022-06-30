@@ -1,57 +1,64 @@
-@import '~styles/variables';
-@import '~styles/mixins';
-
 .nav {
   $self: &;
   $offset: 77px;
+
+  background-color: var(--background-secondary);
+  color: var(--color-primary);
+  flex-shrink: 0;
+  height: calc(100vh - #{$offset});
+  opacity: 0.95;
+  padding: 20px 0;
   position: fixed;
   top: $offset;
   z-index: $zindex-fixed;
-  flex-shrink: 0;
-  height: calc(100vh - #{$offset});
-  padding: 20px 0;
-  color: var(--color-primary);
-  background-color: var(--background-secondary);
-  opacity: 0.95;
+
   @include for-size(tablet) {
-    top: unset;
     bottom: 0;
-    width: 100vw;
     height: auto;
     padding: 0;
+    top: unset;
+    width: 100vw;
   }
+
   &--collapsed {
     #{ $self }-links-item {
       font-size: 0;
+
       &[class*='icon-']::before {
-        margin: 0;
         font-size: 1.25rem;
+        margin: 0;
+
         @include for-size(tablet) {
           font-size: 2rem;
         }
       }
     }
   }
+
   &__content {
-    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
+    position: relative;
+
     @include for-size(tablet) {
       overflow-x: auto;
+
       &::-webkit-scrollbar {
         display: none;
       }
     }
   }
+
   &__toggler {
+    background: var(--background-secondary);
+    border-radius: 50%;
+    bottom: 0;
+    height: 36px;
     position: absolute;
     right: -10px;
-    bottom: 0;
     width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--background-secondary);
+
     @include for-size(tablet) {
       display: none;
     }

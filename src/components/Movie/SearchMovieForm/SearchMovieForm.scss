@@ -1,25 +1,26 @@
-@import '~styles/variables';
-@import '~styles/mixins';
-
 .search-movie-form-container {
+  align-items: center;
+  background: var(--background-secondary);
   display: flex;
   flex-grow: 1;
-  align-items: center;
-  max-width: 640px;
   margin: 0 auto;
-  background: var(--background-secondary);
+  max-width: 640px;
+
   @include for-size(tablet) {
     &.visible {
-      position: absolute;
       left: 0;
-      width: 100vw;
       max-width: none;
       padding: 0 15px;
+      position: absolute;
+      width: 100vw;
+
       .search-movie-form {
         display: flex;
+
         &__btn-hide {
           display: block;
         }
+
         &__btn-show {
           display: none;
         }
@@ -27,35 +28,41 @@
     }
   }
 }
+
 .search-movie-form {
-  position: relative;
+  align-items: center;
   display: flex;
   flex-grow: 1;
-  align-items: center;
   justify-content: space-between;
+  position: relative;
+
   @include for-size(tablet) {
     display: none;
   }
+
   &__input {
-    flex-grow: 1;
-    padding: 5.5px 8px;
-    font-size: 1rem;
-    border-width: 1px 0 1px 1px;
-    border-radius: 1px 0 0 1px;
     background: var(--background-primary);
+    border-radius: 1px 0 0 1px;
+    border-width: 1px 0 1px 1px;
+    flex-grow: 1;
+    font-size: 1rem;
     opacity: 1;
+    padding: 5.5px 8px;
   }
+
   &__btn {
-    padding: 8px 16px;
-    font-size: 0.75rem;
     border: 1px solid var(--color-secondary);
     border-radius: 0 1px 1px 0;
+    font-size: 0.75rem;
     outline: none;
+    padding: 8px 16px;
   }
+
   &__btn-show,
   &__btn-hide {
     display: none;
   }
+
   &__btn-show {
     @include for-size(tablet) {
       display: block;
@@ -63,6 +70,7 @@
       margin-left: auto;
     }
   }
+
   &__btn-hide {
     margin-right: 1rem;
   }

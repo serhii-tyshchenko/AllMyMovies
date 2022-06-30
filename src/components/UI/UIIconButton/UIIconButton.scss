@@ -1,11 +1,10 @@
-@import '~styles/_variables';
-
 .ui-icon-button {
-  color: var(--color-primary);
-  font-size: inherit;
-  border: 0;
   background: inherit;
+  border: 0;
+  color: var(--color-primary);
   cursor: pointer;
+  font-size: inherit;
+
   &__text {
     font-size: 0;
   }

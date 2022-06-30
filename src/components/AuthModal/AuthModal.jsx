@@ -13,8 +13,6 @@ import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 import { SocialLogInForm } from './SocialLogInForm';
 
-import './AuthModal.scss';
-
 function AuthModal() {
   const dic = useLocalization();
   const dispatch = useDispatch();

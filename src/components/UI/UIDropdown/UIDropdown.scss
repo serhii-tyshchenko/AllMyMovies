@@ -1,28 +1,27 @@
-@import '~styles/variables';
-@import '~styles/mixins';
-
 .ui-dropdown {
+  font-size: 0.25rem;
   position: relative;
   z-index: $zindex-dropdown;
-  font-size: 0.25rem;
+
   &__toggler {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 2em;
-    height: 2em;
+    background: var(--background-secondary);
+    border-radius: 4px;
     color: var(--color-primary);
+    display: flex;
     font-size: 1rem;
-    border-radius: 4px;
-    background: var(--background-secondary);
+    height: 2em;
+    justify-content: center;
     opacity: 0.65;
+    width: 2em;
   }
+
   &__container {
-    position: absolute;
-    top: 2.25rem;
-    right: 0;
-    padding: 1rem 0.5rem;
-    border-radius: 4px;
     background: var(--background-secondary);
+    border-radius: 4px;
+    padding: 1rem 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 2.25rem;
   }
 }

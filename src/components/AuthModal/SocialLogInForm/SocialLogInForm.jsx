@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { UIIconButton } from 'components';
 
-import './SocialLogInForm.scss';
-
 function SocialLogInForm(props) {
   const { onSignInWithGoogle, dic } = props;
 

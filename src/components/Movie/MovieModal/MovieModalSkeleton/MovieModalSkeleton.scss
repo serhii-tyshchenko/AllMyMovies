@@ -1,45 +1,52 @@
-@import '~styles/variables';
-@import '~styles/mixins';
-
 .movie-modal-skeleton {
   display: flex;
+
   @include for-size(tablet) {
     flex-direction: column;
     justify-content: center;
   }
+
   &__details {
     flex-grow: 1;
   }
+
   &__poster {
     align-self: flex-start;
-    min-width: 240px;
-    min-height: 350px;
     margin-right: 1rem;
+    min-height: 350px;
+    min-width: 240px;
+
     @include for-size(tablet) {
       align-self: center;
       margin: 0 0 1rem;
     }
+
     @include for-size(mobile-large) {
-      width: 300px;
       height: 450px;
       margin: 0 0 1rem;
+      width: 300px;
     }
   }
+
   &__title {
     flex-basis: 50%;
     height: 30px;
     margin-bottom: 1rem;
+
     @include for-size(tablet) {
       margin-bottom: 1.25rem;
     }
   }
+
   &__plot {
     height: 50px;
     margin-bottom: 1rem;
+
     @include for-size(tablet) {
       margin-bottom: 1.25rem;
     }
   }
+
   &__info {
     height: 150px;
   }

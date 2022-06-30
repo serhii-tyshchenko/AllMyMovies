@@ -1,29 +1,33 @@
-@import '~styles/variables';
-
 .ui-tabs {
-  margin-bottom: 15px;
   color: inherit;
+  margin-bottom: 15px;
+
   &__list {
     display: flex;
-    margin-bottom: 25px;
     list-style-type: none;
+    margin-bottom: 25px;
+
     input {
       border: none;
     }
   }
+
   &__item {
-    padding: 5px;
     color: var(--color-secondary);
+    padding: 5px;
+
     &--active {
-      color: var(--color-accent);
       border-bottom: 2px solid;
       border-radius: 0;
+      color: var(--color-accent);
     }
   }
+
   &__btn {
-    padding: 0.25em 0.5em;
-    color: inherit;
     background: inherit;
+    color: inherit;
+    padding: 0.25em 0.5em;
+
     &:hover {
       cursor: pointer;
     }

@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import { useLocalization, useKeypress } from 'hooks';
 import { UIIconButton } from 'components';
 
-import './UIModal.scss';
-
 function UIModal({
   title, isVisible, onClose, children, extraClassName,
 }) {
