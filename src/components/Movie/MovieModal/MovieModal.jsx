@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideModal } from 'store/actions';
 import { getIsFavModalVisible, getMovieInfo } from 'store/selectors';
-import { Localization } from 'contexts';
+import { useLocalization } from 'hooks';
 import { UIModal, MovieMenu } from 'components';
 import { MovieModalSkeleton } from './MovieModalSkeleton';
 
@@ -19,14 +19,14 @@ function MovieModal() {
     },
   } = useSelector(getMovieInfo);
   const dispatch = useDispatch();
-  const STR = useContext(Localization);
+  const dic = useLocalization();
 
   const handleModalClose = () => {
     dispatch(hideModal('fav'));
   }
 
   return isVisible ? (
-    <UIModal isVisible={isVisible} onClose={handleModalClose} title={STR.MOVIE_INFO} extraClassName="movie-modal">
+    <UIModal isVisible={isVisible} onClose={handleModalClose} title={dic.MOVIE_INFO} extraClassName="movie-modal">
       {!isLoading ? (
         <div className="movie-modal__content">
           <div className="movie-modal__poster">
@@ -37,13 +37,13 @@ function MovieModal() {
             <h4 className="movie-modal__title">{title}</h4>
             <p className="movie-modal__plot">{plot}</p>
             <ul className="movie-modal__info">
-              <li><strong>{STR.GENRE}:</strong>{genre}</li>
-              <li><strong>{STR.CAST}:</strong>{actors}</li>
-              <li><strong>{STR.DIRECTOR}:</strong>{director}</li>
-              <li><strong>{STR.COUNTRY}:</strong>{country}</li>
-              <li><strong>{STR.DURATION}:</strong>{runtime}</li>
-              <li><strong>{STR.RELEASE}:</strong>{year}</li>
-              <li><strong>{STR.RATING}:</strong>{imdbRating}</li>
+              <li><strong>{dic.GENRE}:</strong>{genre}</li>
+              <li><strong>{dic.CAST}:</strong>{actors}</li>
+              <li><strong>{dic.DIRECTOR}:</strong>{director}</li>
+              <li><strong>{dic.COUNTRY}:</strong>{country}</li>
+              <li><strong>{dic.DURATION}:</strong>{runtime}</li>
+              <li><strong>{dic.RELEASE}:</strong>{year}</li>
+              <li><strong>{dic.RATING}:</strong>{imdbRating}</li>
             </ul>
           </div>
         </div>
@@ -53,13 +53,13 @@ function MovieModal() {
 }
 
 MovieModal.defaultProps = {
-  STR: {
+  dic: {
     MOVIE_INFO: 'Movie info',
   },
 };
 
 MovieModal.propTypes = {
-  STR: PropTypes.shape({
+  dic: PropTypes.shape({
     MOVIE_INFO: PropTypes.string,
   }),
 };

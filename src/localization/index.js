@@ -1,10 +1,9 @@
 const languages = [
   { value: 'en', label: 'EN' },
   { value: 'ua', label: 'UA' },
-  { value: 'ru', label: 'RU' },
 ];
 
-const translations = {
+const dic = {
   en: {
     SIGN_IN: 'Sign In',
     SIGN_UP: 'Sign Up',
@@ -87,47 +86,6 @@ const translations = {
     EXPAND: 'Показати',
     COLLAPSE: 'Сховати',
   },
-  ru: {
-    SIGN_IN: 'Войти',
-    SIGN_UP: 'Зарегистрироваться',
-    SIGN_OUT: 'Выйти',
-    SEARCH_MOVIE: 'Искать',
-    SEARCH_MOVIE_PLACEHOLDER: 'Введите название фильма',
-    AUTHENIFICATION: 'Аутенификация',
-    YOUR_EMAIL: 'Ваш email',
-    YOUR_PASSWORD: 'Ваш пароль',
-    CREATE_AN_ACCOUNT: 'Создать учетную запись',
-    CONNECT_WITH: 'или войти с помощью',
-    TOGGLE_THEME: 'Изменить тему',
-    TOGGLE_LANGUAGE: 'Изменить язык',
-    MOVIE_INFO: 'Информация о фильме',
-    HOME: 'Главная',
-    FAVOURITES: 'Избранное',
-    WATCH_LATER: 'Смотреть позже',
-    WATCHED: 'Просмотренное',
-    GENRE: 'Жанр',
-    CAST: 'В ролях',
-    DIRECTOR: 'Режиссер',
-    COUNTRY: 'Страна',
-    DURATION: 'Продолжительность',
-    RELEASE: 'Год',
-    RATING: 'Рейтинг',
-    CLOSE: 'Закрыть',
-    SORT_MOVIES: 'Сортировать',
-    SORT_BY_TITLE_A_Z: 'Название А-Я',
-    SORT_BY_TITLE_Z_A: 'Название Я-А',
-    SORT_BY_YEAR_ASC: 'Год ↑',
-    SORT_BY_YEAR_DSC: 'Год ↓',
-    ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST:
-      'Вы действительно хотите удалить этот список?',
-    EDIT_LIST: 'Редактировать',
-    SAVE_CHANGES: 'Сохранить изменения',
-    DELETE_LIST: 'Удалить список',
-    NEW_LIST: 'Новый список',
-    ADD: 'Добавить',
-    EXPAND: 'Показать',
-    COLLAPSE: 'Скрыть',
-  },
 };
 
-export { translations, languages };
+export { dic, languages };

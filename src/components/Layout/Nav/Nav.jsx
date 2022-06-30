@@ -1,27 +1,25 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserLists } from 'store/selectors';
-import { Localization } from 'contexts';
+import { useLocalization } from 'hooks';
 import { UIIconButton } from 'components/UI';
 import { NavLinks } from './NavLinks';
 
 import './Nav.scss';
 
 function Nav() {
-  const STR = useContext(Localization);
+  const dic = useLocalization();
   const [isNavExpanded, toggleNav] = useState(false);
   const userLists = useSelector(getUserLists);
   const predefinedLists = [
-    { id: '/', title: STR.HOME, icon: 'home' },
-    { id: 'favourites', title: STR.FAVOURITES, icon: 'heart' },
-    { id: 'watched', title: STR.WATCHED, icon: 'history' },
-    { id: 'watch-later', title: STR.WATCH_LATER, icon: 'clock' },
+    { id: '/', title: dic.HOME, icon: 'home' },
+    { id: 'favourites', title: dic.FAVOURITES, icon: 'heart' },
+    { id: 'watched', title: dic.WATCHED, icon: 'history' },
+    { id: 'watch-later', title: dic.WATCH_LATER, icon: 'clock' },
   ];
   const navClassName = isNavExpanded ? 'nav' : 'nav nav--collapsed';
 
-  const handleToggleNav = () => {
-    toggleNav(!isNavExpanded);
-  }
+  const handleToggleNav = () => toggleNav(!isNavExpanded);
 
   return (
     <nav className={navClassName}>
@@ -30,7 +28,7 @@ function Nav() {
         <UIIconButton
           icon={isNavExpanded ? 'left-open' : 'right-open'}
           onClick={handleToggleNav}
-          title={isNavExpanded ? STR.COLLAPSE : STR.EXPAND}
+          title={isNavExpanded ? dic.COLLAPSE : dic.EXPAND}
           extraClassName="nav__toggler"
         />
       </div>

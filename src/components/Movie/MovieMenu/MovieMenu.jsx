@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateItem, removeItem, updateSettings } from 'store/actions';
 import {
   getUserId, getMovieById, getSearchResultById, getUserLists,
 } from 'store/selectors';
-import { Localization } from 'contexts';
+import { useLocalization } from 'hooks';
 import { v4 as uuidv4 } from 'uuid';
 
 import { UIDropdown } from 'components';
@@ -20,11 +20,11 @@ function MovieMenu({ id }) {
   const saved = useSelector((state) => getMovieById(state, id));
   const searched = useSelector((state) => getSearchResultById(state, id));
   const userLists = useSelector(getUserLists);
-  const STR = useContext(Localization);
+  const dic = useLocalization();
   const predefinedLists = [
-    { id: 'favourites', title: STR.FAVOURITES },
-    { id: 'watched', title: STR.WATCHED },
-    { id: 'watch-later', title: STR.WATCH_LATER },
+    { id: 'favourites', title: dic.FAVOURITES },
+    { id: 'watched', title: dic.WATCHED },
+    { id: 'watch-later', title: dic.WATCH_LATER },
   ];
   const [isMenuOpened, setMenuOpened] = useState(false);
   const movie = saved || searched;
@@ -63,7 +63,7 @@ function MovieMenu({ id }) {
           />
         ))}
       </ul>
-      <MovieMenuForm onSubmit={handleAddNewList} STR={STR} />
+      <MovieMenuForm onSubmit={handleAddNewList} dic={dic} />
     </UIDropdown>
   );
 }

@@ -1,20 +1,26 @@
+import PropTypes from 'prop-types';
+
 import { createPortal } from 'react-dom';
-import { useContext } from 'react';
-import { Localization } from 'contexts';
-import { useKeypress } from 'hooks';
+import { useLocalization, useKeypress } from 'hooks';
 import { UIIconButton } from 'components';
+
+
 
 import './UIModal.scss';
 
-const UIModal = ({
+function UIModal({
   title, isVisible, onClose, children, extraClassName,
-}) => {
-  const STR = useContext(Localization);
+}) {
+  const dic = useLocalization();
   const componentClassName = extraClassName ? `ui-modal ${extraClassName}` : 'ui-modal';
   const modalRoot = document.getElementById('modal-root');
   useKeypress('Escape', onClose);
 
-  return isVisible && createPortal(
+  if (!isVisible) {
+    return null;
+  }
+
+  return createPortal(
     (
       <div className="ui-modal__backdrop">
         <div
@@ -29,7 +35,7 @@ const UIModal = ({
               extraClassName="ui-modal__btn-close"
               icon="cancel"
               onClick={onClose}
-              title={STR.CLOSE}
+              title={dic.CLOSE}
             />
           </div>
           <div className="ui-modal__content">{children}</div>
@@ -38,11 +44,22 @@ const UIModal = ({
     ),
     modalRoot,
   );
-};
+}
 
 UIModal.defaultProps = {
   title: 'Modal title',
   isVisible: false,
+  onClose: null,
+  children: null,
+  extraClassName: '',
+};
+
+UIModal.propTypes = {
+  title: PropTypes.string,
+  isVisible: PropTypes.bool,
+  onClose: PropTypes.func,
+  children: PropTypes.node,
+  extraClassName: PropTypes.string,
 };
 
 export { UIModal };

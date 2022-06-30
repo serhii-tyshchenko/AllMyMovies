@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   showModal, getMovieInfo, sortMovies, updateSettings, removeList,
@@ -7,7 +7,7 @@ import {
   getSearchResults, getMoviesByList, getUserLists, getUserId,
 } from 'store/selectors';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Localization } from 'contexts';
+import { useLocalization } from 'hooks';
 import {
   MovieModal, MovieListItem, MovieListSorter,
 } from 'components';
@@ -16,27 +16,27 @@ import { MovieListTitle } from './MovieListTitle';
 import './MovieList.scss';
 
 function MovieList() {
-  const STR = useContext(Localization);
+  const dic = useLocalization();
   const dispatch = useDispatch();
   const [sortedBy, setSortedBy] = useState('none');
   const sortOptions = [
     { value: 'none', label: '— — —', disabled: true },
-    { value: 'title-asc', label: STR.SORT_BY_TITLE_A_Z },
-    { value: 'title-dsc', label: STR.SORT_BY_TITLE_Z_A },
-    { value: 'year-asc', label: STR.SORT_BY_YEAR_ASC },
-    { value: 'year-dsc', label: STR.SORT_BY_YEAR_DSC },
+    { value: 'title-asc', label: dic.SORT_BY_TITLE_A_Z },
+    { value: 'title-dsc', label: dic.SORT_BY_TITLE_Z_A },
+    { value: 'year-asc', label: dic.SORT_BY_YEAR_ASC },
+    { value: 'year-dsc', label: dic.SORT_BY_YEAR_DSC },
   ];
   const predefinedLists = [
-    { id: 'favourites', title: STR.FAVOURITES, icon: 'heart' },
-    { id: 'watched', title: STR.WATCHED, icon: 'history' },
-    { id: 'watch-later', title: STR.WATCH_LATER, icon: 'clock' }];
+    { id: 'favourites', title: dic.FAVOURITES, icon: 'heart' },
+    { id: 'watched', title: dic.WATCHED, icon: 'history' },
+    { id: 'watch-later', title: dic.WATCH_LATER, icon: 'clock' }];
   const userLists = useSelector(getUserLists);
   const uid = useSelector(getUserId);
   const availableLists = [...predefinedLists, ...userLists];
   const navigate = useNavigate();
   const list = useLocation().pathname.slice(1);
   const isUserList = userLists.some((item) => item.id === list);
-  const listTitle = availableLists.find((item) => item.id === list)?.title || STR.HOME;
+  const listTitle = availableLists.find((item) => item.id === list)?.title || dic.HOME;
   const data = list
     ? useSelector((state) => getMoviesByList(state, list))
     : useSelector(getSearchResults);
@@ -75,14 +75,14 @@ function MovieList() {
         onSaveClick={handleSaveChangesClick}
         onDeleteClick={handleDeleteListClick}
         isUserList={isUserList}
-        STR={STR}
+        dic={dic}
       />
 
       {(data.length > 0 && list) && (
         <MovieListSorter
           options={sortOptions}
           onChange={handleMoviesSort}
-          title={STR.SORT_MOVIES}
+          title={dic.SORT_MOVIES}
           value={sortedBy}
         />
       )}

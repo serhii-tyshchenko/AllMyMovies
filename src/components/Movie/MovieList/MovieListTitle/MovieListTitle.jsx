@@ -7,7 +7,7 @@ import { UIIconButton, UIInput } from 'components';
 import './MovieListTitle.scss';
 
 function MovieListTitle({
-  title, isUserList, onSaveClick, onDeleteClick, STR,
+  title, isUserList, onSaveClick, onDeleteClick, dic,
 }) {
   const [listTitle, setListTitle] = useState(title);
   const [oldTitle, setOldTitle] = useState(title);
@@ -33,7 +33,7 @@ function MovieListTitle({
   }
 
   const handleDeleteClick = () => {
-    if (window.confirm(STR.ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST)) {
+    if (window.confirm(dic.ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST)) {
       setEditMode(false);
       onDeleteClick();
     }
@@ -49,9 +49,9 @@ function MovieListTitle({
       />
       {isUserList && (
         <>
-          {!isEditMode && (<UIIconButton icon="pencil" title={STR.EDIT_LIST} onClick={handleEditClick} />)}
-          {isEditMode && (<UIIconButton icon="ok" title={STR.SAVE_CHANGES} onClick={handleSaveClick} />)}
-          {isEditMode && (<UIIconButton icon="trash" title={STR.DELETE_LIST} onClick={handleDeleteClick} />)}
+          {!isEditMode && (<UIIconButton icon="pencil" title={dic.EDIT_LIST} onClick={handleEditClick} />)}
+          {isEditMode && (<UIIconButton icon="ok" title={dic.SAVE_CHANGES} onClick={handleSaveClick} />)}
+          {isEditMode && (<UIIconButton icon="trash" title={dic.DELETE_LIST} onClick={handleDeleteClick} />)}
         </>
       )}
     </div>

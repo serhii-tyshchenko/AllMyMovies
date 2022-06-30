@@ -14,9 +14,7 @@ const MovieListItem = React.memo((props) => {
     onShowInfoClick,
   } = props;
 
-  function handleShowInfoClick() {
-    onShowInfoClick(imdbID);
-  }
+  const handleShowInfoClick = () => onShowInfoClick(imdbID);
 
   return (
     <li id={imdbID} className="movie-list-item">

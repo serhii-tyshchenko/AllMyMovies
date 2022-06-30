@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Localization } from 'contexts';
+import { useLocalization } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { searchMovie } from 'store/actions';
 import { UIInput, UIIconButton } from 'components';
@@ -8,7 +8,7 @@ import { UIInput, UIIconButton } from 'components';
 import './SearchMovieForm.scss';
 
 const SearchMovieForm = React.memo(() => {
-  const STR = useContext(Localization);
+  const dic = useLocalization();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
@@ -41,13 +41,13 @@ const SearchMovieForm = React.memo(() => {
           value={query}
           onChange={handleChange}
           extraClassName="search-movie-form__input"
-          placeholder={STR.SEARCH_MOVIE_PLACEHOLDER}
+          placeholder={dic.SEARCH_MOVIE_PLACEHOLDER}
           required
         />
         <UIIconButton
           type="submit"
           icon="search"
-          title={STR.SEARCH_MOVIE}
+          title={dic.SEARCH_MOVIE}
           extraClassName="search-movie-form__btn"
           onClick={handleSubmit}
         />
