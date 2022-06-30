@@ -8,9 +8,7 @@ function NotificationService() {
   const { message, type } = useSelector(getNotifications);
   const isVisible = !!message;
 
-  const handleCloseClick = () => {
-    dispatch(hideNotification());
-  }
+  const handleCloseClick = () => dispatch(hideNotification());
 
   return (
     <UINotification

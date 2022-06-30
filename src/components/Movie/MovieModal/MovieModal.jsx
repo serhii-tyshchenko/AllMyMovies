@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideModal } from 'store/actions';
 import { getIsFavModalVisible, getMovieInfo } from 'store/selectors';

@@ -1,10 +1,8 @@
+import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
-import { createPortal } from 'react-dom';
 import { useLocalization, useKeypress } from 'hooks';
 import { UIIconButton } from 'components';
-
-
 
 import './UIModal.scss';
 

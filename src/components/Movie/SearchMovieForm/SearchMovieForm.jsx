@@ -1,46 +1,50 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLocalization } from 'hooks';
+import { useLocalization, useToggle } from 'hooks';
 import { useDispatch } from 'react-redux';
 import { searchMovie } from 'store/actions';
 import { UIInput, UIIconButton } from 'components';
+import { getClassName } from 'utils';
 
 import './SearchMovieForm.scss';
+
+const NAME_SPACE = 'search-movie-form';
 
 const SearchMovieForm = React.memo(() => {
   const dic = useLocalization();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
-  const [isFormVisible, setFormVisible] = useState(false);
+  const [isFormVisible, toggleForm] = useToggle();
 
   const handleSubmit = (evt) => {
-    if (query) {
-      evt.preventDefault();
-      dispatch(searchMovie(query));
-      navigate('/');
+    if (!query) {
+      return;
     }
-  }
-  const handleChange = (evt) => {
-    setQuery(evt.target.value);
-  }
-  const toggleForm = () => {
-    setFormVisible(!isFormVisible);
+    evt.preventDefault();
+    dispatch(searchMovie(query));
+    navigate('/');
   }
 
+  const handleChange = (evt) => setQuery(evt.target.value);
+
+  const componentClassName = getClassName(`${NAME_SPACE}-container`, {
+    visible: isFormVisible,
+  });
+
   return (
-    <div className={`search-movie-form-container${isFormVisible ? ' visible' : ''}`}>
+    <div className={componentClassName}>
       <UIIconButton
         icon="left-open"
-        extraClassName="search-movie-form__btn-hide"
+        extraClassName={`${NAME_SPACE}__btn-hide`}
         onClick={toggleForm}
       />
-      <form className="search-movie-form" onSubmit={handleSubmit}>
+      <form className={NAME_SPACE} onSubmit={handleSubmit}>
         <UIInput
           type="search"
           value={query}
           onChange={handleChange}
-          extraClassName="search-movie-form__input"
+          extraClassName={`${NAME_SPACE}__input`}
           placeholder={dic.SEARCH_MOVIE_PLACEHOLDER}
           required
         />
@@ -48,13 +52,13 @@ const SearchMovieForm = React.memo(() => {
           type="submit"
           icon="search"
           title={dic.SEARCH_MOVIE}
-          extraClassName="search-movie-form__btn"
+          extraClassName={`${NAME_SPACE}__btn`}
           onClick={handleSubmit}
         />
       </form>
       <UIIconButton
         icon="search"
-        extraClassName="search-movie-form__btn-show"
+        extraClassName={`${NAME_SPACE}__btn-show`}
         onClick={toggleForm}
       />
     </div>
