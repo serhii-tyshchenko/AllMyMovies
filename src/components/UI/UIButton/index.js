@@ -1,1 +1,1 @@
-export { UIButton } from './UIButton';
+export { default as UIButton } from './UIButton';

@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-
-import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideModal } from 'store/actions';
 import { getIsFavModalVisible, getMovieInfo } from 'store/selectors';
 import { useLocalization } from 'hooks';
 import { UIModal, MovieMenu } from 'components';
 import { MovieModalSkeleton } from './MovieModalSkeleton';
+
+const NAME_SPACE = 'movie-modal';
 
 function MovieModal() {
   const isVisible = useSelector(getIsFavModalVisible);
@@ -21,17 +21,17 @@ function MovieModal() {
   const handleModalClose = () => dispatch(hideModal('fav'));
 
   return (
-    <UIModal isVisible={isVisible} onClose={handleModalClose} title={dic.MOVIE_INFO} extraClassName="movie-modal">
-      {!isLoading ? (
-        <div className="movie-modal__content">
-          <div className="movie-modal__poster">
+    <UIModal isVisible={isVisible} onClose={handleModalClose} title={dic.MOVIE_INFO} extraClassName={NAME_SPACE}>
+      {isLoading ? <MovieModalSkeleton /> : (
+        <div className={`${NAME_SPACE}__content`}>
+          <div className={`${NAME_SPACE}__poster`}>
             <img src={poster} alt="Poster" width="240" height="350" />
             <MovieMenu id={imdbID} />
           </div>
-          <div className="movie-modal__details">
-            <h4 className="movie-modal__title">{title}</h4>
-            <p className="movie-modal__plot">{plot}</p>
-            <ul className="movie-modal__info">
+          <div className={`${NAME_SPACE}__details`}>
+            <h4 className={`${NAME_SPACE}__title`}>{title}</h4>
+            <p className={`${NAME_SPACE}__plot`}>{plot}</p>
+            <ul className={`${NAME_SPACE}__info`}>
               <li><strong>{dic.GENRE}:</strong>{genre}</li>
               <li><strong>{dic.CAST}:</strong>{actors}</li>
               <li><strong>{dic.DIRECTOR}:</strong>{director}</li>
@@ -42,21 +42,9 @@ function MovieModal() {
             </ul>
           </div>
         </div>
-      ) : <MovieModalSkeleton />}
+      )}
     </UIModal>
   );
 }
-
-MovieModal.defaultProps = {
-  dic: {
-    MOVIE_INFO: 'Movie info',
-  },
-};
-
-MovieModal.propTypes = {
-  dic: PropTypes.shape({
-    MOVIE_INFO: PropTypes.string,
-  }),
-};
 
 export { MovieModal };

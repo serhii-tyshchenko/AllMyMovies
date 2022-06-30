@@ -1,4 +1,5 @@
 /* eslint-disable react/button-has-type */
+import { memo } from 'react';
 import { getClassName } from 'utils';
 
 import { NAME_SPACE } from './constants';
@@ -20,4 +21,4 @@ UIButton.defaultProps = UIButtonDefaultProps;
 
 UIButton.propTypes = UIButtonPropTypes;
 
-export { UIButton };
+export default memo(UIButton);

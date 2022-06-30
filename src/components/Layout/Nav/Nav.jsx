@@ -2,9 +2,8 @@ import { useSelector } from 'react-redux';
 import { getUserLists } from 'store/selectors';
 import { useLocalization, useToggle } from 'hooks';
 import { UIIconButton } from 'components/UI';
-import { getClassName } from 'utils';
+import { getClassName, getPredefinedLists } from 'utils';
 
-import getPredefinedLists from './utils';
 import { NavLinks } from './NavLinks';
 
 const NAME_SPACE = 'nav';

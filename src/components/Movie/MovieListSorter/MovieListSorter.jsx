@@ -8,9 +8,7 @@ function MovieListSorter(props) {
 
   return (
     <div className="movie-list-sorter">
-      <span className="movie-list-sorter__label">
-        {title}
-      </span>
+      <span className="movie-list-sorter__label">{title}:</span>
       <UISelect
         options={options}
         onChange={onChange}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   showModal, getMovieInfo, sortMovies, updateSettings, removeList,
@@ -11,23 +11,18 @@ import { useLocalization } from 'hooks';
 import {
   MovieModal, MovieListItem, MovieListSorter,
 } from 'components';
+import { getPredefinedLists, isEmpty, getSortOptions } from 'utils';
+import { SORT_OPTIONS } from 'constants';
+
 import { MovieListTitle } from './MovieListTitle';
+
 
 function MovieList() {
   const dic = useLocalization();
   const dispatch = useDispatch();
-  const [sortedBy, setSortedBy] = useState('none');
-  const sortOptions = [
-    { value: 'none', label: '— — —', disabled: true },
-    { value: 'title-asc', label: dic.SORT_BY_TITLE_A_Z },
-    { value: 'title-dsc', label: dic.SORT_BY_TITLE_Z_A },
-    { value: 'year-asc', label: dic.SORT_BY_YEAR_ASC },
-    { value: 'year-dsc', label: dic.SORT_BY_YEAR_DSC },
-  ];
-  const predefinedLists = [
-    { id: 'favourites', title: dic.FAVOURITES, icon: 'heart' },
-    { id: 'watched', title: dic.WATCHED, icon: 'history' },
-    { id: 'watch-later', title: dic.WATCH_LATER, icon: 'clock' }];
+  const [sortedBy, setSortedBy] = useState(SORT_OPTIONS.NONE);
+  const sortOptions = useMemo(() => getSortOptions(dic), [dic]);
+  const predefinedLists = useMemo(() => getPredefinedLists(dic), [dic]);
   const userLists = useSelector(getUserLists);
   const uid = useSelector(getUserId);
   const availableLists = [...predefinedLists, ...userLists];
@@ -76,7 +71,7 @@ function MovieList() {
         dic={dic}
       />
 
-      {(data.length > 0 && list) && (
+      {!isEmpty(data) && (
         <MovieListSorter
           options={sortOptions}
           onChange={handleMoviesSort}

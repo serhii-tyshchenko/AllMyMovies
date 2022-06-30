@@ -2,11 +2,15 @@ import PropTypes from 'prop-types';
 
 import { getClassName } from 'utils';
 
+const NAME_SPACE = 'ui-select';
+
 function UISelect(props) {
+
   const {
     value, onChange, options, extraClassName, title, required,
   } = props;
-  const componentClassName = getClassName('ui-select', extraClassName);
+
+  const componentClassName = getClassName(NAME_SPACE, extraClassName);
 
   return (
     <select
@@ -21,7 +25,7 @@ function UISelect(props) {
           key={option.value}
           value={option.value}
           disabled={option.disabled}
-          className="ui-select__option"
+          className={`${NAME_SPACE}__option`}
         >
           {option.label}
         </option>
