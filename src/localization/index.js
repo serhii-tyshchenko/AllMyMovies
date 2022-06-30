@@ -9,6 +9,8 @@ const dic = {
     SIGN_UP: 'Sign Up',
     SIGN_OUT: 'Sign Out',
     SEARCH_MOVIE: 'Search',
+    CONFIRM: 'Confirm',
+    CANCEL: 'Cancel',
     SEARCH_MOVIE_PLACEHOLDER: 'Enter movie title',
     AUTHENIFICATION: 'Authenification',
     YOUR_EMAIL: 'Your email',
@@ -44,6 +46,7 @@ const dic = {
     ADD: 'Add',
     EXPAND: 'Expand',
     COLLAPSE: 'Collapse',
+    WARNING: 'Warning',
   },
   ua: {
     SIGN_IN: 'Увійти',
@@ -52,7 +55,9 @@ const dic = {
     SEARCH_MOVIE: 'Шукати',
     SEARCH_MOVIE_PLACEHOLDER: 'Введіть назву фільма',
     AUTHENIFICATION: 'Аутеніфікація',
-    YOUR_EMAIL: 'Ваш email',
+    CONFIRM: 'Підтвердити',
+    CANCEL: 'Скасувати',
+    YOUR_EMAIL: 'Ваша пошта',
     YOUR_PASSWORD: 'Ваш пароль',
     CREATE_AN_ACCOUNT: 'Створити обліковий запис',
     CONNECT_WITH: 'або увійти за допомогою',
@@ -85,6 +90,7 @@ const dic = {
     ADD: 'Додати',
     EXPAND: 'Показати',
     COLLAPSE: 'Сховати',
+    WARNING: 'Попередження',
   },
 };
 
