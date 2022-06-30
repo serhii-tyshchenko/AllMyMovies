@@ -1,7 +1,6 @@
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
-import { useKeypress } from 'hooks';
 import { UIIconButton } from 'components';
 import { getClassName } from 'utils';
 
@@ -10,8 +9,6 @@ const NAME_SPACE = 'ui-modal';
 const modalRoot = document.getElementById('modal-root');
 function UIModal(props) {
   const { title, closeBtnTitle, isVisible, onClose, children, extraClassName } = props;
-
-  useKeypress('Escape', onClose);
 
   if (!isVisible) {
     return null;
