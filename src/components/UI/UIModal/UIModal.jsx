@@ -1,40 +1,43 @@
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
-import { useLocalization, useKeypress } from 'hooks';
+import { useKeypress } from 'hooks';
 import { UIIconButton } from 'components';
+import { getClassName } from 'utils';
 
-function UIModal({
-  title, isVisible, onClose, children, extraClassName,
-}) {
-  const dic = useLocalization();
-  const componentClassName = extraClassName ? `ui-modal ${extraClassName}` : 'ui-modal';
-  const modalRoot = document.getElementById('modal-root');
+const NAME_SPACE = 'ui-modal';
+
+const modalRoot = document.getElementById('modal-root');
+function UIModal(props) {
+  const { title, closeBtnTitle, isVisible, onClose, children, extraClassName } = props;
+
   useKeypress('Escape', onClose);
 
   if (!isVisible) {
     return null;
   }
 
+  const componentClassName = getClassName(NAME_SPACE, extraClassName);
+
   return createPortal(
     (
-      <div className="ui-modal__backdrop">
+      <div className={`${NAME_SPACE}__backdrop`}>
         <div
           role="dialog"
           aria-labelledby="ui-modal-title"
           aria-modal="true"
           className={componentClassName}
         >
-          <div className="ui-modal__header">
-            <h4 id="ui-modal-title" className="ui-modal__title">{title}</h4>
+          <div className={`${NAME_SPACE}__header`}>
+            <h4 id="ui-modal-title" className={`${NAME_SPACE}__title`}>{title}</h4>
             <UIIconButton
-              extraClassName="ui-modal__btn-close"
+              extraClassName={`${NAME_SPACE}__btn-close`}
               icon="cancel"
               onClick={onClose}
-              title={dic.CLOSE}
+              title={closeBtnTitle}
             />
           </div>
-          <div className="ui-modal__content">{children}</div>
+          <div className={`${NAME_SPACE}__content`}>{children}</div>
         </div>
       </div>
     ),
@@ -44,6 +47,7 @@ function UIModal({
 
 UIModal.defaultProps = {
   title: 'Modal title',
+  closeBtnTitle: 'Close modal',
   isVisible: false,
   onClose: null,
   children: null,
@@ -52,6 +56,7 @@ UIModal.defaultProps = {
 
 UIModal.propTypes = {
   title: PropTypes.string,
+  closeBtnTitle: PropTypes.string,
   isVisible: PropTypes.bool,
   onClose: PropTypes.func,
   children: PropTypes.node,

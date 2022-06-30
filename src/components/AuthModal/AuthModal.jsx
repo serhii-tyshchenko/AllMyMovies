@@ -54,8 +54,17 @@ function AuthModal() {
   }
 
   return (
-    <UIModal isVisible={isModalVisible} onClose={onModalClose} title={dic.AUTHENIFICATION}>
-      <UITabs labels={[dic.SIGN_IN, dic.SIGN_UP]} extraClassName="auth-form__tabs" onTabClick={onFormReset}>
+    <UIModal
+      isVisible={isModalVisible}
+      onClose={onModalClose}
+      title={dic.AUTHENIFICATION}
+      closeBtnTitle={dic.CLOSE}
+    >
+      <UITabs
+        labels={[dic.SIGN_IN, dic.SIGN_UP]}
+        extraClassName="auth-form__tabs"
+        onTabClick={onFormReset}
+      >
         <SignInForm
           onSubmit={onSignIn}
           onChange={onFormChange}

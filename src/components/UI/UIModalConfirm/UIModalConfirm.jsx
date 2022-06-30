@@ -1,16 +1,24 @@
 import PropTypes from 'prop-types';
 import { UIModal, UIButton } from 'components';
 
+const NAME_SPACE = 'ui-modal-confirm';
+
 function UIModalConfirm(props) {
   const {
-    title, isVisible, onClose, onSave, children,
+    title, isVisible, onClose, onConfirm, children, closeBtnTitle, confirmBtnTitle, cancelBtnTitle,
   } = props;
-  return isVisible && (
-    <UIModal title={title} isVisible={isVisible} onClose={onClose}>
-      <div className="ui-modal-confirm__content">{children}</div>
-      <div className="ui-modal-confirm__footer">
-        <UIButton btnType="secondary" text="Cancel" onClick={onClose} />
-        <UIButton btnType="primary" text="Save" onClick={onSave} />
+  return (
+    <UIModal
+      title={title}
+      isVisible={isVisible}
+      onClose={onClose}
+      extraClassName={NAME_SPACE}
+      closeBtnTitle={closeBtnTitle}
+    >
+      <div className={`${NAME_SPACE}__content`}>{children}</div>
+      <div className={`${NAME_SPACE}__footer`}>
+        <UIButton btnType="secondary" text={cancelBtnTitle} onClick={onClose} />
+        <UIButton btnType="primary" text={confirmBtnTitle} onClick={onConfirm} />
       </div>
     </UIModal>
   );
@@ -19,13 +27,19 @@ function UIModalConfirm(props) {
 UIModalConfirm.defaultProps = {
   title: 'Modal Confirm Title',
   isVisible: false,
+  closeBtnTitle: 'Close',
+  confirmBtnTitle: 'Confirm',
+  cancelBtnTitle: 'Cancel',
 };
 
 UIModalConfirm.propTypes = {
   title: PropTypes.string,
+  closeBtnTitle: PropTypes.string,
+  confirmBtnTitle: PropTypes.string,
+  cancelBtnTitle: PropTypes.string,
   isVisible: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
-  onSave: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
