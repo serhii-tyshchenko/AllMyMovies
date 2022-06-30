@@ -1,37 +1,45 @@
 html {
   font-size: 16px;
 }
+
 * {
   box-sizing: border-box;
+  font: 1rem $font-primary;
   margin: 0;
   padding: 0;
-  font: 1rem $font-primary;
 }
+
 body {
   background: var(--background-primary);
 }
+
 .container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
 }
+
 .wrapper {
-  width: 100%;
-  max-width: 1900px;
   margin: 0 auto;
+  max-width: 1900px;
+  width: 100%;
 }
+
 ::-webkit-scrollbar {
-  width: 4px;
   height: 4px;
+  width: 4px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--background-primary);
 }
+
 ::-webkit-scrollbar-thumb {
-  border-radius: 2px;
   background: var(--color-secondary);
+  border-radius: 2px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-accent);
 }
