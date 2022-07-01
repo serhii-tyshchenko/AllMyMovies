@@ -1,6 +1,7 @@
 export default {
   SIGN_IN: 'Увійти',
   SIGN_UP: 'Зареєструватись',
+  SUBMIT: 'Відправити',
   SIGN_OUT: 'Вийти',
   SEARCH_MOVIE: 'Шукати',
   SEARCH_MOVIE_PLACEHOLDER: 'Введіть назву фільма',
@@ -27,8 +28,8 @@ export default {
   RATING: 'Рейтинг',
   CLOSE: 'Закрити',
   SORT_MOVIES: 'Сортувати',
-  SORT_BY_TITLE_A_Z: 'Назва А-Я',
-  SORT_BY_TITLE_Z_A: 'Назва Я-А',
+  SORT_BY_TITLE_A_Z: 'Назва ↓',
+  SORT_BY_TITLE_Z_A: 'Назва ↑',
   SORT_BY_YEAR_ASC: 'Рік ↑',
   SORT_BY_YEAR_DSC: 'Рік ↓',
   ARE_YOU_SURE_YOU_WANT_TO_DELETE_THIS_LIST:

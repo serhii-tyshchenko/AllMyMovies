@@ -1,6 +1,7 @@
 export default {
   SIGN_IN: 'Sign In',
   SIGN_UP: 'Sign Up',
+  SUBMIT: 'Submit',
   SIGN_OUT: 'Sign Out',
   SEARCH_MOVIE: 'Search',
   CONFIRM: 'Confirm',
