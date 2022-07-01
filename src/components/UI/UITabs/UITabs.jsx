@@ -2,7 +2,9 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { getClassName } from 'utils';
 
-const getTabClass = (index, activeTabIndex) => getClassName('ui-tabs__item', { 'ui-tabs__item--active': index === activeTabIndex });
+const NAME_SPACE = 'ui-tabs';
+
+const getTabClass = (index, activeTabIndex) => getClassName(`${NAME_SPACE}__item`, { [`${NAME_SPACE}__item--active`]: index === activeTabIndex });
 function UITabs(props) {
   const {
     extraClassName, labels, children, activeTab, onTabClick,
@@ -15,16 +17,16 @@ function UITabs(props) {
       onTabClick();
     }
   }
-  const componentClassName = getClassName('ui-tabs', extraClassName);
 
+  const componentClassName = getClassName(NAME_SPACE, extraClassName);
 
   return (
     <div className={componentClassName}>
-      <ol className="ui-tabs__list">
+      <ol className={`${NAME_SPACE}__list`}>
         {labels.map((label, index) => (
           <li key={label} className={getTabClass(index, activeTabIndex)}>
             <input
-              className="ui-tabs__btn"
+              className={`${NAME_SPACE}__btn`}
               type="button"
               onClick={handleTabClick}
               value={label}
@@ -32,7 +34,7 @@ function UITabs(props) {
           </li>
         ))}
       </ol>
-      <div className="ui-tabs__content">
+      <div className={`${NAME_SPACE}__content`}>
         {children.map((child, index) => (index !== activeTabIndex ? null : child))}
       </div>
     </div>
