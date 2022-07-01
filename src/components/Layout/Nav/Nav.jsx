@@ -1,37 +1,33 @@
-import { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserLists } from 'store/selectors';
-import { Localization } from 'contexts';
+import { useLocalization, useToggle } from 'hooks';
 import { UIIconButton } from 'components/UI';
+import { getClassName, getPredefinedLists } from 'utils';
+
 import { NavLinks } from './NavLinks';
 
-import './Nav.scss';
+const NAME_SPACE = 'nav';
 
 function Nav() {
-  const STR = useContext(Localization);
-  const [isNavExpanded, toggleNav] = useState(false);
+  const dic = useLocalization();
+  const [isNavExpanded, toggleNav] = useToggle();
   const userLists = useSelector(getUserLists);
-  const predefinedLists = [
-    { id: '/', title: STR.HOME, icon: 'home' },
-    { id: 'favourites', title: STR.FAVOURITES, icon: 'heart' },
-    { id: 'watched', title: STR.WATCHED, icon: 'history' },
-    { id: 'watch-later', title: STR.WATCH_LATER, icon: 'clock' },
-  ];
-  const navClassName = isNavExpanded ? 'nav' : 'nav nav--collapsed';
 
-  const handleToggleNav = () => {
-    toggleNav(!isNavExpanded);
-  }
+  const predefinedLists = getPredefinedLists(dic);
+  const navBtnIcon = isNavExpanded ? 'left-open' : 'right-open';
+  const navBtnTitle = isNavExpanded ? dic.COLLAPSE : dic.EXPAND;
+
+  const navClassName = getClassName(NAME_SPACE, { [`${NAME_SPACE}--collapsed`]: !isNavExpanded });
 
   return (
     <nav className={navClassName}>
-      <div className="nav__content">
+      <div className={`${NAME_SPACE}__content`}>
         <NavLinks data={[...predefinedLists, ...userLists]} />
         <UIIconButton
-          icon={isNavExpanded ? 'left-open' : 'right-open'}
-          onClick={handleToggleNav}
-          title={isNavExpanded ? STR.COLLAPSE : STR.EXPAND}
-          extraClassName="nav__toggler"
+          icon={navBtnIcon}
+          onClick={toggleNav}
+          title={navBtnTitle}
+          extraClassName={`${NAME_SPACE}__toggler`}
         />
       </div>
     </nav>

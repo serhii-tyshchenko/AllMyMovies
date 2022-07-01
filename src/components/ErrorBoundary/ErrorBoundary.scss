@@ -1,21 +1,21 @@
-@import '~styles/_variables';
-
 .error-boundary {
+  background-color: var(--background-secondary);
+  border-radius: 10px;
+  color: var(--color-primary);
+  left: 50%;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 4rem;
   position: fixed;
   top: 50%;
-  left: 50%;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 4rem;
-  color: var(--color-primary);
-  border-radius: 10px;
-  background-color: var(--background-secondary);
   transform: translate(-50%, -50%);
+  width: 100%;
+
   &__title {
     margin-bottom: 1.5rem;
     text-align: center;
   }
+
   &__details {
     strong {
       font-weight: bold;

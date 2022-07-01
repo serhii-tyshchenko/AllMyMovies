@@ -1,5 +1,3 @@
-import './MovieModalSkeleton.scss';
-
 function MovieModalSkeleton() {
   return <div className="movie-modal-skeleton">
     <div className="movie-modal-skeleton__poster skeleton" />

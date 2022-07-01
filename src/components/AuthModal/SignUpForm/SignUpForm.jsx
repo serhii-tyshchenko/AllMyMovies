@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 import { UIButton, UIInput } from 'components';
 
-import './SignUpForm.scss';
-
 function SignUpForm(props) {
   const {
     onSubmit,
     onChange,
     data: { email, password },
-    STR,
+    dic,
   } = props;
 
   return (
@@ -18,7 +16,7 @@ function SignUpForm(props) {
         name="email"
         value={email}
         extraClassName="signup-form__input"
-        placeholder={STR.YOUR_EMAIL}
+        placeholder={dic.YOUR_EMAIL}
         onChange={onChange}
         required
       />
@@ -27,7 +25,7 @@ function SignUpForm(props) {
         name="password"
         value={password}
         extraClassName="signup-form__input"
-        placeholder={STR.YOUR_PASSWORD}
+        placeholder={dic.YOUR_PASSWORD}
         onChange={onChange}
         required
       />
@@ -35,7 +33,7 @@ function SignUpForm(props) {
         <UIButton
           type="submit"
           btnType="primary"
-          text={STR.CREATE_AN_ACCOUNT}
+          text={dic.CREATE_AN_ACCOUNT}
           onClick={onSubmit}
         />
       </div>
@@ -44,7 +42,7 @@ function SignUpForm(props) {
 }
 
 SignUpForm.defaultProps = {
-  STR: {
+  dic: {
     YOUR_EMAIL: 'Your Email',
     YOUR_PASSWORD: 'Your password',
     CREATE_AN_ACCOUNT: 'Create an account',
@@ -58,7 +56,7 @@ SignUpForm.propTypes = {
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  STR: PropTypes.shape({
+  dic: PropTypes.shape({
     YOUR_EMAIL: PropTypes.string,
     YOUR_PASSWORD: PropTypes.string,
     CREATE_AN_ACCOUNT: PropTypes.string,

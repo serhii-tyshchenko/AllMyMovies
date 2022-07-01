@@ -53,7 +53,7 @@ const updateItem = (userID, data, dataCollection = _dataCollection) =>
     .set(data, { merge: true });
 
 const removeItem = (userID, itemId, dataCollection = _dataCollection) =>
-  this.db
+  db
     .collection(_rootCollection)
     .doc(userID)
     .collection(dataCollection)
@@ -72,7 +72,7 @@ const getSettings = (userID) =>
     .get();
 
 const updateSettings = (userID, data) =>
-  this.db
+  db
     .collection(_rootCollection)
     .doc(userID)
     .collection(_settingsCollection)

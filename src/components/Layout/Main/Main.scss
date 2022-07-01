@@ -1,22 +1,23 @@
-@import '~styles/variables';
-@import '~styles/mixins';
-
 .main {
+  background: var(--background-primary);
+  color: var(--color-primary);
   display: flex;
   flex-grow: 1;
-  padding-top: 77px;
-  color: var(--color-primary);
-  background: var(--background-primary);
   overflow: hidden;
+  padding-top: 77px;
+
   @include for-size(tablet) {
     padding-bottom: 70px;
   }
+
   @include for-size(mobile-large) {
     padding: 0 0 70px;
   }
+
   &__content {
-    width: 100%;
     padding: 30px 15px 30px 65px;
+    width: 100%;
+
     @include for-size(tablet) {
       padding: 30px 15px;
     }

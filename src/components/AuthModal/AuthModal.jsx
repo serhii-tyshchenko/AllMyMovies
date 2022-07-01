@@ -1,20 +1,20 @@
 /* eslint-disable no-unused-vars */
-import { useContext, useState, useEffect } from 'react';
-import { Localization } from 'contexts';
+import { useState, useEffect } from 'react';
 import { UITabs, UIModal } from 'components';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   signInWithEmail, signInWithGoogle, signUpWithEmail, hideModal,
 } from 'store/actions';
 import { getIsUserLogged, getIsAuthModalVisible } from 'store/selectors';
+
+import { useLocalization } from 'hooks';
+
 import { SignInForm } from './SignInForm';
 import { SignUpForm } from './SignUpForm';
 import { SocialLogInForm } from './SocialLogInForm';
 
-import './AuthModal.scss';
-
 function AuthModal() {
-  const STR = useContext(Localization);
+  const dic = useLocalization();
   const dispatch = useDispatch();
   const isLogged = useSelector(getIsUserLogged);
   const isModalVisible = useSelector(getIsAuthModalVisible);
@@ -53,29 +53,36 @@ function AuthModal() {
     setFormData(initialFormData);
   }
 
-  return isModalVisible ? (
-    <UIModal isVisible={isModalVisible} onClose={onModalClose} title={STR.AUTHENIFICATION}>
-      <UITabs labels={[STR.SIGN_IN, STR.SIGN_UP]} extraClassName="auth-form__tabs" onTabClick={onFormReset}>
+  return (
+    <UIModal
+      isVisible={isModalVisible}
+      onClose={onModalClose}
+      title={dic.AUTHENIFICATION}
+      closeBtnTitle={dic.CLOSE}
+    >
+      <UITabs
+        labels={[dic.SIGN_IN, dic.SIGN_UP]}
+        extraClassName="auth-form__tabs"
+        onTabClick={onFormReset}
+      >
         <SignInForm
           onSubmit={onSignIn}
           onChange={onFormChange}
           data={formData}
-          STR={STR}
+          dic={dic}
         />
         <SignUpForm
           onSubmit={onSignUp}
           onChange={onFormChange}
           data={formData}
-          STR={STR}
+          dic={dic}
         />
       </UITabs>
       <SocialLogInForm
         onSignInWithGoogle={onSignInWithGoogle}
-        STR={STR}
+        dic={dic}
       />
-    </UIModal>
-  )
-    : null;
+    </UIModal>)
 }
 
 export { AuthModal };

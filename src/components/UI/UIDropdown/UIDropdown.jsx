@@ -1,19 +1,24 @@
-import PropTypes from 'prop-types';
-
 import { UIIconButton } from 'components';
 
-import './UIDropdown.scss';
+import { getClassName } from 'utils';
+
+import { UIDropdownPropTypes, UIDropdownDefaultProps } from './UIDropdown.props';
+
+import { NAME_SPACE } from './constants';
 
 function UIDropdown({
   children, onToggle, extraClassName, isOpened,
 }) {
-  const menuTogglerIcon = isOpened ? 'cancel' : 'ellipsis-vert';
-  const componentClassName = extraClassName ? `ui-dropdown ${extraClassName}` : 'ui-dropdown';
+
+  const togglerBtnIcon = isOpened ? 'cancel' : 'ellipsis-vert';
+
+  const componentClassName = getClassName(NAME_SPACE, extraClassName);
+
   return (
     <div className={componentClassName}>
-      <UIIconButton onClick={onToggle} icon={menuTogglerIcon} extraClassName="ui-dropdown__toggler" />
+      <UIIconButton onClick={onToggle} icon={togglerBtnIcon} extraClassName={`${NAME_SPACE}__toggler`} />
       {isOpened && (
-        <div className="ui-dropdown__container">
+        <div className={`${NAME_SPACE}__container`}>
           {children}
         </div>
       )}
@@ -21,19 +26,8 @@ function UIDropdown({
   );
 }
 
-UIDropdown.defaultProps = {
-  extraClassName: '',
-  children: null,
-};
+UIDropdown.defaultProps = UIDropdownDefaultProps;
 
-UIDropdown.propTypes = {
-  onToggle: PropTypes.func.isRequired,
-  extraClassName: PropTypes.string,
-  isOpened: PropTypes.bool.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-};
+UIDropdown.propTypes = UIDropdownPropTypes;
 
 export { UIDropdown };

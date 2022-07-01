@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 import { UIButton, UIInput } from 'components';
 
-import './SignInForm.scss';
-
 function SignInForm(props) {
   const {
     onSubmit,
     onChange,
     data: { email, password },
-    STR,
+    dic,
   } = props;
 
   return (
@@ -18,7 +16,7 @@ function SignInForm(props) {
         name="email"
         value={email}
         extraClassName="signin-form__input"
-        placeholder={STR.YOUR_EMAIL}
+        placeholder={dic.YOUR_EMAIL}
         onChange={onChange}
         autofocus
         required
@@ -28,7 +26,7 @@ function SignInForm(props) {
         name="password"
         extraClassName="signin-form__input"
         value={password}
-        placeholder={STR.YOUR_PASSWORD}
+        placeholder={dic.YOUR_PASSWORD}
         onChange={onChange}
         required
       />
@@ -36,7 +34,7 @@ function SignInForm(props) {
         <UIButton
           type="submit"
           btnType="primary"
-          text={STR.SIGN_IN}
+          text={dic.SIGN_IN}
           onClick={onSubmit}
         />
       </div>
@@ -45,7 +43,7 @@ function SignInForm(props) {
 }
 
 SignInForm.defaultProps = {
-  STR: {
+  dic: {
     YOUR_EMAIL: 'Your Email',
     YOUR_PASSWORD: 'Your password',
     SIGN_IN: 'Sign In',
@@ -59,7 +57,7 @@ SignInForm.propTypes = {
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  STR: PropTypes.shape({
+  dic: PropTypes.shape({
     YOUR_EMAIL: PropTypes.string,
     YOUR_PASSWORD: PropTypes.string,
     SIGN_IN: PropTypes.string,

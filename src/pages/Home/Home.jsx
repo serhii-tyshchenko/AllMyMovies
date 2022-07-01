@@ -1,5 +1,4 @@
-import { MovieList } from 'components';
-import { BaseLayout } from 'layouts';
+import { MovieList, BaseLayout } from 'components';
 
 function Home() {
   return <BaseLayout>

@@ -6,7 +6,7 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-confusing-arrow */
-import { sortArrayOfObjects } from 'assets/utils';
+import { sortArrayOfObjects } from 'utils';
 import {
   ADD_ITEM,
   REMOVE_ITEM,

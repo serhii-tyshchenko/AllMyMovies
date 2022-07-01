@@ -1,34 +1,5 @@
 /* eslint-disable object-curly-newline */
-import {
-  sortByABC,
-  formatDate,
-  formatTime,
-  sortArrayOfObjects,
-} from './index.js';
-
-describe('sortByABC function', () => {
-  test('should return -1 if a < b', () => {
-    expect(sortByABC('clean', 'dry')).toBe(-1);
-  });
-  test('should return 1 if a > b', () => {
-    expect(sortByABC('dry', 'clean')).toBe(1);
-  });
-  test('should return 0 if a = b', () => {
-    expect(sortByABC('clean', 'clean')).toBe(0);
-  });
-});
-
-describe('formatDate function', () => {
-  test('should return current date in format 2021-03-02', () => {
-    expect(formatDate(new Date())).toMatch(/\d{4}-\d{2}-\d{2}/);
-  });
-});
-
-describe('formatTime function', () => {
-  test('should return current time in format 23:22', () => {
-    expect(formatTime(new Date())).toMatch(/\d{2}:\d{2}/);
-  });
-});
+import sortArrayOfObjects from './index';
 
 describe('sortArrayOfObjects function', () => {
   const unsortedArray = [

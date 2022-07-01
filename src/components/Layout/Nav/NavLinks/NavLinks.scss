@@ -1,11 +1,9 @@
-@import '~styles/variables';
-@import '~styles/mixins';
-
 .nav-links {
   flex-grow: 1;
-  max-height: calc(100% - 80px);
   list-style-type: none;
+  max-height: calc(100% - 80px);
   overflow-y: auto;
+
   @include for-size(tablet) {
     display: flex;
     margin: 0 auto;

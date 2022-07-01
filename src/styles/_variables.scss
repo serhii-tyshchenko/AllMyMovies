@@ -1,28 +1,18 @@
-//fonts
+// fonts
 $font-icon: 'fontello';
 $font-primary: 'Roboto';
 $font-secondary: 'Arial Narrow';
 
-//palette
-$color-white: rgb(255, 255, 255);
-$color-black: rgb(5, 5, 5);
-$color-solitude: rgb(240, 242, 245);
-$color-dodger-blue: rgb(45, 136, 255);
-$color-bunker: rgb(36, 37, 38);
-$color-mishka: rgb(176, 179, 184);
-$color-buttercup: rgb(217, 130, 43);
-
-$color-blue: rgb(0, 123, 255);
-$color-indigo: rgb(102, 16, 242);
-$color-purple: rgb(111, 66, 193);
-$color-pink: rgb(232, 62, 140);
-$color-red: rgb(220, 53, 69);
-$color-orange: rgb(253, 126, 20);
-$color-yellow: rgb(255, 193, 7);
-$color-green: rgb(40, 167, 69);
-$color-teal: rgb(32, 201, 151);
-$color-cyan: rgb(23, 162, 184);
-$color-grey: rgb(173, 181, 189);
+// palette
+$color-white: #fff;
+$color-black: #050505;
+$color-solitude: #f0f2f5;
+$color-dodger-blue: #2d88ff;
+$color-bunker: #242526;
+$color-mishka: #b0b3b8;
+$color-buttercup: #d9822b;
+$color-red: #dc3545;
+$color-green: #28a745;
 
 // media breaks
 $break-4k: 2560px;
@@ -33,7 +23,7 @@ $break-mobile-large: 425px;
 $break-mobile-medium: 375px;
 $break-mobile-small: 320px;
 
-//z-indexes
+// z-indexes
 $zindex-dropdown: 1000;
 $zindex-sticky: 1020;
 $zindex-fixed: 1030;

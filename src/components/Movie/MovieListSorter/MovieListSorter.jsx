@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { UISelect } from 'components';
 
-import './MovieListSorter.scss';
-
 function MovieListSorter(props) {
   const {
     onChange, value, options, title,
@@ -10,9 +8,7 @@ function MovieListSorter(props) {
 
   return (
     <div className="movie-list-sorter">
-      <span className="movie-list-sorter__label">
-        {title}
-      </span>
+      <span className="movie-list-sorter__label">{title}:</span>
       <UISelect
         options={options}
         onChange={onChange}

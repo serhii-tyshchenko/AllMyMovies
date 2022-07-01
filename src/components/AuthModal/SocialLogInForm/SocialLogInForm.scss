@@ -1,30 +1,32 @@
-@import '~styles/_variables';
-
 .social-login {
   &__label {
-    position: relative;
-    width: max-content;
+    color: var(--color-secondary);
     margin: 0 auto;
     margin-bottom: 1rem;
     padding: 0 0.5em;
-    color: var(--color-secondary);
+    position: relative;
     text-align: center;
+    width: max-content;
+
     &::before,
     &::after {
-      position: absolute;
-      top: 50%;
-      display: block;
-      width: 30px;
       border-top: 1px solid;
       content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      width: 30px;
     }
+
     &::before {
       left: -30px;
     }
+
     &::after {
       right: -30px;
     }
   }
+
   &__btn {
     font-size: 1.75rem;
   }

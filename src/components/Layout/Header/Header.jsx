@@ -3,20 +3,20 @@ import {
 } from 'components';
 import { Link } from 'react-router-dom';
 
-import './Header.scss';
+const NAME_SPACE = 'header';
 
 function Header() {
-  return <header className="header">
-    <div className="header__content">
-      <Link to="/" className="header__logo">AllMyMovies</Link>
+  return (<header className={NAME_SPACE}>
+    <div className={`${NAME_SPACE}__content`}>
+      <Link to="/" className={`${NAME_SPACE}__logo`}>AllMyMovies</Link>
       <SearchMovieForm />
-      <div className="header__menu">
+      <div className={`${NAME_SPACE}__menu`}>
         <LanguageSelector />
         <ThemeToggler />
         <AuthBtn />
       </div>
     </div>
-  </header>
+  </header>)
 }
 
 export { Header };

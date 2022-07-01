@@ -4,8 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MovieMenu } from 'components';
 
-import './MovieListItem.scss';
-
 const MovieListItem = React.memo((props) => {
   const {
     data: {
@@ -14,9 +12,7 @@ const MovieListItem = React.memo((props) => {
     onShowInfoClick,
   } = props;
 
-  function handleShowInfoClick() {
-    onShowInfoClick(imdbID);
-  }
+  const handleShowInfoClick = () => onShowInfoClick(imdbID);
 
   return (
     <li id={imdbID} className="movie-list-item">

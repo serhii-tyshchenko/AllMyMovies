@@ -1,48 +1,55 @@
-@import '~styles/variables';
-@import '~styles/mixins';
-
 .ui-notification {
   $offset: 1.5rem;
+
+  align-items: flex-start;
+  background: var(--background-secondary);
+  border-radius: 2px;
+  bottom: $offset;
+  color: $color-white;
+  display: flex;
+  margin-left: $offset;
+  max-width: 500px;
+  min-width: 300px;
+  padding: 0.75em 1em;
   position: fixed;
   right: $offset;
-  bottom: $offset;
-  z-index: $zindex-tooltip;
-  display: flex;
-  align-items: flex-start;
   width: 100%;
-  min-width: 300px;
-  max-width: 500px;
-  margin-left: $offset;
-  padding: 0.75em 1em;
-  color: $color-white;
-  border-radius: 2px;
-  background: var(--background-secondary);
+  z-index: $zindex-tooltip;
+
   @include for-size(tablet) {
-    min-width: auto;
     max-width: calc(100vw - 2 * #{$offset});
+    min-width: auto;
   }
+
   &--info {
     background: $color-dodger-blue;
   }
+
   &--succes {
     background: $color-green;
   }
+
   &--warning {
     background: $color-buttercup;
   }
+
   &--error {
     background: $color-red;
   }
+
   &__content {
     flex-grow: 1;
     margin-right: 0.5em;
   }
+
   &__title {
     margin-bottom: 0.5em;
   }
+
   &__message {
     line-height: 1.5;
   }
+
   &__close-btn {
     color: $color-white;
   }

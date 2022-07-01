@@ -1,13 +1,14 @@
 /* eslint-disable react/button-has-type */
-import PropTypes from 'prop-types';
+import { memo } from 'react';
+import { getClassName } from 'utils';
 
-import './UIButton.scss';
+import { NAME_SPACE } from './constants';
 
-function UIButton(props) {
-  const {
-    onClick, extraClassName, type, btnType, size, text,
-  } = props;
-  const componentClassName = `ui-button ui-button--${btnType} ui-button--${size} ${extraClassName}`;
+import { UIButtonDefaultProps, UIButtonPropTypes } from './UIButton.props';
+
+function UIButton({ onClick, extraClassName, type, btnType, size, text }) {
+
+  const componentClassName = getClassName(NAME_SPACE, `${NAME_SPACE}--${btnType}`, `${NAME_SPACE}--${size}`, extraClassName);
 
   return (
     <button type={type} className={componentClassName} onClick={onClick}>
@@ -16,22 +17,8 @@ function UIButton(props) {
   );
 }
 
-UIButton.defaultProps = {
-  extraClassName: '',
-  onClick: null,
-  type: 'button',
-  btnType: 'primary',
-  size: 'normal',
-  text: 'Button',
-};
+UIButton.defaultProps = UIButtonDefaultProps;
 
-UIButton.propTypes = {
-  onClick: PropTypes.func,
-  extraClassName: PropTypes.string,
-  type: PropTypes.string,
-  btnType: PropTypes.string,
-  size: PropTypes.string,
-  text: PropTypes.string,
-};
+UIButton.propTypes = UIButtonPropTypes;
 
-export { UIButton };
+export default memo(UIButton);

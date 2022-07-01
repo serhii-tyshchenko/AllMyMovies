@@ -1,16 +1,14 @@
-import { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Localization } from 'contexts';
 import { updateSettings } from 'store/actions';
 import { getAppLanguage, getUserId } from 'store/selectors';
-import { languages } from 'assets/localization';
-import { UISelect } from 'components';
+import { languages } from 'localization';
 
-import './LanguageSelector.scss';
+import { useLocalization } from 'hooks';
+import { UISelect } from 'components';
 
 function LanguageSelector() {
   const dispatch = useDispatch();
-  const STR = useContext(Localization);
+  const dic = useLocalization();
   const currLang = useSelector(getAppLanguage);
   const uid = useSelector(getUserId);
 
@@ -25,7 +23,7 @@ function LanguageSelector() {
       onChange={handleLanguageChange}
       options={languages}
       extraClassName="language-selector"
-      title={STR.TOGGLE_LANGUAGE}
+      title={dic.TOGGLE_LANGUAGE}
     />
   );
 }

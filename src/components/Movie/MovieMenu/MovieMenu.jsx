@@ -1,34 +1,39 @@
 /* eslint-disable react/prop-types */
-import { useContext, useState } from 'react';
+import { useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+import { v4 as uuidv4 } from 'uuid';
+
 import { updateItem, removeItem, updateSettings } from 'store/actions';
 import {
   getUserId, getMovieById, getSearchResultById, getUserLists,
 } from 'store/selectors';
-import { Localization } from 'contexts';
-import { v4 as uuidv4 } from 'uuid';
+import { useLocalization, useToggle } from 'hooks';
 
 import { UIDropdown } from 'components';
+import { getPredefinedLists } from 'utils';
 import { MovieMenuItem } from './MovieMenuItem';
 import { MovieMenuForm } from './MovieMenuForm';
 
-import './MovieMenu.scss';
+
+const NAME_SPACE = 'movie-menu';
 
 function MovieMenu({ id }) {
+  const dic = useLocalization();
   const dispatch = useDispatch();
   const uid = useSelector(getUserId);
   const saved = useSelector((state) => getMovieById(state, id));
   const searched = useSelector((state) => getSearchResultById(state, id));
   const userLists = useSelector(getUserLists);
-  const STR = useContext(Localization);
-  const predefinedLists = [
-    { id: 'favourites', title: STR.FAVOURITES },
-    { id: 'watched', title: STR.WATCHED },
-    { id: 'watch-later', title: STR.WATCH_LATER },
-  ];
-  const [isMenuOpened, setMenuOpened] = useState(false);
+
+  const [isMenuOpened, toggleMenu] = useToggle();
+
+  const predefinedLists = useMemo(() => getPredefinedLists(dic), [dic]);
+  const menuItems = useMemo(() => [...predefinedLists, ...userLists], [predefinedLists, userLists]);
+
   const movie = saved || searched;
   const lists = movie?.lists ? movie.lists : [];
+
 
   const handleMenuItemClick = (evt) => {
     const list = evt.target.value;
@@ -40,20 +45,14 @@ function MovieMenu({ id }) {
     } else {
       dispatch(removeItem(uid, id));
     }
-    setMenuOpened(false);
+    toggleMenu();
   }
-  const handleAddNewList = (title) => {
-    const updatedUserLists = [...userLists, { id: uuidv4(), title }];
-    dispatch(updateSettings(uid, { userLists: updatedUserLists }));
-  }
-  const handleMenuToggle = () => {
-    setMenuOpened(!isMenuOpened);
-  }
+  const handleAddNewList = (title) => dispatch(updateSettings(uid, { userLists: [...userLists, { id: uuidv4(), title }] }));
 
   return (
-    <UIDropdown isOpened={isMenuOpened} onToggle={handleMenuToggle} extraClassName="movie-menu">
-      <ul className="movie-menu__items">
-        {[...predefinedLists, ...userLists].map((list) => (
+    <UIDropdown isOpened={isMenuOpened} onToggle={toggleMenu} extraClassName={NAME_SPACE}>
+      <ul className={`${NAME_SPACE}__items`}>
+        {menuItems.map((list) => (
           <MovieMenuItem
             key={list.id}
             list={list.id}
@@ -63,7 +62,7 @@ function MovieMenu({ id }) {
           />
         ))}
       </ul>
-      <MovieMenuForm onSubmit={handleAddNewList} STR={STR} />
+      <MovieMenuForm onSubmit={handleAddNewList} dic={dic} />
     </UIDropdown>
   );
 }
