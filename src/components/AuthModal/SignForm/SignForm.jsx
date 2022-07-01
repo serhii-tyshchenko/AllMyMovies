@@ -1,7 +1,12 @@
+import { memo } from 'react';
+
 import PropTypes from 'prop-types';
+
 import { UIButton, UIInput } from 'components';
 
-function SignUpForm(props) {
+const NAME_SPACE = 'sign-form';
+
+function SignForm(props) {
   const {
     onSubmit,
     onChange,
@@ -10,30 +15,31 @@ function SignUpForm(props) {
   } = props;
 
   return (
-    <form onSubmit={onSubmit} className="signup-form">
+    <form onSubmit={onSubmit} className={NAME_SPACE}>
       <UIInput
         type="email"
         name="email"
         value={email}
-        extraClassName="signup-form__input"
+        extraClassName={`${NAME_SPACE}__input`}
         placeholder={dic.YOUR_EMAIL}
         onChange={onChange}
+        autofocus
         required
       />
       <UIInput
         type="password"
         name="password"
+        extraClassName={`${NAME_SPACE}__input`}
         value={password}
-        extraClassName="signup-form__input"
         placeholder={dic.YOUR_PASSWORD}
         onChange={onChange}
         required
       />
-      <div className="signup-form__btns">
+      <div className={`${NAME_SPACE}__btns`}>
         <UIButton
           type="submit"
           btnType="primary"
-          text={dic.CREATE_AN_ACCOUNT}
+          text={dic.SUBMIT}
           onClick={onSubmit}
         />
       </div>
@@ -41,26 +47,22 @@ function SignUpForm(props) {
   );
 }
 
-SignUpForm.defaultProps = {
+SignForm.defaultProps = {
   dic: {
     YOUR_EMAIL: 'Your Email',
     YOUR_PASSWORD: 'Your password',
-    CREATE_AN_ACCOUNT: 'Create an account',
+    SUBMIT: 'Submit',
   },
 };
 
-SignUpForm.propTypes = {
+SignForm.propTypes = {
   data: PropTypes.shape({
     email: PropTypes.string,
     password: PropTypes.string,
   }).isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
-  dic: PropTypes.shape({
-    YOUR_EMAIL: PropTypes.string,
-    YOUR_PASSWORD: PropTypes.string,
-    CREATE_AN_ACCOUNT: PropTypes.string,
-  }),
+  dic: PropTypes.objectOf(PropTypes.string),
 };
 
-export { SignUpForm };
+export default memo(SignForm)

@@ -14,6 +14,7 @@ const getUserLists = (state) => state.settings.userLists;
 const getSearchResults = (state) => state.searchResults;
 const getMovieInfo = (state) => state.movieInfo;
 const getNotifications = (state) => state.notifications;
+const getApiState = (state) => state.api;
 
 const findById = (data, id) => data.find((item) => item.imdbID === id);
 
@@ -45,4 +46,5 @@ export {
   getMovieById,
   getSearchResultById,
   getMoviesByList,
+  getApiState,
 };

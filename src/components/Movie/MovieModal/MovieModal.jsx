@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { useSelector, useDispatch } from 'react-redux';
 import { hideModal } from 'store/actions';
-import { getIsFavModalVisible, getMovieInfo } from 'store/selectors';
+import { getIsFavModalVisible, getMovieInfo, getApiState } from 'store/selectors';
 import { useLocalization } from 'hooks';
 import { UIModal, MovieMenu } from 'components';
 import { MovieModalSkeleton } from './MovieModalSkeleton';
@@ -11,17 +11,22 @@ const NAME_SPACE = 'movie-modal';
 function MovieModal() {
   const isVisible = useSelector(getIsFavModalVisible);
   const {
-    isLoading, data: {
-      title, year, poster, runtime, genre, director, country, plot, imdbRating, actors, imdbID,
-    },
+    title, year, poster, runtime, genre, director, country, plot, imdbRating, actors, imdbID,
   } = useSelector(getMovieInfo);
+  const { isLoading } = useSelector(getApiState);
   const dispatch = useDispatch();
   const dic = useLocalization();
 
   const handleModalClose = () => dispatch(hideModal('fav'));
 
   return (
-    <UIModal isVisible={isVisible} onClose={handleModalClose} title={dic.MOVIE_INFO} extraClassName={NAME_SPACE}>
+    <UIModal
+      isVisible={isVisible}
+      onClose={handleModalClose}
+      title={dic.MOVIE_INFO}
+      extraClassName={NAME_SPACE}
+      closeBtnTitle={dic.CLOSE}
+    >
       {isLoading ? <MovieModalSkeleton /> : (
         <div className={`${NAME_SPACE}__content`}>
           <div className={`${NAME_SPACE}__poster`}>

@@ -1,4 +1,6 @@
-.signin-form {
+$block-name: '.sign-form';
+
+#{$block-name} {
   display: flex;
   flex-direction: column;
 
