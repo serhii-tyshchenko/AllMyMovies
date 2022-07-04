@@ -6,8 +6,6 @@ import { createSelector } from 'reselect';
 const getData = (state) => state.data;
 const getIsUserLogged = (state) => state.user.isLogged;
 const getUserId = (state) => state.user.uid;
-const getIsAuthModalVisible = (state) => state.modals.auth.isVisible;
-const getIsFavModalVisible = (state) => state.modals.fav.isVisible;
 const getAppLanguage = (state) => state.settings.language;
 const getAppTheme = (state) => state.settings.theme;
 const getUserLists = (state) => state.settings.userLists;
@@ -34,8 +32,6 @@ const getMoviesByList = createSelector(
 export {
   getData,
   getIsUserLogged,
-  getIsAuthModalVisible,
-  getIsFavModalVisible,
   getAppLanguage,
   getAppTheme,
   getUserLists,

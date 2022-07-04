@@ -1,0 +1,1 @@
+export { MovieListSkeleton } from './movieListSkeleton';

@@ -1,30 +1,31 @@
 import { useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  showModal, getMovieInfo, sortMovies, updateSettings, removeList,
+  getMovieInfo, sortMovies, updateSettings, removeList,
 } from 'store/actions';
 import {
-  getSearchResults, getMoviesByList, getUserLists, getUserId,
+  getSearchResults, getMoviesByList, getUserLists, getUserId, getApiState,
 } from 'store/selectors';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useLocalization } from 'hooks';
+import { useLocalization, useModalContext } from 'hooks';
 import {
-  MovieModal, MovieListItem, MovieListSorter,
+  MovieListItem, MovieListSorter, MovieListSkeleton
 } from 'components';
 import { getPredefinedLists, isEmpty, getSortOptions } from 'utils';
-import { SORT_OPTIONS } from 'constants';
+import { SORT_OPTIONS, MODAL_NAMES } from 'constants';
 
 import { MovieListTitle } from './MovieListTitle';
-
 
 function MovieList() {
   const dic = useLocalization();
   const dispatch = useDispatch();
   const [sortedBy, setSortedBy] = useState(SORT_OPTIONS.NONE);
+  const { showModal } = useModalContext();
   const sortOptions = useMemo(() => getSortOptions(dic), [dic]);
   const predefinedLists = useMemo(() => getPredefinedLists(dic), [dic]);
   const userLists = useSelector(getUserLists);
   const uid = useSelector(getUserId);
+  const { isLoading } = useSelector(getApiState);
   const availableLists = [...predefinedLists, ...userLists];
   const navigate = useNavigate();
   const list = useLocation().pathname.slice(1);
@@ -36,7 +37,7 @@ function MovieList() {
 
   const handleShowInfoClick = (id) => {
     dispatch(getMovieInfo(id));
-    dispatch(showModal({ modalName: 'fav' }));
+    showModal(MODAL_NAMES.MOVIE_DETAILS);
   }
   const handleMoviesSort = (evt) => {
     const sortOption = evt.target.value;
@@ -70,7 +71,6 @@ function MovieList() {
         isUserList={isUserList}
         dic={dic}
       />
-
       {!isEmpty(data) && (
         <MovieListSorter
           options={sortOptions}
@@ -80,15 +80,16 @@ function MovieList() {
         />
       )}
       <ul className="movie-list">
-        {data.map((item) => (
-          <MovieListItem
-            key={item.imdbID}
-            data={item}
-            onShowInfoClick={handleShowInfoClick}
-          />
-        ))}
+        {isLoading
+          ? <MovieListSkeleton />
+          : data.map((item) => (
+            <MovieListItem
+              key={item.imdbID}
+              data={item}
+              onShowInfoClick={handleShowInfoClick}
+            />
+          ))}
       </ul>
-      <MovieModal />
     </section>
   );
 }

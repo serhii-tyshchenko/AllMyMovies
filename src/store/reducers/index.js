@@ -5,7 +5,6 @@ import { searchResults } from './_search-results';
 import { user } from './_user';
 import { api } from './_api';
 import { settings } from './_settings';
-import { modals } from './_modals';
 import { notifications } from './_notifications';
 
 const rootReducer = combineReducers({
@@ -15,7 +14,6 @@ const rootReducer = combineReducers({
   user,
   settings,
   api,
-  modals,
   notifications,
 });
 

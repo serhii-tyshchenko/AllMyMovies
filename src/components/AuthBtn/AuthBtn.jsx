@@ -1,21 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { showModal, signOut } from 'store/actions';
+import { signOut } from 'store/actions';
 import { getIsUserLogged } from 'store/selectors';
 
 import { UIIconButton } from 'components';
-import { useLocalization } from 'hooks';
+import { useLocalization, useModalContext } from 'hooks';
+import { MODAL_NAMES } from 'constants';
 
 function AuthBtn() {
   const dic = useLocalization();
   const dispatch = useDispatch();
   const isLogged = useSelector(getIsUserLogged);
+  const { showModal } = useModalContext();
 
   const handleLogInClick = () => {
     if (isLogged) {
       dispatch(signOut());
     } else {
-      dispatch(showModal({ modalName: 'auth', data: null }));
+      showModal(MODAL_NAMES.AUTH);
     }
   }
 

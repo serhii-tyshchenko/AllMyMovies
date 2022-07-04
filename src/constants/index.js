@@ -5,3 +5,8 @@ export const SORT_OPTIONS = {
   YEAR_ASC: 'year-asc',
   YEAR_DSC: 'year-dsc',
 };
+
+export const MODAL_NAMES = {
+  AUTH: 'auth',
+  MOVIE_DETAILS: 'movie-details',
+};

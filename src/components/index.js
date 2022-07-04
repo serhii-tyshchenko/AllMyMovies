@@ -7,3 +7,4 @@ export { ThemeToggler } from './ThemeToggler';
 export { AuthBtn } from './AuthBtn';
 export { AuthModal } from './AuthModal';
 export { NotificationService } from './NotificationService';
+export * from './skeletons';

@@ -1,26 +1,18 @@
 .header {
+  align-items: center;
   background-color: var(--background-secondary);
+  display: flex;
+  justify-content: space-between;
   left: 0;
   opacity: 0.98;
-  padding: 20px 0;
+  padding: 15px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: $zindex-fixed;
 
-  @include for-size(tablet) {
-    padding: 15px 0;
-  }
-
   @include for-size(mobile-large) {
     position: static;
-  }
-
-  &__content {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 15px;
   }
 
   &__logo {

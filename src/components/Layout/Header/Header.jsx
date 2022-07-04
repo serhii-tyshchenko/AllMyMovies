@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom';
 import {
   ThemeToggler, LanguageSelector, AuthBtn, SearchMovieForm,
 } from 'components';
-import { Link } from 'react-router-dom';
+
 
 const NAME_SPACE = 'header';
 
 function Header() {
-  return (<header className={NAME_SPACE}>
-    <div className={`${NAME_SPACE}__content`}>
+  return (
+    <header className={NAME_SPACE}>
       <Link to="/" className={`${NAME_SPACE}__logo`}>AllMyMovies</Link>
       <SearchMovieForm />
       <div className={`${NAME_SPACE}__menu`}>
@@ -15,8 +16,8 @@ function Header() {
         <ThemeToggler />
         <AuthBtn />
       </div>
-    </div>
-  </header>)
+    </header>
+  )
 }
 
 export { Header };

@@ -1,10 +1,14 @@
 import { useEffect } from 'react';
+import { HashRouter as Router } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getItems, getSettings } from 'store/actions';
 import { getUserId, getIsUserLogged, getAppTheme } from 'store/selectors';
-import { AuthModal, NotificationService } from 'components';
+
+import { NotificationService } from 'components';
+
 import { Home } from 'pages';
-import { HashRouter as Router } from 'react-router-dom';
+
+import { ModalService } from 'services';
 
 function App() {
   const uid = useSelector(getUserId);
@@ -24,8 +28,8 @@ function App() {
       <Router>
         <Home />
       </Router>
-      <AuthModal />
       <NotificationService />
+      <ModalService />
     </>
   );
 };

@@ -4,9 +4,10 @@ import {
   signInWithEmail,
   signInWithGoogle,
   signUpWithEmail,
-  hideModal,
 } from 'store/actions';
-import { getIsUserLogged, getIsAuthModalVisible } from 'store/selectors';
+import { getIsUserLogged } from 'store/selectors';
+import { useModalContext } from 'hooks';
+import { MODAL_NAMES } from 'constants';
 
 const initialFormData = { email: '', password: '' };
 
@@ -15,19 +16,19 @@ const isFormValid = (formData) => formData.email && formData.password;
 const useAuthModal = () => {
   const dispatch = useDispatch();
   const isLogged = useSelector(getIsUserLogged);
-  const isModalVisible = useSelector(getIsAuthModalVisible);
+  const { hideModal } = useModalContext();
   const [formData, setFormData] = useState(initialFormData);
 
   useEffect(() => {
     if (isLogged) {
       setFormData(initialFormData);
-      dispatch(hideModal('auth'));
+      hideModal(MODAL_NAMES.AUTH);
     }
   }, [isLogged]);
 
   const onModalClose = () => {
     setFormData(initialFormData);
-    dispatch(hideModal('auth'));
+    hideModal(MODAL_NAMES.AUTH);
   };
 
   const onSignIn = useCallback(
@@ -59,7 +60,6 @@ const useAuthModal = () => {
 
   return {
     formData,
-    isModalVisible,
     onModalClose,
     onSignIn,
     onSignInWithGoogle,

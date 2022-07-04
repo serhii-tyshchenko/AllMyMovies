@@ -1,1 +1,0 @@
-export { MovieModalSkeleton } from './MovieModalSkeleton';

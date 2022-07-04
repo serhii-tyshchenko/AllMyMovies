@@ -10,7 +10,6 @@ import useAuthModal from './useAuthModal';
 function AuthModal() {
   const dic = useLocalization();
   const {
-    isModalVisible,
     onFormChange,
     onFormReset,
     onModalClose,
@@ -22,7 +21,7 @@ function AuthModal() {
 
   return (
     <UIModal
-      isVisible={isModalVisible}
+      isVisible
       onClose={onModalClose}
       title={dic.AUTHENIFICATION}
       closeBtnTitle={dic.CLOSE}

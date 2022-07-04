@@ -1,0 +1,30 @@
+.movie-list-item-skeleton {
+  margin-bottom: 3rem;
+  max-width: 320px;
+  position: relative;
+  width: 100%;
+
+  @include for-size(tablet) {
+    margin-bottom: 1.5rem;
+  }
+
+  &__poster {
+    height: 480px;
+    margin-bottom: 1rem;
+    width: 320px;
+  }
+
+  &__details {
+    display: flex;
+    height: 24px;
+    justify-content: space-between;
+  }
+
+  &__title {
+    width: 140px;
+  }
+
+  &__year {
+    width: 50px;
+  }
+}
