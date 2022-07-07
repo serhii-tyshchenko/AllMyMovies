@@ -1,20 +1,21 @@
+import { memo } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
 import { UIIconButton } from 'components';
 import { getClassName } from 'utils';
+import { PORTAL_ROOT } from 'constants';
 
 const NAME_SPACE = 'ui-modal';
 
-const modalRoot = document.getElementById('modal-root');
 function UIModal(props) {
   const { title, closeBtnTitle, isOpen, onClose, children, extraClassName } = props;
+
+  const componentClassName = getClassName(NAME_SPACE, extraClassName);
 
   if (!isOpen) {
     return null;
   }
-
-  const componentClassName = getClassName(NAME_SPACE, extraClassName);
 
   return createPortal(
     (
@@ -37,9 +38,7 @@ function UIModal(props) {
           <div className={`${NAME_SPACE}__content`}>{children}</div>
         </div>
       </div>
-    ),
-    modalRoot,
-  );
+    ), PORTAL_ROOT);
 }
 
 UIModal.defaultProps = {
@@ -60,4 +59,4 @@ UIModal.propTypes = {
   extraClassName: PropTypes.string,
 };
 
-export { UIModal };
+export default memo(UIModal);
