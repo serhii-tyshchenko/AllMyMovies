@@ -10,8 +10,10 @@ import {
   SHOW_NOTIFICATION,
   SEARCH_MOVIE,
   GET_MOVIE_INFO,
-  API_REQUEST_STARTED,
-  API_REQUEST_ENDED,
+  API_SEARCH_MOVIE_REQUEST_STARTED,
+  API_SEARCH_MOVIE_REQUEST_ENDED,
+  API_GET_MOVIE_INFO_REQUEST_STARTED,
+  API_GET_MOVIE_INFO_REQUEST_ENDED,
   DB_REQUEST_STARTED,
   DB_REQUEST_ENDED,
 } from '../action-types';
@@ -55,7 +57,7 @@ function actionGetMovieInfo(data) {
 }
 
 export const searchMovie = (query) => (dispatch) => {
-  dispatch({ type: API_REQUEST_STARTED });
+  dispatch({ type: API_SEARCH_MOVIE_REQUEST_STARTED });
   api
     .searchMovie(query)
     .then((data) => {
@@ -66,11 +68,11 @@ export const searchMovie = (query) => (dispatch) => {
       }
     })
     .catch((error) => dispatch(actionError(error.message)))
-    .finally(() => dispatch({ type: API_REQUEST_ENDED }));
+    .finally(() => dispatch({ type: API_SEARCH_MOVIE_REQUEST_ENDED }));
 };
 
 export const getMovieInfo = (id) => (dispatch) => {
-  dispatch({ type: API_REQUEST_STARTED });
+  dispatch({ type: API_GET_MOVIE_INFO_REQUEST_STARTED });
   api
     .getMovieInfo(id)
     .then((data) => {
@@ -81,7 +83,7 @@ export const getMovieInfo = (id) => (dispatch) => {
       }
     })
     .catch((error) => dispatch(actionError(error.message)))
-    .finally(() => dispatch({ type: API_REQUEST_ENDED }));
+    .finally(() => dispatch({ type: API_GET_MOVIE_INFO_REQUEST_ENDED }));
 };
 
 export const addItem = (uid, data) => (dispatch) => {

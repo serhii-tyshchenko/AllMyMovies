@@ -25,7 +25,7 @@ function MovieList() {
   const predefinedLists = useMemo(() => getPredefinedLists(dic), [dic]);
   const userLists = useSelector(getUserLists);
   const uid = useSelector(getUserId);
-  const { isLoading } = useSelector(getApiState);
+  const { isSearchMovieLoading } = useSelector(getApiState);
   const availableLists = [...predefinedLists, ...userLists];
   const navigate = useNavigate();
   const list = useLocation().pathname.slice(1);
@@ -80,7 +80,7 @@ function MovieList() {
         />
       )}
       <ul className="movie-list">
-        {isLoading
+        {isSearchMovieLoading
           ? <MovieListSkeleton />
           : data.map((item) => (
             <MovieListItem
