@@ -42,4 +42,7 @@ export default {
   EXPAND: 'Показати',
   COLLAPSE: 'Сховати',
   WARNING: 'Попередження',
+  ERROR: 'Помилка',
+  SUCCESS: 'Успішно',
+  INFO: 'Інформація',
 };

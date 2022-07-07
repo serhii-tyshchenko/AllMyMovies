@@ -1,47 +1,58 @@
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { UIIconButton } from 'components';
+import PropTypes from 'prop-types';
 
-const titles = {
-  error: 'Error',
-  warning: 'Warning',
-  success: 'Succes',
-};
+import { UIIconButton } from 'components';
+import { getClassName } from 'utils';
+import { useLocalization } from 'hooks';
+import { PORTAL_ROOT } from 'constants';
+
+import getNotificationTitle from './utils';
+
+const NAME_SPACE = 'ui-notification';
 
 function UINotification(props) {
   const {
     message, type, extraClassName, isVisible, onCloseClick, autoclose,
   } = props;
-  const modalRoot = document.getElementById('modal-root');
-  let componentClassName = 'ui-notification';
-  if (type) {
-    componentClassName += ` ui-notification--${type}`;
-  }
-  if (extraClassName) {
-    componentClassName += ` ${extraClassName}`;
-  }
 
   const timer = (autoclose && isVisible) ? setTimeout(() => onCloseClick(), 3000) : null;
+
+  useEffect(() => () => {
+    clearTimeout(timer);
+  });
 
   const handleCloseClick = () => {
     clearTimeout(timer);
     onCloseClick();
   }
 
-  return isVisible ? createPortal((
+  const dic = useLocalization();
+
+  const notificationTitle = getNotificationTitle(dic)(type);
+
+  const componentClassName = getClassName(NAME_SPACE, {
+    [`${NAME_SPACE}--${type}`]: type,
+  }, extraClassName);
+
+  if (!isVisible) {
+    return null;
+  }
+
+  return createPortal((
     <div className={componentClassName}>
-      <main className="ui-notification__content">
-        {titles[type] && (<h4 className="ui-notification__title">{titles[type]}</h4>)}
-        <span className="ui-notification__message">{message}</span>
+      <main className={`${NAME_SPACE}__content`}>
+        <h4 className={`${NAME_SPACE}__title`}>{notificationTitle}</h4>
+        <span className={`${NAME_SPACE}__message`}>{message}</span>
       </main>
       <UIIconButton
         icon="cancel"
         onClick={handleCloseClick}
         title="Close"
-        extraClassName="ui-notification__close-btn"
+        extraClassName={`${NAME_SPACE}__close-btn`}
       />
     </div>
-  ), modalRoot) : null;
+  ), PORTAL_ROOT);
 }
 
 UINotification.defaultProps = {
@@ -62,4 +73,4 @@ UINotification.propTypes = {
   onCloseClick: PropTypes.func,
 };
 
-export { UINotification };
+export default UINotification;

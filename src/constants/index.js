@@ -15,3 +15,11 @@ export const LANGUAGES = [
   { value: 'en', label: 'EN' },
   { value: 'ua', label: 'UA' },
 ];
+
+export const NOTIFICATION_TYPES = {
+  ERROR: 'error',
+  WARNING: 'warning',
+  SUCCESS: 'succes',
+};
+
+export const PORTAL_ROOT = document.getElementById('portal-root');

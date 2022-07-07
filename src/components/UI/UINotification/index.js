@@ -1,1 +1,1 @@
-export { UINotification } from './UINotification';
+export { default as UINotification } from './UINotification';

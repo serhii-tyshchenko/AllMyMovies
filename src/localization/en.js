@@ -42,4 +42,7 @@ export default {
   EXPAND: 'Expand',
   COLLAPSE: 'Collapse',
   WARNING: 'Warning',
+  ERROR: 'Error',
+  SUCCESS: 'Success',
+  INFO: 'Info',
 };
