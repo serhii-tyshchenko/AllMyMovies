@@ -1,28 +1,22 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { updateSettings } from 'store/actions';
-import { getAppLanguage, getUserId } from 'store/selectors';
-import { languages } from 'localization';
+import { LANGUAGES } from 'constants';
 
 import { useLocalization } from 'hooks';
 import { UISelect } from 'components';
 
-function LanguageSelector() {
-  const dispatch = useDispatch();
-  const dic = useLocalization();
-  const currLang = useSelector(getAppLanguage);
-  const uid = useSelector(getUserId);
+import useLanguageSelector from './useLanguageSelector';
 
-  const handleLanguageChange = (evt) => {
-    const language = evt.target.value;
-    dispatch(updateSettings(uid, { language }));
-  }
+const NAME_SPACE = 'language-selector';
+
+function LanguageSelector() {
+  const dic = useLocalization();
+  const { currLanguage, onLanguageChange } = useLanguageSelector();
 
   return (
     <UISelect
-      value={currLang}
-      onChange={handleLanguageChange}
-      options={languages}
-      extraClassName="language-selector"
+      value={currLanguage}
+      onChange={onLanguageChange}
+      options={LANGUAGES}
+      extraClassName={NAME_SPACE}
       title={dic.TOGGLE_LANGUAGE}
     />
   );
