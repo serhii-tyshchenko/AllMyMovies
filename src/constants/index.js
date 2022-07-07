@@ -10,3 +10,8 @@ export const MODAL_NAMES = {
   AUTH: 'auth',
   MOVIE_DETAILS: 'movie-details',
 };
+
+export const LANGUAGES = [
+  { value: 'en', label: 'EN' },
+  { value: 'ua', label: 'UA' },
+];

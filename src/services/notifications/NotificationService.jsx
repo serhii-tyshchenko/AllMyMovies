@@ -20,4 +20,4 @@ function NotificationService() {
   );
 }
 
-export { NotificationService };
+export default NotificationService;

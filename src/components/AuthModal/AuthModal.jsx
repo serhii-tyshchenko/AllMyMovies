@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { UITabs, UIModal } from 'components';
 
 import { useLocalization } from 'hooks';
@@ -7,7 +8,7 @@ import { SocialLogInForm } from './SocialLogInForm';
 
 import useAuthModal from './useAuthModal';
 
-function AuthModal() {
+function AuthModal({ isOpen }) {
   const dic = useLocalization();
   const {
     onFormChange,
@@ -21,7 +22,7 @@ function AuthModal() {
 
   return (
     <UIModal
-      isVisible
+      isOpen={isOpen}
       onClose={onModalClose}
       title={dic.AUTHENIFICATION}
       closeBtnTitle={dic.CLOSE}

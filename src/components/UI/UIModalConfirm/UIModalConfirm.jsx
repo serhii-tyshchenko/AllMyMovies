@@ -5,12 +5,12 @@ const NAME_SPACE = 'ui-modal-confirm';
 
 function UIModalConfirm(props) {
   const {
-    title, isVisible, onClose, onConfirm, children, closeBtnTitle, confirmBtnTitle, cancelBtnTitle,
+    title, isOpen, onClose, onConfirm, children, closeBtnTitle, confirmBtnTitle, cancelBtnTitle,
   } = props;
   return (
     <UIModal
       title={title}
-      isVisible={isVisible}
+      isOpen={isOpen}
       onClose={onClose}
       extraClassName={NAME_SPACE}
       closeBtnTitle={closeBtnTitle}
@@ -26,7 +26,7 @@ function UIModalConfirm(props) {
 
 UIModalConfirm.defaultProps = {
   title: 'Modal Confirm Title',
-  isVisible: false,
+  isOpen: false,
   closeBtnTitle: 'Close',
   confirmBtnTitle: 'Confirm',
   cancelBtnTitle: 'Cancel',
@@ -37,7 +37,7 @@ UIModalConfirm.propTypes = {
   closeBtnTitle: PropTypes.string,
   confirmBtnTitle: PropTypes.string,
   cancelBtnTitle: PropTypes.string,
-  isVisible: PropTypes.bool,
+  isOpen: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
   onConfirm: PropTypes.func.isRequired,
   children: PropTypes.oneOfType([

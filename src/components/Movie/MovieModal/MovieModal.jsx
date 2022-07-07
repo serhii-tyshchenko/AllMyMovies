@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { UIModal, MovieMenu, MovieModalSkeleton } from 'components';
 import useMovieModal from './useMovieModal';
 import NAME_SPACE from './constants';
 
-function MovieModal() {
+function MovieModal({ isOpen }) {
 
   const {
     isLoading,
@@ -27,7 +28,7 @@ function MovieModal() {
 
   return (
     <UIModal
-      isVisible
+      isOpen={isOpen}
       onClose={handleModalClose}
       title={dic.MOVIE_INFO}
       extraClassName={NAME_SPACE}

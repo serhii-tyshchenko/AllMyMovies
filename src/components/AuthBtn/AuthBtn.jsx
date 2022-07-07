@@ -13,13 +13,9 @@ function AuthBtn() {
   const isLogged = useSelector(getIsUserLogged);
   const { showModal } = useModalContext();
 
-  const handleLogInClick = () => {
-    if (isLogged) {
-      dispatch(signOut());
-    } else {
-      showModal(MODAL_NAMES.AUTH);
-    }
-  }
+  const handleLogInClick = () => isLogged
+    ? dispatch(signOut())
+    : showModal(MODAL_NAMES.AUTH);
 
   const btnIcon = isLogged ? 'user' : 'user-o';
   const btnTitle = isLogged ? dic.SIGN_OUT : dic.SIGN_IN;

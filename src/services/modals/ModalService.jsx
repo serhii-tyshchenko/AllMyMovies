@@ -9,8 +9,8 @@ function ModalService() {
 
     return (
         <>
-            {modalState[MODAL_NAMES.AUTH].isOpen ? <AuthModal /> : null}
-            {modalState[MODAL_NAMES.MOVIE_DETAILS].isOpen ? <MovieModal /> : null}
+            <AuthModal isOpen={modalState[MODAL_NAMES.AUTH].isOpen} />
+            <MovieModal isOpen={modalState[MODAL_NAMES.MOVIE_DETAILS].isOpen} />
         </>
     )
 }

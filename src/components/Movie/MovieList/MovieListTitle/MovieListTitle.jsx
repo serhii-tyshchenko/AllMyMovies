@@ -12,7 +12,7 @@ function MovieListTitle(props) {
 
   const [listTitle, setListTitle] = useState(title);
   const [isEditMode, toggleEditMode] = useToggle();
-  const [isConfirmModalVisible, toggleConfirmModal] = useToggle();
+  const [isConfirmModalOpen, toggleConfirmModal] = useToggle();
   useEffect(() => {
     setListTitle(title);
   }, [title]);
@@ -49,7 +49,7 @@ function MovieListTitle(props) {
       </div>
       <UIModalConfirm
         title={dic.WARNING}
-        isVisible={isConfirmModalVisible}
+        isOpen={isConfirmModalOpen}
         onClose={toggleConfirmModal}
         onConfirm={handleConfirmDeleteClick}
         closeBtnTitle={dic.CLOSE}

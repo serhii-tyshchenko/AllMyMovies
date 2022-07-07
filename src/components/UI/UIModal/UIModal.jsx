@@ -8,9 +8,9 @@ const NAME_SPACE = 'ui-modal';
 
 const modalRoot = document.getElementById('modal-root');
 function UIModal(props) {
-  const { title, closeBtnTitle, isVisible, onClose, children, extraClassName } = props;
+  const { title, closeBtnTitle, isOpen, onClose, children, extraClassName } = props;
 
-  if (!isVisible) {
+  if (!isOpen) {
     return null;
   }
 
@@ -45,7 +45,7 @@ function UIModal(props) {
 UIModal.defaultProps = {
   title: 'Modal title',
   closeBtnTitle: 'Close modal',
-  isVisible: false,
+  isOpen: false,
   onClose: null,
   children: null,
   extraClassName: '',
@@ -54,7 +54,7 @@ UIModal.defaultProps = {
 UIModal.propTypes = {
   title: PropTypes.string,
   closeBtnTitle: PropTypes.string,
-  isVisible: PropTypes.bool,
+  isOpen: PropTypes.bool,
   onClose: PropTypes.func,
   children: PropTypes.node,
   extraClassName: PropTypes.string,
