@@ -2,7 +2,7 @@
 /* eslint-disable comma-dangle */
 /* eslint-disable-next-line object-curly-newline */
 import { createStore, applyMiddleware, compose } from 'redux';
-import { ls } from 'services';
+import { ls } from 'core/db';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 

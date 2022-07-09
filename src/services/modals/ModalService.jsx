@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ModalContext } from 'contexts/modal';
-import { AuthModal, MovieModal } from 'components';
-import { MODAL_NAMES } from 'constants';
+import { AuthModal, MovieModal } from 'components/molecules';
+import { MODAL_NAMES } from 'core/constants';
 
 function ModalService() {
 

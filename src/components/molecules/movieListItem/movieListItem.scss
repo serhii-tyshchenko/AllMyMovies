@@ -1,0 +1,54 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.movie-list-item {
+  margin-bottom: 3rem;
+  max-width: 320px;
+  position: relative;
+  width: 100%;
+
+  @include for-size(tablet) {
+    margin-bottom: 1.5rem;
+  }
+
+  &__poster {
+    display: block;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    object-position: left top;
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+    width: 100%;
+
+    @include for-size(mobile-large) {
+      height: auto;
+    }
+
+    &::before {
+      align-items: center;
+      background: var(--background-skeleton);
+      content: '\2639  NO IMAGE';
+      display: flex;
+      height: 480px;
+      justify-content: center;
+      position: absolute;
+      width: 320px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
+
+  &__details {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    margin-right: 1rem;
+  }
+}

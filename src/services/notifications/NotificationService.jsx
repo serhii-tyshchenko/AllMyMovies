@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { UINotification } from 'components';
+import { Notification } from 'components/ui';
 import { hideNotification } from 'store/actions';
 import { getNotifications } from 'store/selectors';
 
@@ -11,7 +11,7 @@ function NotificationService() {
   const handleCloseClick = () => dispatch(hideNotification());
 
   return (
-    <UINotification
+    <Notification
       isVisible={isVisible}
       type={type}
       message={message}
@@ -20,4 +20,4 @@ function NotificationService() {
   );
 }
 
-export default NotificationService;
+export { NotificationService };

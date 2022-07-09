@@ -1,1 +1,0 @@
-export { UIIconButton } from './UIIconButton';

@@ -1,0 +1,59 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.notification {
+  $offset: 1.5rem;
+
+  align-items: flex-start;
+  background: var(--background-secondary);
+  border-radius: 2px;
+  bottom: $offset;
+  color: $color-white;
+  display: flex;
+  margin-left: $offset;
+  max-width: 500px;
+  min-width: 300px;
+  padding: 0.75em 1em;
+  position: fixed;
+  right: $offset;
+  width: 100%;
+  z-index: $zindex-tooltip;
+
+  @include for-size(tablet) {
+    max-width: calc(100vw - 2 * #{$offset});
+    min-width: auto;
+  }
+
+  &--info {
+    background: $color-dodger-blue;
+  }
+
+  &--succes {
+    background: $color-green;
+  }
+
+  &--warning {
+    background: $color-buttercup;
+  }
+
+  &--error {
+    background: $color-red;
+  }
+
+  &__content {
+    flex-grow: 1;
+    margin-right: 0.5em;
+  }
+
+  &__title {
+    margin-bottom: 0.5em;
+  }
+
+  &__message {
+    line-height: 1.5;
+  }
+
+  &__close-btn {
+    color: $color-white;
+  }
+}

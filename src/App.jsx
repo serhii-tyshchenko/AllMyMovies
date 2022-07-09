@@ -4,11 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getItems, getSettings } from 'store/actions';
 import { getUserId, getIsUserLogged, getAppTheme } from 'store/selectors';
 
-import { NotificationService } from 'components';
-
 import { Home } from 'pages';
-
-import { ModalService } from 'services';
+import { ModalService, NotificationService } from 'services';
 
 function App() {
   const uid = useSelector(getUserId);

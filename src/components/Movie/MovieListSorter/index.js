@@ -1,1 +1,0 @@
-export { MovieListSorter } from './MovieListSorter';

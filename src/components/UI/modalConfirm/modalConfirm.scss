@@ -1,0 +1,12 @@
+.modal-confirm {
+  &__content {
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+
+  &__footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+}

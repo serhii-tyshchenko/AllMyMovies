@@ -1,4 +1,5 @@
-import { MovieList, BaseLayout } from 'components';
+import { MovieList } from 'components/organisms';
+import { BaseLayout } from 'components/templates';
 
 function Home() {
   return (

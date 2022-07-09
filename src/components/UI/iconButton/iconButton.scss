@@ -1,0 +1,11 @@
+.icon-button {
+  background: inherit;
+  border: 0;
+  color: var(--color-primary);
+  cursor: pointer;
+  font-size: inherit;
+
+  &__text {
+    font-size: 0;
+  }
+}

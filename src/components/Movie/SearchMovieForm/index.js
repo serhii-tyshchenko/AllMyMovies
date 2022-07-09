@@ -1,1 +1,0 @@
-export { SearchMovieForm } from './SearchMovieForm';

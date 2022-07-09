@@ -1,7 +1,7 @@
 import { createContext, useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { MODAL_NAMES } from 'constants';
+import { MODAL_NAMES } from 'core/constants';
 
 const ModalContext = createContext();
 ModalContext.displayName = 'ModalContext';

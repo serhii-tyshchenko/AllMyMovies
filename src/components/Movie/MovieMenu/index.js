@@ -1,1 +1,0 @@
-export { MovieMenu } from './MovieMenu';

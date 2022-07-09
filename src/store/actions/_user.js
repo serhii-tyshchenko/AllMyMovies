@@ -1,4 +1,5 @@
-import { db, ls } from 'services';
+import { db, ls } from 'core/db';
+
 import {
   SIGN_IN,
   SIGN_OUT,

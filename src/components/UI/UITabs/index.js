@@ -1,1 +1,0 @@
-export { UITabs } from './UITabs';

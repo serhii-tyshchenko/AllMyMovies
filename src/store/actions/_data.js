@@ -1,5 +1,7 @@
 /* eslint-disable object-curly-newline */
-import { db, api } from 'services';
+import { db } from 'core/db';
+import { api } from 'core/api';
+
 import {
   ADD_ITEM,
   UPDATE_ITEM,

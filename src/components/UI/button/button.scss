@@ -1,0 +1,54 @@
+@import '~styles/variables';
+
+.button {
+  background: inherit;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  line-height: 1.5;
+  padding: 0.375em 0.75em;
+  transition:
+    color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+
+  &--normal {
+    font-size: 1rem;
+  }
+
+  &--small {
+    font-size: 0.75rem;
+  }
+
+  &--large {
+    font-size: 1.25rem;
+  }
+
+  &--primary {
+    background: var(--color-accent);
+    color: $color-white;
+
+    &:hover {
+      filter: brightness(110%);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+
+    &:hover {
+      color: $color-white;
+      filter: brightness(110%);
+    }
+  }
+
+  &--action {
+    border: 0;
+    color: var(--color-accent);
+    line-height: normal;
+    padding: 0.75em;
+  }
+}

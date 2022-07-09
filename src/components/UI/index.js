@@ -1,9 +1,9 @@
-export { UIButton } from './UIButton';
-export { UIIconButton } from './UIIconButton';
-export { UIInput } from './UIInput';
-export { UISelect } from './UISelect';
-export { UITabs } from './UITabs';
-export { UIModal } from './UIModal';
-export { UIModalConfirm } from './UIModalConfirm';
-export { UINotification } from './UINotification';
-export { UIDropdown } from './UIDropdown';
+export * from './button';
+export * from './dropdown';
+export * from './iconButton';
+export * from './input';
+export * from './select';
+export * from './tabs';
+export * from './modal';
+export * from './modalConfirm';
+export * from './notification';

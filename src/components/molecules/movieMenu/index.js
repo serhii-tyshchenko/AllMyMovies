@@ -1,0 +1,1 @@
+export { MovieMenu } from './movieMenu';

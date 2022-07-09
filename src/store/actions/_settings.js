@@ -1,4 +1,5 @@
-import { db } from 'services';
+import { db } from 'core/db';
+
 import {
   GET_SETTINGS,
   UPDATE_SETTINGS,

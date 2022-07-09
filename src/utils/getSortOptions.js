@@ -1,4 +1,4 @@
-import { SORT_OPTIONS } from 'constants';
+import { SORT_OPTIONS } from 'core/constants';
 
 const getSortOptions = (dic) => [
   { value: SORT_OPTIONS.NONE, label: '— — —', disabled: true },

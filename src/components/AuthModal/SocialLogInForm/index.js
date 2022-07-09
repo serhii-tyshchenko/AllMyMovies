@@ -1,1 +1,0 @@
-export { SocialLogInForm } from './SocialLogInForm';
